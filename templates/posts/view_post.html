@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block page_content %}
+    <h1>{{ post.title }}</h1>
+    <small class="text-muted">
+        Published: {{ post.date_published }} |
+        Last Edited: {{ post.date_edited }} |
+        Views: {{ post.views }} |
+        Author: {{ post.author.first_name }} {{ post.author.last_name }}
+    </small>
+    <hr class="my-4"/>
+
+    {{ post.content|safe }}
+
+    <hr class="my-4"/>
+
+    <p>Category: {{ post.category.title }}</p>
+
+    <a href="{% url 'listing' %}" class="btn btn-primary">All Posts</a>
+{% endblock %}

@@ -1,0 +1,96 @@
+[
+    {
+        "model": "posts.Category",
+        "pk": 1,
+        "fields": {
+            "title": "Technology",
+            "description": "Posts about technology"
+        }
+    },
+    {
+        "model": "posts.Category",
+        "pk": 2,
+        "fields": {
+            "title": "Science",
+            "description": "Posts about science"
+        }
+    },
+    {
+        "model": "posts.Category",
+        "pk": 3,
+        "fields": {
+            "title": "Lifestyle",
+            "description": "Posts about lifestyle"
+        }
+    },
+    {
+        "model": "posts.Post",
+        "pk": 1,
+        "fields": {
+            "title": "Fifth Post",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. \nNullam non urna nec leo suscipit sollicitudin.",
+            "category": 3,
+            "date_published": "2023-10-22 18:38:11.798010",
+            "date_edited": "2023-10-24 18:38:11.798032",
+            "views": 65,
+            "author": 4,
+            "is_published": true
+        }
+    },
+    {
+        "model": "posts.Post",
+        "pk": 2,
+        "fields": {
+            "title": "Fourth Post",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. \nNullam non urna nec leo suscipit sollicitudin.",
+            "category": 1,
+            "date_published": "2023-10-21 18:38:11.798042",
+            "date_edited": "2023-10-24 18:38:11.798049",
+            "views": 48,
+            "author": 3,
+            "is_published": true
+        }
+    },
+    {
+        "model": "posts.Post",
+        "pk": 3,
+        "fields": {
+            "title": "Second Post",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. \nNullam non urna nec leo suscipit sollicitudin.",
+            "category": 1,
+            "date_published": "2023-10-18 18:38:11.798056",
+            "date_edited": "2023-10-24 18:38:11.798061",
+            "views": 2,
+            "author": 3,
+            "is_published": true
+        }
+    },
+    {
+        "model": "posts.Post",
+        "pk": 4,
+        "fields": {
+            "title": "First Post",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. \nNullam non urna nec leo suscipit sollicitudin.",
+            "category": 3,
+            "date_published": "2023-10-17 18:38:11.798069",
+            "date_edited": "2023-10-24 18:38:11.798074",
+            "views": 47,
+            "author": 3,
+            "is_published": true
+        }
+    },
+    {
+        "model": "posts.Post",
+        "pk": 5,
+        "fields": {
+            "title": "Third Post",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. \nNullam non urna nec leo suscipit sollicitudin.",
+            "category": 2,
+            "date_published": "2023-10-20 18:38:11.798081",
+            "date_edited": "2023-10-24 18:38:11.798087",
+            "views": 63,
+            "author": 4,
+            "is_published": true
+        }
+    }
+]

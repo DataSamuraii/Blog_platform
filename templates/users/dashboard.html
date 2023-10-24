@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block page_content %}
+    <div class="card mt-4">
+        <div class="card-body">
+            {% if user.is_authenticated %}
+                <div class="d-flex justify-content-between">
+                    <a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
+                    <a href="{% url 'password_change' %}" class="btn btn-warning">Change Password</a>
+                </div>
+                <ul class="list-group list-group-flush mt-4">
+                    <h3>Your posts</h3>
+                    {% if has_posts %}
+                        <ul class="list-group list-group-flush mt-4">
+                            {% for post in user_posts %}
+                                <li class="list-group-item">
+                                    <a href="{% url 'view_post' post.id %}">{{ post.title }}</a>
+                                    <span class="badge bg-secondary float-end">{{ post.date_published }}</span>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p class="text-muted">You haven't written any posts yet.</p>
+                    {% endif %}
+                </ul>
+            {% else %}
+                <h5 class="card-title">Welcome, Guest</h5>
+                <a href="{% url 'login' %}" class="btn btn-primary">Login</a>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
