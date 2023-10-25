@@ -1,20 +1,32 @@
 {% extends 'base.html' %}
 
 {% block page_content %}
-    <h1>{{ post.title }}</h1>
-    <small class="text-muted">
-        Published: {{ post.date_published }} |
-        Last Edited: {{ post.date_edited }} |
-        Views: {{ post.views }} |
-        Author: {{ post.author.first_name }} {{ post.author.last_name }}
-    </small>
-    <hr class="my-4"/>
+    <div class="card border-0 shadow my-4">
+        <div class="card-body">
+            <h1 class="card-title">{{ post.title }}</h1>
+            <p class="card-subtitle mb-2 text-muted">
+                Created: {{ post.date_published }} |
+                Last Edited: {{ post.date_edited }} |
+                Views: {{ post.views }} |
+                Author: {{ post.author.first_name }} {{ post.author.last_name }}
+            </p>
+            <hr class="my-4"/>
+            <div class="card-text mb-4">
+                {{ post.content|safe }}
+            </div>
+            <hr class="my-4"/>
+            <p>Category: {{ post.category.title }}</p>
+        </div>
+    </div>
 
-    {{ post.content|safe }}
-
-    <hr class="my-4"/>
-
-    <p>Category: {{ post.category.title }}</p>
-
-    <a href="{% url 'listing' %}" class="btn btn-primary">All Posts</a>
+    <div class="d-flex justify-content-between align-items-center mt-4">
+        <a href="{% url 'listing' %}" class="btn btn-primary">All Posts</a>
+        {% if not post.is_published and request.user == post.author %}
+            <form method="post" class="mb-0">
+                {% csrf_token %}
+                <span class="text-muted me-2">This post is unpublished. Would you like to publish it?</span>
+                <button type="submit" name="publish_button" class="btn btn-success">Publish</button>
+            </form>
+        {% endif %}
+    </div>
 {% endblock %}

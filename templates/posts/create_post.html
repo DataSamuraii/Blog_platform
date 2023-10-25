@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block page_content %}
+    <h2 class="mb-4">Create a New Post</h2>
+    <form method="post">
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="form-group mb-3{% if field.errors %} has-error{% endif %}">
+                {{ field.label_tag }}
+                {{ field }}
+                {% if field.help_text %}
+                    <small class="form-text text-muted">{{ field.help_text }}</small>
+                {% endif %}
+                {% for error in field.errors %}
+                    <div class="alert alert-danger mt-2" role="alert">{{ error }}</div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+        <div class="form-group mb-3">
+            <label for="author">Author:</label>
+            <input type="text" id="author" class="form-control" value="{{ request.user }}" readonly>
+            <small class="form-text text-muted">This field is auto-filled and read-only.</small>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+{% endblock %}
