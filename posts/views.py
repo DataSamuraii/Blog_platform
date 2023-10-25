@@ -20,4 +20,13 @@ def view_post(request, post_id):
     return render(request, 'posts/view_post.html', context=context)
 
 
-#  TODO add Category view, link to a separate view on a specific category with posts attached to that category
+def view_category(request, category_id):
+    category = get_object_or_404(Category, pk=category_id)
+    context = {
+        'category': category,
+        'posts': category.post_set.all()
+    }
+    return render(request, 'posts/view_category.html', context=context)
+
+
+#  TODO add view to publish posts

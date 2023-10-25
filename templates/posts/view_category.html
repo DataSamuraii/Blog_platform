@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block page_content %}
+    <h2 class="display-4">{{ category.title }}</h2>
+    <p class="lead">{{ category.description }}</p>
+
+    {% for post in posts %}
+        {% if post.is_published %}
+            <a href="{% url 'view_post' post.id %}" class="text-dark text-decoration-none">
+                <div class="card mb-3 border-0 shadow-sm">
+                    <div class="card-header">
+                        {{ post.date_published }}
+                        <span class="badge bg-secondary float-end">Views: {{ post.views }}</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <!-- Post title and author -->
+                            <div class="col-md-6">
+                                <h5 class="card-title text-dark text-decoration-none">
+                                    {{ post.title }}
+                                </h5>
+                                <p class="card-text">Written
+                                    by: {{ post.author.first_name }} {{ post.author.last_name }}</p>
+                            </div>
+                            <!-- Post content preview -->
+                            <div class="col-md-6">
+                                <div class="fade-out">
+                                    {{ post.content|slice:":300" }}
+                                    <!-- Adjust the slice to show the desired amount of text -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        {% endif %}
+    {% endfor %}
+    <a href="{% url 'listing' %}" class="btn btn-primary">All Posts</a>
+{% endblock %}
