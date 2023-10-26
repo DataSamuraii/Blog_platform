@@ -6,7 +6,18 @@
         {% for field in form %}
             <div class="form-group mb-3{% if field.errors %} has-error{% endif %}">
                 {{ field.label_tag }}
-                {{ field }}
+
+                <!-- Check if current field is category -->
+                {% if field.name == 'category' %}
+                    <div class="d-flex align-items-center">
+                        {{ field }}
+                        <a href="{% url 'create_category' %}?next={{ request.path }}" class="btn btn-secondary ml-3">Create
+                            a new category</a>
+                    </div>
+                {% else %}
+                    {{ field }}
+                {% endif %}
+
                 {% if field.help_text %}
                     <small class="form-text text-muted">{{ field.help_text }}</small>
                 {% endif %}
@@ -18,7 +29,7 @@
         <div class="form-group mb-3">
             <label for="author">Author:</label>
             <input type="text" id="author" class="form-control" value="{{ request.user }}" readonly>
-            <small class="form-text text-muted">This field is auto-filled and read-only.</small>
+            <small class="form-text text-muted">This field is autofilled and read-only.</small>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 
 from .models import Post, Category
-from .forms import PostForm
+from .forms import PostForm, CategoryForm
 
 
 def listing(request):
@@ -15,6 +15,7 @@ def listing(request):
 
 def view_post(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
+    session_key = f'viewed_post_{post_id}'
 
     if request.method == 'POST':
         if 'publish_button' in request.POST:
@@ -22,11 +23,13 @@ def view_post(request, post_id):
             post.save()
             return redirect('view_post', post_id=post_id)
 
-    post.views += 1
-    post.save(update_fields=['views'])
-    context = {
-        'post': post
-    }
+    # Session-Based Counting
+    if not request.session.get(session_key, False):
+        post.views += 1
+        post.save(update_fields=['views'])
+        request.session[session_key] = True
+
+    context = {'post': post}
     return render(request, 'posts/view_post.html', context=context)
 
 
@@ -54,6 +57,20 @@ def create_post(request):
         return render(request, 'posts/create_post.html', {'form': form})
 
 
+@login_required
+def create_category(request):
+    if request.method == 'POST':
+        form = CategoryForm(request.POST)
+        if form.is_valid():
+            form.save()
+            next_url = request.GET.get('next', 'dashboard')
+            return redirect(next_url)
+        return render(request, 'posts/create_category.html', {'form': form})
+    else:
+        form = CategoryForm()
+        return render(request, 'posts/create_category.html', {'form': form})
+
 # TODO add update & delete views for posts
 # TODO add update User info view
 # TODO make post.views more resilient to abuse
+# TODO add commenting
