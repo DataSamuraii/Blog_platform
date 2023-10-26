@@ -28,3 +28,9 @@ class Category(models.Model):
 
     class Meta:
         ordering = ['title']
+
+
+class ViewedPost(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    ip_address = models.GenericIPAddressField()
+    timestamp = models.DateTimeField(auto_now_add=True)

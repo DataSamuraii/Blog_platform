@@ -1,0 +1,9 @@
+{% extends "admin/change_list.html" %}
+
+{% block content %}
+    <form action="{% url 'admin:purge_old_views' %}" method="post" style="display: inline;">
+        {% csrf_token %}
+        <input type="submit" value="Purge Old Views" name="apply">
+    </form>
+    {{ block.super }}
+{% endblock %}

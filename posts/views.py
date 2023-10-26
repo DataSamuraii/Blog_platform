@@ -1,7 +1,10 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
+from datetime import timedelta
+from django.utils import timezone
 
-from .models import Post, Category
+
+from .models import Post, Category, ViewedPost
 from .forms import PostForm, CategoryForm
 
 
@@ -17,17 +20,26 @@ def view_post(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
     session_key = f'viewed_post_{post_id}'
 
+    # Check if the post was viewed from current IP in the last 24 hours
+    ip = request.META.get('REMOTE_ADDR')
+    time_threshold = timezone.now() - timedelta(hours=24)
+    recent_views = ViewedPost.objects.filter(
+        post=post, ip_address=ip, timestamp__gte=time_threshold
+    )
+
     if request.method == 'POST':
         if 'publish_button' in request.POST:
             post.is_published = True
             post.save()
             return redirect('view_post', post_id=post_id)
 
-    # Session-Based Counting
-    if not request.session.get(session_key, False):
+    # Session-Based + IP-Based counting
+    if not request.session.get(session_key, False) and not recent_views.exists():
         post.views += 1
         post.save(update_fields=['views'])
         request.session[session_key] = True
+        request.session.set_expiry(86400)  # 24 hours in seconds
+        ViewedPost.objects.create(post=post, ip_address=ip)
 
     context = {'post': post}
     return render(request, 'posts/view_post.html', context=context)
@@ -72,5 +84,4 @@ def create_category(request):
 
 # TODO add update & delete views for posts
 # TODO add update User info view
-# TODO make post.views more resilient to abuse
 # TODO add commenting
