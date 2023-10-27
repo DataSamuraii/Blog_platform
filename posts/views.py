@@ -1,7 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from datetime import timedelta
 from django.utils import timezone
+from django.http import HttpResponseForbidden
 
 
 from .models import Post, Category, ViewedPost
@@ -45,15 +47,6 @@ def view_post(request, post_id):
     return render(request, 'posts/view_post.html', context=context)
 
 
-def view_category(request, category_id):
-    category = get_object_or_404(Category, pk=category_id)
-    context = {
-        'category': category,
-        'posts': category.post_set.all()
-    }
-    return render(request, 'posts/view_category.html', context=context)
-
-
 @login_required
 def create_post(request):
     if request.method == 'POST':
@@ -66,7 +59,53 @@ def create_post(request):
         return render(request, 'posts/create_post.html', {'form': form})
     else:
         form = PostForm(initial={'author': request.user.id})
-        return render(request, 'posts/create_post.html', {'form': form})
+    return render(request, 'posts/create_post.html', {'form': form})
+
+
+def edit_post(request, post_id):
+    post = get_object_or_404(Post, pk=post_id)
+
+    if post.author != request.user:
+        return HttpResponseForbidden("You don't have permission to edit this post.")
+
+    if request.method == 'POST':
+        form = PostForm(request.POST, instance=post)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated post!')
+            return redirect('view_post', post_id=post_id)
+    else:
+        form = PostForm(instance=post)
+
+    context = {
+        'form': form,
+        'post': post
+    }
+    return render(request, 'posts/edit_post.html', context=context)
+
+
+def delete_post(request, post_id):
+    post = get_object_or_404(Post, pk=post_id)
+
+    if post.author != request.user:
+        return HttpResponseForbidden("You don't have permission to edit this post.")
+
+    if request.method == 'POST':
+        post.delete()
+        messages.success(request, 'Successfully deleted post!')
+        return redirect('dashboard')
+
+    context = {'post': post}
+    return render(request, 'posts/delete_post.html', context=context)
+
+
+def view_category(request, category_id):
+    category = get_object_or_404(Category, pk=category_id)
+    context = {
+        'category': category,
+        'posts': category.post_set.all()
+    }
+    return render(request, 'posts/view_category.html', context=context)
 
 
 @login_required
@@ -82,7 +121,6 @@ def create_category(request):
         form = CategoryForm()
         return render(request, 'posts/create_category.html', {'form': form})
 
-# TODO add update & delete views for posts
 # TODO add update User info view
 # TODO add commenting
 # TODO add registering/authing with 3-party services (Gmail, GitHub)
