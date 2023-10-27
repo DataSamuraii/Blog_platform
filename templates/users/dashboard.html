@@ -1,5 +1,14 @@
 {% extends 'base.html' %}
 
+<style>
+    .alert-success {
+        background-color: #dff0d8;
+        border-color: #d6e9c6;
+        color: #3c763d;
+    }
+</style>
+
+
 {% block page_content %}
     <div class="row mt-4">
         <!-- Dashboard Actions -->
@@ -11,6 +20,15 @@
                     <a href="{% url 'password_change' %}" class="btn btn-warning">Change Password</a>
                 </div>
             </div>
+            {% if messages %}
+                <div class="mt-4">
+                    {% for message in messages %}
+                        <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}" role="alert">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
         </div>
 
         <!-- User Posts -->

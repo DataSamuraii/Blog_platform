@@ -85,3 +85,4 @@ def create_category(request):
 # TODO add update & delete views for posts
 # TODO add update User info view
 # TODO add commenting
+# TODO add registering/authing with 3-party services (Gmail, GitHub)

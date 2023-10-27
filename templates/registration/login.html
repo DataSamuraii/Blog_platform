@@ -1,15 +1,77 @@
 {% extends 'base.html' %}
 
+<style>
+    .alert-success {
+        background-color: #dff0d8;
+        border-color: #d6e9c6;
+        color: #3c763d;
+    }
+</style>
+
 {% block page_content %}
-    <h2>Login</h2>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card border-0 shadow">
+                    <div class="card-header bg-dark text-white">
+                        <h3 class="mb-0">Login</h3>
+                    </div>
+                    <div class="card-body">
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %} mb-4"
+                                     role="alert">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
 
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Login">
-    </form>
+                        {% if form.non_field_errors %}
+                            <div class="alert alert-danger" role="alert">
+                                {{ form.non_field_errors|join:", " }}
+                            </div>
+                        {% endif %}
 
-    <a href="{% url 'dashboard' %}">Back to dashboard</a>
-    <a href="{% url 'password_reset' %}">Reset password</a>
-    <a href="{% url 'register' %}">Register</a>
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="form-group mb-3">
+                                {{ form.username.label_tag }}
+                                <input type="text" name="{{ form.username.name }}" id="{{ form.username.id_for_label }}"
+                                       class="form-control" value="{{ form.username.value|default:'' }}" required>
+                                {% if form.username.help_text %}
+                                    <small class="form-text text-muted">{{ form.username.help_text }}</small>
+                                {% endif %}
+                                {% for error in form.username.errors %}
+                                    <div class="invalid-feedback d-block">{{ error }}</div>
+                                {% endfor %}
+                            </div>
+                            <div class="form-group mb-3">
+                                {{ form.password.label_tag }}
+                                <input type="password" name="{{ form.password.name }}"
+                                       id="{{ form.password.id_for_label }}" class="form-control" required>
+                                {% if form.password.help_text %}
+                                    <small class="form-text text-muted">{{ form.password.help_text }}</small>
+                                {% endif %}
+                                {% for error in form.password.errors %}
+                                    <div class="invalid-feedback d-block">{{ error }}</div>
+                                {% endfor %}
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <input type="submit" value="Login" class="btn btn-dark">
+                                <a href="{% url 'password_reset' %}" class="text-decoration-none">Forgot password?</a>
+                            </div>
+                        </form>
+
+
+                        <hr class="my-4">
+
+                        <div class="d-flex justify-content-between">
+                            <a href="{% url 'dashboard' %}" class="btn btn-outline-secondary">Back to Dashboard</a>
+                            <a href="{% url 'register' %}" class="btn btn-outline-primary">Register</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
