@@ -2,7 +2,7 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.contrib.auth import login
 from django.contrib.auth import views as auth_views
-from django.contrib.auth.decorators import login_required,  user_passes_test
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 from django.urls import reverse
 
@@ -22,7 +22,6 @@ class CustomLoginView(auth_views.LoginView):
         return super().form_valid(form)
 
 
-@user_passes_test(lambda user: not user.is_authenticated)
 def custom_logout_then_login(request, *args, **kwargs):
     messages.success(request, 'Successfully logged out!')
     return auth_views.logout_then_login(request, *args, **kwargs)
