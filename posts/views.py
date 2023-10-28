@@ -121,6 +121,5 @@ def create_category(request):
         form = CategoryForm()
         return render(request, 'posts/create_category.html', {'form': form})
 
-# TODO add update User info view
 # TODO add commenting
 # TODO add registering/authing with 3-party services (Gmail, GitHub)

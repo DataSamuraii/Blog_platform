@@ -1,12 +1,13 @@
 from django.contrib import messages
-from django.http import HttpResponseRedirect
 from django.contrib.auth import login
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.decorators import login_required
+from django.forms.models import model_to_dict
+from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.urls import reverse
 
-from users.forms import CustomUserCreationForm
+from users.forms import CustomUserCreationForm, CustomUserEditForm
 
 
 class CustomLoginView(auth_views.LoginView):
@@ -28,9 +29,7 @@ def custom_logout_then_login(request, *args, **kwargs):
 
 
 def register(request):
-    if request.method == 'GET':
-        return render(request, 'users/register.html', {'form': CustomUserCreationForm})
-    elif request.method == 'POST':
+    if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
@@ -39,6 +38,25 @@ def register(request):
             login(request, user)
             messages.success(request, 'You have successfully registered!')
             return redirect(reverse('dashboard'))
+        return render(request, 'users/register.html', {'form': form})
+    else:
+        form = CustomUserCreationForm()
+    return render(request, 'users/register.html', {'form': form})
+
+
+@login_required
+def edit_user(request):
+    user = request.user
+    if request.method == 'POST':
+        form = CustomUserEditForm(request.POST, instance=user)
+        if form.is_valid():
+            user.save()
+            messages.success(request, 'Successfully edited user info!')
+            return redirect(reverse('dashboard'))
+        return render(request, 'users/edit_user.html', {'form': form})
+    else:
+        form = CustomUserEditForm(initial=model_to_dict(user))
+    return render(request, 'users/edit_user.html', {'form': form})
 
 
 @login_required

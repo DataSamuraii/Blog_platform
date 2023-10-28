@@ -17,7 +17,6 @@
                 <h2>Dashboard</h2>
                 <div>
                     <a href="{% url 'create_post' %}" class="btn btn-dark me-2">Create a new post</a>
-                    <a href="{% url 'password_change' %}" class="btn btn-warning">Change Password</a>
                 </div>
             </div>
             {% if messages %}
@@ -60,18 +59,23 @@
         </div>
 
         <!-- User Info -->
-        <div class="col-md-4">
-            <div class="card border-0 shadow">
-                <div class="card-header bg-primary text-white">
-                    <h4>User Information</h4>
+        {% block user %}
+            <div class="col-md-4">
+                <div class="card border-0 shadow">
+                    <div class="card-header bg-primary text-white">
+                        <h4>User Information</h4>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Username: {{ user.username }}</li>
+                        <li class="list-group-item">Email: {{ user.email }}</li>
+                        <li class="list-group-item">Full Name: {{ user.first_name }} {{ user.last_name }}</li>
+                        <li class="list-group-item">Date Joined: {{ user.date_joined|date:"F d, Y" }}</li>
+                        <li class="list-group-item">Last Login: {{ user.last_login|date:"F d, Y, P" }}</li>
+                    </ul>
+                    <a href="{% url 'edit_user' %}" class="mb-2 btn btn-warning">Edit Info</a>
+                    <a href="{% url 'password_change' %}" class="btn btn-warning">Change Password</a>
                 </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Username: {{ user.username }}</li>
-                    <li class="list-group-item">Email: {{ user.email }}</li>
-                    <li class="list-group-item">Date Joined: {{ user.date_joined|date:"F d, Y" }}</li>
-                    <li class="list-group-item">Last Login: {{ user.last_login|date:"F d, Y, P" }}</li>
-                </ul>
             </div>
-        </div>
-    </div>
+            </div>
+        {% endblock %}
 {% endblock %}

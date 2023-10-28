@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block page_content %}
+    <div class="row">
+        <div class="col-md-8"></div> <!-- This pushes the next column to the right -->
+        <div class="col-md-4">
+            <div class="card border-0 shadow">
+                <div class="card-header bg-primary text-white">
+                    <h4>Edit User Information</h4>
+                </div>
+                <form method="post" class="list-group list-group-flush p-3">
+                    {% csrf_token %}
+                    <div class="list-group-item">
+                        {{ form.email.label_tag }}
+                        <input type="email" name="{{ form.email.name }}" class="form-control"
+                               value="{{ form.email.value|default:'' }}" required>
+                    </div>
+                    <div class="list-group-item">
+                        {{ form.first_name.label_tag }}
+                        <input type="text" name="{{ form.first_name.name }}" class="form-control"
+                               value="{{ form.first_name.value|default:'' }}" required>
+                    </div>
+                    <div class="list-group-item">
+                        {{ form.last_name.label_tag }}
+                        <input type="text" name="{{ form.last_name.name }}" class="form-control"
+                               value="{{ form.last_name.value|default:'' }}" required>
+                    </div>
+                    <div class="list-group-item d-flex justify-content-between">
+                        <input type="submit" value="Save Changes" class="btn btn-success">
+                        <a href="{% url 'dashboard' %}" class="btn btn-secondary">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
