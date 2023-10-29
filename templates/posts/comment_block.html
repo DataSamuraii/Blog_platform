@@ -1,0 +1,65 @@
+<style>
+    .comment-container {
+        position: relative; /* Set the positioning context for absolutely positioned children */
+        padding: 10px; /* Optional: some padding to ensure content doesn't overlap with the delete button */
+    }
+
+    .delete-button {
+        background-color: transparent;
+        border: none;
+        color: #aaa; /* Grey color for the "x" */
+        font-weight: bold;
+        cursor: pointer;
+        transition: color 0.3s; /* Smooth color transition */
+        position: absolute; /* Absolutely position the button */
+        top: 10px; /* Position from the top */
+        right: 10px; /* Position from the right */
+        z-index: 10; /* Ensure it's above other content */
+    }
+
+    .delete-button:hover {
+        color: #ff0000; /* Red color on hover */
+    }
+
+    .deleted-comment {
+        text-decoration: line-through; /* Crossed out effect */
+        color: #000000; /* Grey color to indicate it's inactive or deleted */
+        pointer-events: none; /* Makes the button non-clickable */
+        opacity: 0.6; /* Reduces the opacity to visually show it's disabled */
+        cursor: not-allowed; /* Shows a "not allowed" cursor on hover */
+    }
+</style>
+
+<div class="{% if comment.is_deleted %}deleted-comment{% endif %}">
+    <div class="card mt-2" style="margin-left: {{ depth|default:'0' }}px;">
+        <div class="card-body comment-container">
+            <p>{{ comment.content }}</p>
+
+            <form action="{% url 'delete_comment' comment.id %}" method="post" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit" class="delete-button" title="Delete comment">x</button>
+            </form>
+
+            <div class="d-flex align-items-center">
+                <a class="btn btn-sm btn-outline-primary me-2">
+                    <i class="bi bi-thumbs-up"></i> {{ comment.likes }} likes
+                </a>
+                <a class="btn btn-sm btn-outline-danger me-4">
+                    <i class="bi bi-thumbs-down"></i> {{ comment.dislikes }} dislikes
+                </a>
+                <small class="text-muted">{{ comment.author }} · {{ comment.timestamp|timesince }} ago
+                    · {{ comment.timestamp }}</small>
+                <a href="{% url 'add_comment_reply' post_id=comment.post.id comment_id=comment.id %}"
+                   class="btn btn-sm btn-outline-secondary m-auto">Reply</a>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Recursive inclusion for nested comments -->
+    {% with replies=comment.comment_set.all new_depth=depth|add:'20' %}
+        {% for reply in replies %}
+            {% include 'posts/comment_block.html' with comment=reply depth=new_depth %}
+        {% endfor %}
+    {% endwith %}
+</div>

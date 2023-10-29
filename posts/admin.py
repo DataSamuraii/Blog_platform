@@ -4,7 +4,7 @@ from django.urls import path, reverse
 from django.utils import timezone
 from datetime import timedelta
 
-from .models import Post, Category, ViewedPost
+from .models import Post, Category, ViewedPost, Comment
 
 
 @admin.register(Post)
@@ -34,3 +34,8 @@ class ViewedPostAdmin(admin.ModelAdmin):
         old_records.delete()
         self.message_user(request, f'Successfully deleted {count} old records')
         return HttpResponseRedirect(reverse('admin:posts_viewedpost_changelist'))
+
+
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    pass
