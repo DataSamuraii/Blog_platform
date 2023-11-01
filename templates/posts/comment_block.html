@@ -41,16 +41,29 @@
             </form>
 
             <div class="d-flex align-items-center">
-                <a class="btn btn-sm btn-outline-primary me-2">
-                    <i class="bi bi-thumbs-up"></i> {{ comment.likes }} likes
-                </a>
-                <a class="btn btn-sm btn-outline-danger me-4">
-                    <i class="bi bi-thumbs-down"></i> {{ comment.dislikes }} dislikes
-                </a>
+                <!-- Like button form -->
+                <form action="{% url 'comment_reaction' comment.id %}" method="post" style="display: inline;">
+                    {% csrf_token %}
+                    <input type="hidden" name="reaction_type" value="like">
+                    <button type="submit" class="btn btn-sm btn-outline-primary me-2">
+                        <i class="bi bi-thumbs-up"></i> {{ comment.likes_count }} likes
+                    </button>
+                </form>
+
+                <!-- Dislike button form -->
+                <form action="{% url 'comment_reaction' comment.id %}" method="post" style="display: inline;">
+                    {% csrf_token %}
+                    <input type="hidden" name="reaction_type" value="dislike">
+                    <button type="submit" class="btn btn-sm btn-outline-danger me-4">
+                        <i class="bi bi-thumbs-down"></i> {{ comment.dislikes_count }} dislikes
+                    </button>
+                </form>
+
                 <small class="text-muted">{{ comment.author }} · {{ comment.timestamp|timesince }} ago
                     · {{ comment.timestamp }}</small>
-                <a href="{% url 'add_comment_reply' post_id=comment.post.id comment_id=comment.id %}"
-                   class="btn btn-sm btn-outline-secondary m-auto">Reply</a>
+                <button type="button" onclick="setReplyTo('{{ comment.id }}', '{{ comment.content|escapejs }}');"
+                        class="btn btn-sm btn-outline-secondary m-auto">Reply
+                </button>
 
             </div>
         </div>
@@ -63,3 +76,25 @@
         {% endfor %}
     {% endwith %}
 </div>
+
+<script>
+    function setReplyTo(commentId, commentContent) {
+        // Set the hidden field
+        document.getElementById('reply_to_id').value = commentId;
+
+        // Update the user feedback message
+        document.getElementById('cancel_reply_to_id').hidden = false
+        document.getElementById('replying-to').innerHTML = `You are replying to: ${commentContent}`;
+        document.getElementById('post_button').value = 'Post Reply'
+    }
+
+    function clearReplyTo() {
+        // Clear the hidden field
+        document.getElementById('reply_to_id').value = ""
+
+        // Update the user feedback message
+        document.getElementById('cancel_reply_to_id').hidden = true
+        document.getElementById('replying-to').innerHTML = ""
+        document.getElementById('post_button').value = "Post Comment"
+    }
+</script>

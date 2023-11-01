@@ -10,6 +10,17 @@
             {% endfor %}
         </div>
     {% endif %}
+
+    <div class="d-flex justify-content-between align-items-center mt-4">
+        <a href="{% url 'listing' %}" class="btn btn-primary">All Posts</a>
+        {% if request.user == post.author %}
+            <div>
+                <a href="{% url 'edit_post' post.id %}" class="btn btn-warning">Edit Post</a>
+                <a href="{% url 'delete_post' post.id %}" class="btn btn-danger">Delete Post</a>
+            </div>
+        {% endif %}
+    </div>
+
     <div class="card border-0 shadow my-4">
         <div class="card-body">
             <h1 class="card-title">{{ post.title }}</h1>
@@ -27,15 +38,5 @@
             <p>Category: {{ post.category.title }}</p>
         </div>
     </div>
-
-    <div class="d-flex justify-content-between align-items-center mt-4">
-        <a href="{% url 'listing' %}" class="btn btn-primary">All Posts</a>
-        <a href="{% url 'add_comment' post_id=post.id %}" class="btn btn-primary">View Comments</a>
-        {% if request.user == post.author %}
-            <div>
-                <a href="{% url 'edit_post' post.id %}" class="btn btn-warning">Edit Post</a>
-                <a href="{% url 'delete_post' post.id %}" class="btn btn-danger">Delete Post</a>
-            </div>
-        {% endif %}
-    </div>
+    {% include 'posts/view_comment.html' %}
 {% endblock %}

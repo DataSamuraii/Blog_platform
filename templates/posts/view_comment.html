@@ -1,0 +1,48 @@
+<style>
+    .comment-container {
+        position: relative;
+        padding: 10px;
+    }
+</style>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <!-- Comment form -->
+            <div class="card border-0 shadow mb-5">
+                <div class="card-header bg-dark text-white">
+                    <h3 class="mb-0">Add Comment</h3>
+                </div>
+                <div class="card-body">
+                    <div id="replying-to" class="card mt-2 comment-container mb-2">
+                        <!-- The reply-to message will be populated here -->
+                    </div>
+                    <form method="post" action="{% url 'add_comment' post.id %}">
+                        {% csrf_token %}
+                        <div class="form-group mb-3">
+                            {{ form.content.label_tag }}
+                            {{ form.content }}
+                            {% for error in form.content.errors %}
+                                <div class="invalid-feedback d-block">{{ error }}</div>
+                            {% endfor %}
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <input type="hidden" id="reply_to_id" name="reply_to_id" value="">
+                                <input type="submit" id="post_button" value="Post Comment" class="btn btn-dark">
+                            </div>
+                            <button type="button" id="cancel_reply_to_id" onclick="clearReplyTo();" class="btn btn-danger" hidden>
+                                Cancel
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Comments block -->
+            {% for comment in comments %}
+                {% include 'posts/comment_block.html' %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
