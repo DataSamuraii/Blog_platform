@@ -35,13 +35,15 @@
         <div class="card-body comment-container">
             <p>{{ comment.content }}</p>
 
-            <form action="{% url 'delete_comment' comment.id %}" method="post" style="display: inline;">
-                {% csrf_token %}
-                <button type="submit" class="delete-button" title="Delete comment">x</button>
-            </form>
+            {% if comment.author == request.user %}
+                <form action="{% url 'delete_comment' comment.id %}" method="post" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="delete-button" title="Delete comment">x</button>
+                </form>
+            {% endif %}
 
             <div class="d-flex align-items-center">
-                <!-- Like button form -->
+                <!-- Like form -->
                 <form action="{% url 'comment_reaction' comment.id %}" method="post" style="display: inline;">
                     {% csrf_token %}
                     <input type="hidden" name="reaction_type" value="like">
@@ -50,7 +52,7 @@
                     </button>
                 </form>
 
-                <!-- Dislike button form -->
+                <!-- Dislike form -->
                 <form action="{% url 'comment_reaction' comment.id %}" method="post" style="display: inline;">
                     {% csrf_token %}
                     <input type="hidden" name="reaction_type" value="dislike">

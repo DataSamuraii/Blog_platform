@@ -3,12 +3,14 @@ from datetime import timedelta
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic.edit import CreateView
 from django.http import HttpResponseForbidden, HttpResponseBadRequest
 from django.shortcuts import render, get_object_or_404, redirect
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.utils import timezone
 from django.views import View
 from django.views.generic.edit import FormView
+from django.db import transaction
 
 from .forms import PostForm, CategoryForm, CommentForm
 from .models import Post, Category, ViewedPost, Comment, CommentReaction
@@ -91,6 +93,7 @@ def edit_post(request, post_id):
     return render(request, 'posts/edit_post.html', context=context)
 
 
+# TODO Turn into a CBV with only POST method, get rid of HTML > switch to JS pop-up on DELETE button click
 def delete_post(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
 
@@ -115,22 +118,20 @@ def view_category(request, category_id):
     return render(request, 'posts/view_category.html', context=context)
 
 
-@login_required
-def create_category(request):
-    if request.method == 'POST':
-        form = CategoryForm(request.POST)
-        if form.is_valid():
-            form.save()
-            next_url = request.GET.get('next', 'dashboard')
-            return redirect(next_url)
-        return render(request, 'posts/create_category.html', {'form': form})
-    else:
-        form = CategoryForm()
+class CreateCategoryView(LoginRequiredMixin, CreateView):
+    model = Category
+    form_class = CategoryForm
+    template_name = 'posts/create_category.html'
 
-    return render(request, 'posts/create_category.html', {'form': form})
+    def get_success_url(self):
+        next_url = self.request.GET.get('next', 'dashboard')
+        if next_url.startswith('/'):
+            return next_url
+        return reverse_lazy(next_url)
 
 
-class CommentView(FormView):
+class CreateCommentView(CreateView):
+    model = Comment
     form_class = CommentForm
     http_method_names = ['post']
 
@@ -145,17 +146,24 @@ class CommentView(FormView):
 
         parent_comment_id = self.request.POST.get('reply_to_id')
         if parent_comment_id:
-            parent_comment = get_object_or_404(Comment, id=parent_comment_id)
-            comment.parent_comment = parent_comment
+            comment.parent_comment = parent_comment_id
 
         comment.save()
         messages.success(self.request, 'Successfully posted new comment!')
         return super().form_valid(form)
 
+    def form_invalid(self, form):
+        for field, errors in form.errors.items():
+            messages.error(self.request, errors)
 
-class DeleteCommentView(View):
+        post_id = self.kwargs['post_id']
+        return redirect('view_post', post_id)
+
+
+class DeleteCommentView(LoginRequiredMixin, View):
     http_method_names = ['post']
 
+    # noinspection PyMethodMayBeStatic
     def post(self, request, *args, **kwargs):
         comment_id = kwargs.get('comment_id')
         comment = get_object_or_404(Comment, id=comment_id)
@@ -172,6 +180,7 @@ class DeleteCommentView(View):
 class CommentReactionView(LoginRequiredMixin, View):
     http_method_names = ['post']
 
+    # noinspection PyMethodMayBeStatic
     def post(self, request, *args, **kwargs):
         reaction_type = request.POST.get('reaction_type')
 
@@ -181,9 +190,15 @@ class CommentReactionView(LoginRequiredMixin, View):
         comment_id = kwargs.get('comment_id')
         comment = get_object_or_404(Comment, id=comment_id)
 
-        # Check if the user has already reacted to this comment
+        with transaction.atomic():
+            self.handle_reaction(request.user, comment, reaction_type)
+
+        return redirect('view_post', comment.post.id)
+
+    # noinspection PyMethodMayBeStatic
+    def handle_reaction(self, user, comment, reaction_type):
         reaction, created = CommentReaction.objects.get_or_create(
-            user=request.user,
+            user=user,
             comment=comment,
             defaults={'reaction_type': reaction_type}
         )
@@ -193,5 +208,3 @@ class CommentReactionView(LoginRequiredMixin, View):
         else:
             reaction.reaction_type = reaction_type
             reaction.save()
-
-        return redirect('view_post', comment.post.id)

@@ -22,9 +22,6 @@
                         <div class="form-group mb-3">
                             {{ form.content.label_tag }}
                             {{ form.content }}
-                            {% for error in form.content.errors %}
-                                <div class="invalid-feedback d-block">{{ error }}</div>
-                            {% endfor %}
                         </div>
                         <div class="d-flex justify-content-between">
                             <div>
