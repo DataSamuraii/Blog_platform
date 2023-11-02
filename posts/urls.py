@@ -3,16 +3,16 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.listing, name='listing'),
+    path('', views.PostListView.as_view(), name='post_list'),
     path('post/<int:post_id>/add_comment/<int:comment_id>', views.CreateCommentView.as_view(),
          name='add_comment_reply'),
     path('post/<int:post_id>/add_comment', views.CreateCommentView.as_view(), name='add_comment'),
     path('post/<int:post_id>/edit', views.edit_post, name='edit_post'),
     path('post/<int:post_id>/delete', views.delete_post, name='delete_post'),
-    path('post/<int:post_id>/', views.view_post, name='view_post'),
-    path('category/<int:category_id>/', views.view_category, name='view_category'),
+    path('post/<int:post_id>/', views.PostDetailView.as_view(), name='post_detail'),
     path('post/create/', views.create_post, name='create_post'),
-    path('category/create/', views.CreateCategoryView.as_view(), name='create_category'),
-    path('comment/<int:comment_id>/delete', views.DeleteCommentView.as_view(), name='delete_comment'),
+    path('category/<int:category_id>/', views.CategoryDetailView.as_view(), name='category_detail'),
+    path('category/create/', views.CreateCategoryView.as_view(), name='category_create'),
+    path('comment/<int:comment_id>/delete', views.DeleteCommentView.as_view(), name='comment_delete'),
     path('comment/<int:comment_id>/reaction', views.CommentReactionView.as_view(), name='comment_reaction')
 ]

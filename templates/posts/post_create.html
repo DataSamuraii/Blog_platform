@@ -12,7 +12,7 @@
                 {% if field.name == 'category' %}
                     <div class="d-flex align-items-center">
                         {{ field }}
-                        <a href="{% url 'create_category' %}?next={{ request.path }}" class="btn btn-secondary ml-3">Create
+                        <a href="{% url 'category_create' %}?next={{ request.path }}" class="btn btn-secondary ml-3">Create
                             a new category</a>
                     </div>
                 {% else %}

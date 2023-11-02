@@ -19,7 +19,7 @@
     {% endif %}
 
     <div class="d-flex justify-content-between align-items-center mt-4">
-        <a href="{% url 'listing' %}" class="btn btn-primary">All Posts</a>
+        <a href="{% url 'post_list' %}" class="btn btn-primary">All Posts</a>
         {% if request.user == post.author %}
             <div>
                 <a href="{% url 'edit_post' post.id %}" class="btn btn-warning">Edit Post</a>
@@ -45,5 +45,5 @@
             <p>Category: {{ post.category.title }}</p>
         </div>
     </div>
-    {% include 'posts/view_comment.html' %}
+    {% include 'posts/comment_list.html' %}
 {% endblock %}

@@ -36,7 +36,7 @@
             <p>{{ comment.content }}</p>
 
             {% if comment.author == request.user %}
-                <form action="{% url 'delete_comment' comment.id %}" method="post" style="display: inline;">
+                <form action="{% url 'comment_delete' comment.id %}" method="post" style="display: inline;">
                     {% csrf_token %}
                     <button type="submit" class="delete-button" title="Delete comment">x</button>
                 </form>
@@ -74,7 +74,7 @@
     <!-- Recursive inclusion for nested comments -->
     {% with replies=comment.comment_set.all new_depth=depth|add:'20' %}
         {% for reply in replies %}
-            {% include 'posts/comment_block.html' with comment=reply depth=new_depth %}
+            {% include 'posts/comment_detail.html' with comment=reply depth=new_depth %}
         {% endfor %}
     {% endwith %}
 </div>

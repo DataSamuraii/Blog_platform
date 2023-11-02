@@ -53,10 +53,10 @@ def edit_user(request):
             user.save()
             messages.success(request, 'Successfully edited user info!')
             return redirect(reverse('dashboard'))
-        return render(request, 'users/edit_user.html', {'form': form})
+        return render(request, 'users/user_edit.html', {'form': form})
     else:
         form = CustomUserEditForm(initial=model_to_dict(user))
-    return render(request, 'users/edit_user.html', {'form': form})
+    return render(request, 'users/user_edit.html', {'form': form})
 
 
 @login_required

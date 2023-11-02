@@ -16,6 +16,7 @@
             <div class="d-flex justify-content-between align-items-center">
                 <h2>Dashboard</h2>
                 <div>
+                    <a href="{% url 'category_create' %}" class="btn btn-secondary ml-3">Create a new category</a>
                     <a href="{% url 'create_post' %}" class="btn btn-dark me-2">Create a new post</a>
                 </div>
             </div>
@@ -41,7 +42,7 @@
                         <ul class="list-group list-group-flush">
                             {% for post in user_posts %}
                                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <a href="{% url 'view_post' post.id %}">{{ post.title }}</a>
+                                    <a href="{% url 'post_detail' post.id %}">{{ post.title }}</a>
                                     <span class="badge bg-secondary">{{ post.date_published }}</span>
                                     {% if post.is_published %}
                                         <span class="badge bg-success">Status: Published</span>
