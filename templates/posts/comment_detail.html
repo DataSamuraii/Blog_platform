@@ -30,14 +30,15 @@
     }
 </style>
 
-<div class="{% if comment.is_deleted %}deleted-comment{% endif %}">
+<div>
     <div class="card mt-2" style="margin-left: {{ depth|default:'0' }}px;">
-        <div class="card-body comment-container">
+        <div class="card-body comment-container {% if comment.is_deleted %}deleted-comment{% endif %}">
             <p>{{ comment.content }}</p>
 
             {% if comment.author == request.user %}
                 <form action="{% url 'comment_delete' comment.id %}" method="post" style="display: inline;">
                     {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ request.path }}">
                     <button type="submit" class="delete-button" title="Delete comment">x</button>
                 </form>
             {% endif %}

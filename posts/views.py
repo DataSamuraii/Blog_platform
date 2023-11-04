@@ -1,24 +1,24 @@
 from datetime import timedelta
 
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.exceptions import PermissionDenied
 from django.db import transaction
-from django.http import HttpResponseForbidden, HttpResponseBadRequest
-from django.shortcuts import render, get_object_or_404, redirect
+from django.http import HttpResponseBadRequest
+from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse, reverse_lazy
 from django.utils import timezone
 from django.views import View
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from .forms import PostForm, CategoryForm, CommentForm
 from .models import Post, Category, ViewedPost, Comment, CommentReaction
 
 
 # TODO add registering/authing with 3-party services (Gmail, GitHub)
-
+# TODO switch to CBV, get rid of HTML > switch to JS pop-up on DELETE button click
 
 class PostListView(ListView):
     model = Post
@@ -53,9 +53,12 @@ class PostDetailView(DetailView):
 
     def get(self, request, *args, **kwargs):
         response = super().get(request, *args, **kwargs)
+        self.handle_views_counter()
+        return response
 
+    def handle_views_counter(self):
         # Check if the post was viewed from current IP in the last 24 hours
-        ip = request.META.get('REMOTE_ADDR')
+        ip = self.request.META.get('REMOTE_ADDR')
         time_threshold = timezone.now() - timedelta(hours=24)
         recent_views = ViewedPost.objects.filter(
             post=self.object, ip_address=ip, timestamp__gte=time_threshold
@@ -63,68 +66,62 @@ class PostDetailView(DetailView):
         session_key = f'viewed_post_{self.object.id}'
 
         # Session-Based + IP-Based counting
-        if not request.session.get(session_key) and not recent_views.exists():
+        if not self.request.session.get(session_key) and not recent_views.exists():
             self.object.views += 1
             self.object.save(update_fields=['views'])
-            request.session[session_key] = True
-            request.session.set_expiry(86400)  # 24 hours in seconds
+            self.request.session[session_key] = True
+            self.request.session.set_expiry(86400)  # 24 hours in seconds
             ViewedPost.objects.create(post=self.object, ip_address=ip)
 
-        return response
+
+class CreatePostView(LoginRequiredMixin, CreateView):
+    model = Post
+    form_class = PostForm
+    template_name = 'posts/post_create.html'
+    success_url = reverse_lazy('dashboard')
+
+    def form_valid(self, form):
+        form.save(commit=False)
+        form.author = self.request.user
+        messages.success(self.request, 'Successfully published a new post')
+        return super().form_valid(form)
 
 
-@login_required
-def create_post(request):
-    if request.method == 'POST':
-        form = PostForm(request.POST)
-        if form.is_valid():
-            new_post = form.save(commit=False)
-            new_post.author = request.user
-            new_post.save()
-            return redirect('dashboard')
-        return render(request, 'posts/post_create.html', {'form': form})
-    else:
-        form = PostForm(initial={'author': request.user.id})
-    return render(request, 'posts/post_create.html', {'form': form})
+class EditPostView(LoginRequiredMixin, UpdateView):
+    model = Post
+    form_class = PostForm
+    template_name = 'posts/post_edit.html'
+    context_object_name = 'post'
+
+    def get_success_url(self):
+        return reverse('post_detail', args=[self.object.id])
+
+    def get_object(self, queryset=None):
+        obj = get_object_or_404(Post, pk=self.kwargs.get('post_id'))
+        if obj.author != self.request.user:
+            raise PermissionDenied("You don't have permission to delete this post.")
+        return obj
+
+    def form_valid(self, form):
+        messages.success(self.request, 'Successfully updated post!')
+        return super().form_valid(form)
 
 
-def edit_post(request, post_id):
-    post = get_object_or_404(Post, pk=post_id)
+class DeletePostView(LoginRequiredMixin, DeleteView):
+    model = Post
+    template_name = 'posts/post_delete.html'
+    success_url = reverse_lazy('dashboard')
 
-    if post.author != request.user:
-        return HttpResponseForbidden("You don't have permission to edit this post.")
+    def get_object(self, queryset=None):
+        obj = get_object_or_404(Post, pk=self.kwargs.get('post_id'))
+        if obj.author != self.request.user:
+            raise PermissionDenied("You don't have permission to delete this post.")
+        return obj
 
-    if request.method == 'POST':
-        form = PostForm(request.POST, instance=post)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Successfully updated post!')
-            return redirect('post_detail', post_id=post_id)
-        return render(request, 'posts/post_edit.html', {'form': form})
-    else:
-        form = PostForm(instance=post)
-
-    context = {
-        'form': form,
-        'post': post
-    }
-    return render(request, 'posts/post_edit.html', context=context)
-
-
-# TODO Turn into a CBV with only POST method, get rid of HTML > switch to JS pop-up on DELETE button click
-def delete_post(request, post_id):
-    post = get_object_or_404(Post, pk=post_id)
-
-    if post.author != request.user:
-        return HttpResponseForbidden("You don't have permission to edit this post.")
-
-    if request.method == 'POST':
-        post.delete()
+    def delete(self, request, *args, **kwargs):
+        response = super().delete(request, *args, **kwargs)
         messages.success(request, 'Successfully deleted post!')
-        return redirect('dashboard')
-
-    context = {'post': post}
-    return render(request, 'posts/post_delete.html', context=context)
+        return response
 
 
 class CategoryDetailView(DetailView):
@@ -170,9 +167,8 @@ class CreateCommentView(LoginRequiredMixin, CreateView):
 
         parent_comment_id = self.request.POST.get('reply_to_id')
         if parent_comment_id:
-            comment.parent_comment = parent_comment_id
+            comment.parent_comment = Comment.objects.get(pk=parent_comment_id)
 
-        comment.save()
         messages.success(self.request, 'Successfully posted new comment!')
         return super().form_valid(form)
 
@@ -184,25 +180,31 @@ class CreateCommentView(LoginRequiredMixin, CreateView):
         return redirect('post_detail', post_id)
 
 
-class DeleteCommentView(LoginRequiredMixin, View):
+class DeleteCommentView(LoginRequiredMixin, DeleteView):
+    model = Comment
     http_method_names = ['post']
 
-    def dispatch(self, request, *args, **kwargs):
-        self.comment = get_object_or_404(Comment, id=kwargs.get('comment_id'))
-        if request.user == self.comment.author:
-            return HttpResponseForbidden("You don't have permission to edit this post.")
-        return super().dispatch(request, *args, **kwargs)
+    def get_success_url(self):
+        return self.request.POST.get('next', reverse('post_list'))
 
-    # noinspection PyMethodMayBeStatic
-    def post(self, request, *args, **kwargs):
-        self.comment.is_deleted = True
-        self.comment.save()
-        messages.success(request, 'Successfully deleted comment')
-        return redirect('post_detail', self.comment.post.id)
+    def get_object(self, queryset=None):
+        obj = get_object_or_404(Comment, id=self.kwargs.get('comment_id'))
+        if obj.author != self.request.user:
+            raise PermissionDenied("You don't have permission to delete this post.")
+        return obj
+
+    def form_valid(self, form):
+        self.object.is_deleted = True
+        self.object.save()
+        messages.success(self.request, 'Successfully deleted comment')
+        return redirect('post_detail', self.object.post.id)
 
 
 class CommentReactionView(LoginRequiredMixin, View):
     http_method_names = ['post']
+
+    def get_object(self):
+        return get_object_or_404(Comment, id=self.kwargs.get('comment_id'))
 
     # noinspection PyMethodMayBeStatic
     def post(self, request, *args, **kwargs):
@@ -211,12 +213,10 @@ class CommentReactionView(LoginRequiredMixin, View):
         if reaction_type not in ['like', 'dislike']:
             return HttpResponseBadRequest('Invalid request')
 
-        comment_id = kwargs.get('comment_id')
-        comment = get_object_or_404(Comment, id=comment_id)
-
+        comment = self.get_object()
         with transaction.atomic():
             self.handle_reaction(request.user, comment, reaction_type)
-
+        messages.success(request, f'Successfully {reaction_type}d comment')
         return redirect('post_detail', comment.post.id)
 
     # noinspection PyMethodMayBeStatic
