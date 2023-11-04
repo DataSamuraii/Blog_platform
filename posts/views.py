@@ -18,7 +18,6 @@ from .models import Post, Category, ViewedPost, Comment, CommentReaction
 
 
 # TODO add registering/authing with 3-party services (Gmail, GitHub)
-# TODO switch to CBV, get rid of HTML > switch to JS pop-up on DELETE button click
 
 class PostListView(ListView):
     model = Post
@@ -81,10 +80,11 @@ class CreatePostView(LoginRequiredMixin, CreateView):
     success_url = reverse_lazy('dashboard')
 
     def form_valid(self, form):
-        form.save(commit=False)
-        form.author = self.request.user
+        post = form.save(commit=False)
+        post.author = self.request.user
+        response = super().form_valid(form)
         messages.success(self.request, 'Successfully published a new post')
-        return super().form_valid(form)
+        return response
 
 
 class EditPostView(LoginRequiredMixin, UpdateView):
@@ -103,14 +103,15 @@ class EditPostView(LoginRequiredMixin, UpdateView):
         return obj
 
     def form_valid(self, form):
+        response = super().form_valid(form)
         messages.success(self.request, 'Successfully updated post!')
-        return super().form_valid(form)
+        return response
 
 
 class DeletePostView(LoginRequiredMixin, DeleteView):
     model = Post
-    template_name = 'posts/post_delete.html'
     success_url = reverse_lazy('dashboard')
+    http_method_names = ['post']
 
     def get_object(self, queryset=None):
         obj = get_object_or_404(Post, pk=self.kwargs.get('post_id'))
@@ -118,9 +119,9 @@ class DeletePostView(LoginRequiredMixin, DeleteView):
             raise PermissionDenied("You don't have permission to delete this post.")
         return obj
 
-    def delete(self, request, *args, **kwargs):
-        response = super().delete(request, *args, **kwargs)
-        messages.success(request, 'Successfully deleted post!')
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        messages.success(self.request, 'Successfully deleted post!')
         return response
 
 
@@ -169,8 +170,9 @@ class CreateCommentView(LoginRequiredMixin, CreateView):
         if parent_comment_id:
             comment.parent_comment = Comment.objects.get(pk=parent_comment_id)
 
+        response = super().form_valid(form)
         messages.success(self.request, 'Successfully posted new comment!')
-        return super().form_valid(form)
+        return response
 
     def form_invalid(self, form):
         for field, errors in form.errors.items():
@@ -183,9 +185,6 @@ class CreateCommentView(LoginRequiredMixin, CreateView):
 class DeleteCommentView(LoginRequiredMixin, DeleteView):
     model = Comment
     http_method_names = ['post']
-
-    def get_success_url(self):
-        return self.request.POST.get('next', reverse('post_list'))
 
     def get_object(self, queryset=None):
         obj = get_object_or_404(Comment, id=self.kwargs.get('comment_id'))

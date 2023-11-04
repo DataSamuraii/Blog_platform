@@ -21,9 +21,12 @@
     <div class="d-flex justify-content-between align-items-center mt-4">
         <a href="{% url 'post_list' %}" class="btn btn-primary">All Posts</a>
         {% if request.user == post.author %}
+            <form id="delete-post-form" method="post" action="{% url 'delete_post' post.id %}" style="display: none;">
+                {% csrf_token %}
+            </form>
             <div>
                 <a href="{% url 'edit_post' post.id %}" class="btn btn-warning">Edit Post</a>
-                <a href="{% url 'delete_post' post.id %}" class="btn btn-danger">Delete Post</a>
+                <button onclick="confirmDeletePost()" class="btn btn-danger">Delete Post</button>
             </div>
         {% endif %}
     </div>
@@ -46,4 +49,20 @@
         </div>
     </div>
     {% include 'posts/comment_list.html' %}
+
+    <script type="text/javascript">
+        function confirmDeletePost() {
+            if (confirm('Are you sure you want to delete this post?')) {
+                // If the user confirms, submit the hidden form
+                document.getElementById('delete-post-form').submit();
+            }
+        }
+
+        function confirmDeleteComment(commentId) {
+            if (confirm('Are you sure you want to delete this comment?')) {
+                document.getElementById('delete-comment-form-' + commentId).submit();
+            }
+        }
+    </script>
 {% endblock %}
+

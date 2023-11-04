@@ -3,6 +3,36 @@
         position: relative;
         padding: 10px;
     }
+
+    .comment-container {
+        position: relative; /* Set the positioning context for absolutely positioned children */
+        padding: 10px; /* Optional: some padding to ensure content doesn't overlap with the delete button */
+    }
+
+    .delete-button {
+        background-color: transparent;
+        border: none;
+        color: #aaa; /* Grey color for the "x" */
+        font-weight: bold;
+        cursor: pointer;
+        transition: color 0.3s; /* Smooth color transition */
+        position: absolute; /* Absolutely position the button */
+        top: 10px; /* Position from the top */
+        right: 10px; /* Position from the right */
+        z-index: 10; /* Ensure it's above other content */
+    }
+
+    .delete-button:hover {
+        color: #ff0000; /* Red color on hover */
+    }
+
+    .deleted-comment {
+        text-decoration: line-through; /* Crossed out effect */
+        color: #000000; /* Grey color to indicate it's inactive or deleted */
+        pointer-events: none; /* Makes the button non-clickable */
+        opacity: 0.6; /* Reduces the opacity to visually show it's disabled */
+        cursor: not-allowed; /* Shows a "not allowed" cursor on hover */
+    }
 </style>
 
 <div class="container mt-5">
@@ -28,7 +58,8 @@
                                 <input type="hidden" id="reply_to_id" name="reply_to_id" value="">
                                 <input type="submit" id="post_button" value="Post Comment" class="btn btn-dark">
                             </div>
-                            <button type="button" id="cancel_reply_to_id" onclick="clearReplyTo();" class="btn btn-danger" hidden>
+                            <button type="button" id="cancel_reply_to_id" onclick="clearReplyTo();"
+                                    class="btn btn-danger" hidden>
                                 Cancel
                             </button>
                         </div>
@@ -43,3 +74,25 @@
         </div>
     </div>
 </div>
+<script>
+    function setReplyTo(commentId, commentContent) {
+        // Set the hidden field
+        document.getElementById('reply_to_id').value = commentId;
+
+        // Update the user feedback message
+        document.getElementById('cancel_reply_to_id').hidden = false
+        document.getElementById('replying-to').innerHTML = `You are replying to: ${commentContent}`;
+        document.getElementById('post_button').value = 'Post Reply'
+    }
+
+    function clearReplyTo() {
+        // Clear the hidden field
+        document.getElementById('reply_to_id').value = ""
+
+        // Update the user feedback message
+        document.getElementById('cancel_reply_to_id').hidden = true
+        document.getElementById('replying-to').innerHTML = ""
+        document.getElementById('post_button').value = "Post Comment"
+    }
+
+</script>
