@@ -17,8 +17,6 @@ from .forms import PostForm, CategoryForm, CommentForm
 from .models import Post, Category, ViewedPost, Comment, CommentReaction
 
 
-# TODO add registering/authing with 3-party services (Gmail, GitHub)
-
 class PostListView(ListView):
     model = Post
     template_name = 'posts/post_list.html'

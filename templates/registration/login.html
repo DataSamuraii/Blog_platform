@@ -1,14 +1,22 @@
 {% extends 'base.html' %}
-
-<style>
-    .alert-success {
-        background-color: #dff0d8;
-        border-color: #d6e9c6;
-        color: #3c763d;
-    }
-</style>
+{% load static %}
 
 {% block page_content %}
+    <style>
+        .alert-success {
+            background-color: #dff0d8;
+            border-color: #d6e9c6;
+            color: #3c763d;
+        }
+
+        .btn-block {
+            display: block;
+            width: 100%;
+            padding: .375rem .75rem;
+            margin-bottom: .75rem;
+        }
+    </style>
+
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
@@ -64,6 +72,22 @@
 
 
                         <hr class="my-4">
+
+                        <!-- Social Login Buttons -->
+                        <div class="social-login-buttons">
+                            <a href="{% url 'social:begin' 'google-oauth2' %}" class="btn btn-danger btn-block mb-2">
+                                <i class="fab fa-google me-2"></i> Login with Google
+                            </a>
+                            <a href="{% url 'social:begin' 'twitter' %}" class="btn btn-info btn-block mb-2">
+                                <i class="fab fa-twitter me-2"></i> Login with Twitter
+                            </a>
+                            <a href="{% url 'social:begin' 'reddit' %}" class="btn btn-warning btn-block mb-2">
+                                <i class="fab fa-reddit-alien me-2"></i> Login with Reddit
+                            </a>
+                            <a href="{% url 'social:begin' 'github' %}" class="btn btn-dark btn-block mb-2">
+                                <i class="fab fa-github me-2"></i> Login with GitHub
+                            </a>
+                        </div>
 
                         <div class="d-flex justify-content-between">
                             <a href="{% url 'dashboard' %}" class="btn btn-outline-secondary">Back to Dashboard</a>

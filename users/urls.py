@@ -7,5 +7,6 @@ urlpatterns = [
     path('dashboard/', views.dashboard, name='dashboard'),
     path('register/', views.register, name='register'),
     path('edit_user/', views.edit_user, name='edit_user'),
+    path('auth/', include('social_django.urls', namespace='social')),
     path('', include('django.contrib.auth.urls')),
 ]
