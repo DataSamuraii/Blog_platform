@@ -1,22 +1,23 @@
+from ckeditor.widgets import CKEditorWidget
 from django import forms
 
 from .models import Post, Category, Comment
 
 
 class PostForm(forms.ModelForm):
+    content = forms.CharField(widget=CKEditorWidget())
+
     class Meta:
         model = Post
         fields = ['title', 'content', 'category', 'is_published']
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control'}),
-            'content': forms.Textarea(attrs={'class': 'form-control'}),
             'category': forms.Select(attrs={'class': 'form-select'}),
             'is_published': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
         }
         labels = {'is_published': 'Publish this post?'}
         help_texts = {
             'title': 'Your post title goes here.',
-            'content': 'Write your post here.'
         }
 
     def clean_title(self):

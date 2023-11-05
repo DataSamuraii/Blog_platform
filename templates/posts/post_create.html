@@ -1,7 +1,18 @@
 {% extends 'base.html' %}
+
+{% block extra_head %}
+    <!-- Include CKEditor Javascript and CSS -->
+    {{ form.media }}
+    <style>
+        .django-ckeditor-widget {
+            width: 100%; /* Make CKEditor take up 100% width of its parent */
+        }
+    </style>
+{% endblock %}
+
 {% block page_content %}
     <h2 class="mb-4">Create a New Post</h2>
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <!-- Form Fields -->
         {% for field in form %}

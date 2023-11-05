@@ -1,4 +1,6 @@
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 
 from . import views
 
@@ -16,3 +18,6 @@ urlpatterns = [
     path('comment/<int:comment_id>/delete', views.DeleteCommentView.as_view(), name='comment_delete'),
     path('comment/<int:comment_id>/reaction', views.CommentReactionView.as_view(), name='comment_reaction')
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

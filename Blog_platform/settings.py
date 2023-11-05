@@ -1,7 +1,9 @@
-from pathlib import Path
 import os
-from dotenv import load_dotenv
+from pathlib import Path
+
+import bleach
 from django.contrib.messages import constants as messages
+from dotenv import load_dotenv
 
 # Load environment variables from .env file
 load_dotenv()
@@ -29,9 +31,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social_django',
+    'ckeditor',
     'posts',
     'users',
-    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -144,3 +147,23 @@ SOCIAL_AUTH_TWITTER_SECRET = os.getenv('SOCIAL_AUTH_TWITTER_SECRET')
 SOCIAL_AUTH_REDDIT_KEY = os.getenv('SOCIAL_AUTH_REDDIT_KEY')
 SOCIAL_AUTH_REDDIT_SECRET = os.getenv('SOCIAL_AUTH_REDDIT_SECRET')
 SOCIAL_AUTH_REDDIT_USER_AGENT = os.getenv('SOCIAL_AUTH_REDDIT_USER_AGENT')
+
+STATIC_ROOT = BASE_DIR / 'templates/staticfiles'
+
+ALLOWED_TAGS = list(bleach.sanitizer.ALLOWED_TAGS) + [
+    'p', 'div', 'span', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+    'strong', 'em', 'u', 'strike', 'img', 'a', 'ul', 'ol', 'li',
+    'blockquote', 'code', 'pre', 'hr', 'br', 'table', 'thead', 'tbody',
+    'tr', 'th', 'td', 'iframe', 'video', 'audio', 'figure', 'figcaption', 'tt'
+]
+ALLOWED_ATTRIBUTES = {
+    '*': ['class', 'style', 'id'],
+    'a': ['href', 'title', 'target'],
+    'img': ['src', 'alt', 'width', 'height', 'style'],
+    'iframe': ['src', 'width', 'height', 'frameborder', 'allowfullscreen'],
+    'video': ['src', 'controls', 'width', 'height', 'poster'],
+    'audio': ['src', 'controls']
+}
+ALLOWED_PROTOCOLS = ['http', 'https', 'mailto', 'data']
+STRIP = True
+STRIP_COMMENTS = True

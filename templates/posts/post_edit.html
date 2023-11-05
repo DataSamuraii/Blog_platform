@@ -1,4 +1,15 @@
 {% extends 'base.html' %}
+
+{% block extra_head %}
+    <!-- Include CKEditor Javascript and CSS -->
+    {{ form.media }}
+    <style>
+        .django-ckeditor-widget {
+            width: 100%; /* Make CKEditor take up 100% width of its parent */
+        }
+    </style>
+{% endblock %}
+
 {% block page_content %}
     <h2 class="mb-4">Edit Post</h2>
     <form method="post">

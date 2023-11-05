@@ -1,10 +1,12 @@
+import bleach
+from ckeditor.fields import RichTextField
 from django.conf import settings
 from django.db import models
 
 
 class Post(models.Model):
     title = models.CharField(max_length=50, unique=True)
-    content = models.TextField()
+    content = RichTextField()
     category = models.ForeignKey('Category', on_delete=models.SET_NULL, null=True)
     date_published = models.DateTimeField(auto_now_add=True)
     date_edited = models.DateTimeField(auto_now=True)
@@ -14,6 +16,18 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+    def save(self, *args, **kwargs):
+        # Clean the content field with bleach using the settings from settings.py
+        self.content = bleach.clean(
+            self.content,
+            tags=settings.ALLOWED_TAGS,
+            attributes=settings.ALLOWED_ATTRIBUTES,
+            protocols=settings.ALLOWED_PROTOCOLS,
+            strip=settings.STRIP,
+            strip_comments=settings.STRIP_COMMENTS,
+        )
+        super().save(*args, **kwargs)
 
     class Meta:
         ordering = ['-date_published']
