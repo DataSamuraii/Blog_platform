@@ -26,6 +26,12 @@ class PostForm(forms.ModelForm):
             raise forms.ValidationError('Title must be at least 5 characters long.')
         return title
 
+    def clean_content(self):
+        content = self.cleaned_data.get('content')
+        if len(content) < 200:
+            raise forms.ValidationError('Content must be at least 200 characters long.')
+        return content
+
 
 class CategoryForm(forms.ModelForm):
     class Meta:
@@ -42,8 +48,8 @@ class CategoryForm(forms.ModelForm):
 
     def clean_title(self):
         title = self.cleaned_data.get('title')
-        if len(title) < 5:
-            raise forms.ValidationError('Title must be at least 5 characters long.')
+        if len(title) < 4:
+            raise forms.ValidationError('Title must be at least 4 characters long.')
         return title
 
 

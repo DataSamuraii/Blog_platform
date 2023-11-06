@@ -9,6 +9,9 @@ from django.urls import reverse
 
 from users.forms import CustomUserCreationForm, CustomUserEditForm
 
+# TODO Banned users functionality
+# TODO Switch to CBVs
+
 
 class CustomLoginView(auth_views.LoginView):
 
