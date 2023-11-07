@@ -1,16 +1,18 @@
 from django.contrib import messages
-from django.contrib.auth import login
 from django.contrib.auth import views as auth_views
-from django.contrib.auth.decorators import login_required
-from django.forms.models import model_to_dict
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
-from django.shortcuts import redirect, render
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
+from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.list import ListView
 
-from users.forms import CustomUserCreationForm, CustomUserEditForm
+from posts.models import Post
+from .forms import CustomUserCreationForm, CustomUserEditForm
+
 
 # TODO Banned users functionality
-# TODO Switch to CBVs
+# TODO Add CAPTCHA to registration/login
 
 
 class CustomLoginView(auth_views.LoginView):
@@ -26,48 +28,47 @@ class CustomLoginView(auth_views.LoginView):
         return super().form_valid(form)
 
 
-def custom_logout_then_login(request, *args, **kwargs):
-    messages.success(request, 'Successfully logged out!')
-    return auth_views.logout_then_login(request, *args, **kwargs)
+class CustomLogoutView(auth_views.LogoutView):
+    
+    def dispatch(self, request, *args, **kwargs):
+        response = super().dispatch(request, *args, **kwargs)
+        messages.success(request, 'Successfully logged out!')
+        return response
 
 
-def register(request):
-    if request.method == 'POST':
-        form = CustomUserCreationForm(request.POST)
-        if form.is_valid():
-            user = form.save(commit=False)
-            user.backend = 'django.contrib.auth.backends.ModelBackend'
-            user.save()
-            login(request, user)
-            messages.success(request, 'You have successfully registered!')
-            return redirect(reverse('dashboard'))
-        return render(request, 'users/register.html', {'form': form})
-    else:
-        form = CustomUserCreationForm()
-    return render(request, 'users/register.html', {'form': form})
+class RegisterUserView(CreateView):
+    model = User
+    form_class = CustomUserCreationForm
+    template_name = 'users/register.html'
+    success_url = reverse_lazy('login')
+
+    def form_valid(self, form):
+        user = form.save(commit=False)
+        user.backend = 'django.contrib.auth.backends.ModelBackend'
+        response = super().form_valid(form)
+        messages.success(self.request, 'You have successfully registered!')
+        return response
 
 
-@login_required
-def edit_user(request):
-    user = request.user
-    if request.method == 'POST':
-        form = CustomUserEditForm(request.POST, instance=user)
-        if form.is_valid():
-            user.save()
-            messages.success(request, 'Successfully edited user info!')
-            return redirect(reverse('dashboard'))
-        return render(request, 'users/user_edit.html', {'form': form})
-    else:
-        form = CustomUserEditForm(initial=model_to_dict(user))
-    return render(request, 'users/user_edit.html', {'form': form})
+class EditUserView(LoginRequiredMixin, UpdateView):
+    model = User
+    form_class = CustomUserEditForm
+    template_name = 'users/user_edit.html'
+    success_url = reverse_lazy('dashboard')
+
+    def get_object(self, queryset=None):
+        return self.request.user
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        messages.success(self.request, 'Successfully edited user info!')
+        return response
 
 
-@login_required
-def dashboard(request):
-    user_posts = request.user.post_set.all()
-    has_posts = user_posts.exists()
-    context = {
-        'user_posts': user_posts,
-        'has_posts': has_posts
-    }
-    return render(request, 'users/dashboard.html', context=context)
+class DashboardView(LoginRequiredMixin, ListView):
+    model = Post
+    template_name = 'users/dashboard.html'
+    context_object_name = 'user_posts'
+
+    def get_queryset(self):
+        return self.request.user.post_set.all()

@@ -11,6 +11,11 @@
                 <form method="post" class="list-group list-group-flush p-3">
                     {% csrf_token %}
                     <div class="list-group-item">
+                        {{ form.username.label_tag }}
+                        <input type="text" name="{{ form.username.name }}" class="form-control"
+                               value="{{ form.username.value|default:'' }}" required>
+                    </div>
+                    <div class="list-group-item">
                         {{ form.email.label_tag }}
                         <input type="email" name="{{ form.email.name }}" class="form-control"
                                value="{{ form.email.value|default:'' }}" required>
