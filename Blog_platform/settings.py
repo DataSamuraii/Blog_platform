@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'social_django',
     'ckeditor',
+    'captcha',
     'posts',
     'users',
 ]
@@ -167,3 +168,6 @@ ALLOWED_ATTRIBUTES = {
 ALLOWED_PROTOCOLS = ['http', 'https', 'mailto', 'data']
 STRIP = True
 STRIP_COMMENTS = True
+
+RECAPTCHA_PUBLIC_KEY = os.getenv('RECAPTCHA_PUBLIC_KEY')
+RECAPTCHA_PRIVATE_KEY = os.getenv('RECAPTCHA_PRIVATE_KEY')

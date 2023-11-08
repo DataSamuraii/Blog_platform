@@ -36,6 +36,7 @@
 
                         <form method="post">
                             {% csrf_token %}
+
                             <div class="form-group mb-3">
                                 {{ form.username.label_tag }}
                                 <input type="text" name="{{ form.username.name }}" id="{{ form.username.id_for_label }}"
@@ -47,6 +48,7 @@
                                     <div class="invalid-feedback d-block">{{ error }}</div>
                                 {% endfor %}
                             </div>
+
                             <div class="form-group mb-3">
                                 {{ form.password.label_tag }}
                                 <input type="password" name="{{ form.password.name }}"
@@ -58,6 +60,15 @@
                                     <div class="invalid-feedback d-block">{{ error }}</div>
                                 {% endfor %}
                             </div>
+
+                            <div class="form-group mb-3">
+                                {{ form.captcha.label_tag }}
+                                {{ form.captcha }}
+                                {% for error in form.captcha.errors %}
+                                    <div class="invalid-feedback d-block">{{ error }}</div>
+                                {% endfor %}
+                            </div>
+
                             <div class="d-flex justify-content-between align-items-center">
                                 <input type="submit" value="Login" class="btn btn-dark">
                                 <a href="{% url 'password_reset' %}" class="text-decoration-none">Forgot password?</a>

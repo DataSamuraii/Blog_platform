@@ -6,16 +6,14 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse, reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView
 from django.views.generic.list import ListView
-
 from posts.models import Post
-from .forms import CustomUserCreationForm, CustomUserEditForm
-
+from .forms import CustomUserCreationForm, CustomUserEditForm, CustomAuthenticationForm
 
 # TODO Banned users functionality
-# TODO Add CAPTCHA to registration/login
 
 
 class CustomLoginView(auth_views.LoginView):
+    form_class = CustomAuthenticationForm
 
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated:
