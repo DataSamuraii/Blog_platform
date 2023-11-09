@@ -1,7 +1,11 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block page_content %}
+{% block extra_head %}
+    <script src="https://kit.fontawesome.com/53cf010cf5.js" crossorigin="anonymous"></script>
+{% endblock %}
+
+{% block styles %}
     <style>
         .btn-block {
             display: block;
@@ -9,8 +13,15 @@
             padding: .375rem .75rem;
             margin-bottom: .75rem;
         }
-    </style>
 
+        .bottom-buttons .btn {
+            flex-grow: 1;
+            margin: 5px;
+        }
+    </style>
+{% endblock %}
+
+{% block page_content %}
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
@@ -95,7 +106,7 @@
 
                         <hr class="my-4">
 
-                        <div class="d-flex justify-content-between">
+                        <div class="d-flex justify-content-between bottom-buttons">
                             <a href="{% url 'post_list' %}" class="btn btn-outline-secondary">Back to Posts</a>
                             <a href="{% url 'register' %}" class="btn btn-outline-primary">Register</a>
                         </div>

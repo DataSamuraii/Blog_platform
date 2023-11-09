@@ -1,11 +1,12 @@
+from datetime import timedelta
+
+from django import forms
 from django.contrib import admin
-from django.utils.html import format_html
 from django.http import HttpResponseRedirect
 from django.urls import path, reverse
 from django.utils import timezone
-from datetime import timedelta
+from django.utils.html import format_html
 from django.utils.translation import gettext_lazy as _
-from django import forms
 
 from .models import Post, Category, ViewedPost, Comment
 

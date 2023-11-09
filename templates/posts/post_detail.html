@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block page_content %}
+{% block styles %}
     <style>
         .errorlist {
             margin: 0;
@@ -8,7 +8,9 @@
             list-style-type: none;
         }
     </style>
+{% endblock %}
 
+{% block page_content %}
     {% if messages %}
         <div class="mt-4">
             {% for message in messages %}

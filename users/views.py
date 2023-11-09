@@ -3,13 +3,14 @@ from django.contrib.auth import views as auth_views
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
+from django.shortcuts import redirect
 from django.urls import reverse, reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView
 from django.views.generic.list import ListView
-from posts.models import Post
-from .forms import CustomUserCreationForm, CustomUserEditForm, CustomAuthenticationForm
 
-# TODO Banned users functionality
+from posts.models import Post
+from .models import UnbanRequest
+from .forms import CustomUserCreationForm, CustomUserEditForm, CustomAuthenticationForm, UnbanRequestForm
 
 
 class CustomLoginView(auth_views.LoginView):
@@ -24,6 +25,12 @@ class CustomLoginView(auth_views.LoginView):
     def form_valid(self, form):
         messages.success(self.request, 'Successfully logged in!')
         return super().form_valid(form)
+
+    def form_invalid(self, form):
+        if getattr(self.request, 'banned', False):
+            return redirect(reverse('banned_user'))
+
+        return super().form_invalid(form)
 
 
 class CustomLogoutView(auth_views.LogoutView):
@@ -70,3 +77,17 @@ class DashboardView(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         return self.request.user.post_set.all()
+
+
+class BannedUserView(CreateView):
+    model = UnbanRequest
+    form_class = UnbanRequestForm
+    template_name = 'users/banned_user.html'
+    success_url = reverse_lazy('banned_user')
+
+    def form_valid(self, form):
+        obj = form.save(commit=False)
+        obj.user = self.request.user
+        response = super().form_valid(form)
+        messages.success(self.request, 'Your unban request has been received!')
+        return response
