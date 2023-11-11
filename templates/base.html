@@ -52,6 +52,11 @@
             </ul>
             <ul class="navbar-nav">
                 {% if user.is_authenticated %}
+                    {% if user.is_staff %}
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-light mr-2" href="{% url 'admin:index' %}">Admin panel</a>
+                        </li>
+                    {% endif %}
                     <li class="nav-item">
                         <a class="nav-link btn btn-light mr-2" href="{% url 'dashboard' %}">Dashboard</a>
                     </li>

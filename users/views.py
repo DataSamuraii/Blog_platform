@@ -33,7 +33,7 @@ class CustomLoginView(auth_views.LoginView):
         return super().form_invalid(form)
 
 
-class CustomLogoutView(auth_views.LogoutView):
+class CustomLogoutView(LoginRequiredMixin, auth_views.LogoutView):
     
     def dispatch(self, request, *args, **kwargs):
         response = super().dispatch(request, *args, **kwargs)

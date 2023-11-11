@@ -6,6 +6,9 @@ from django.contrib.auth import get_user_model
 class CustomUser(AbstractUser):
     is_banned = models.BooleanField(default=False)
 
+    class Meta:
+        ordering = ['id']
+
 
 class UnbanRequest(models.Model):
     UNBAN_STATUS_CHOICES = [
