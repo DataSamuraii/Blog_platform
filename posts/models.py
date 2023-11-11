@@ -42,6 +42,7 @@ class Category(models.Model):
 
     class Meta:
         ordering = ['title']
+        verbose_name_plural = 'Categories'
 
 
 class ViewedPost(models.Model):
