@@ -8,7 +8,28 @@ from django.utils import timezone
 from django.utils.html import format_html
 from django.utils.translation import gettext_lazy as _
 
+from users.admin import YearFilter
 from .models import Post, Category, ViewedPost, Comment
+
+
+class AuthorLinkMixin:
+    def author_link(self, obj):
+        if obj.author:
+            url = reverse('admin:users_customuser_change', args=[obj.author.id])
+            return format_html('<a href="{}">{}</a>', url, obj.author)
+        return '-'
+
+    author_link.short_description = 'author'
+
+
+class PostLinkMixin:
+    def post_link(self, obj):
+        if obj.post:
+            url = reverse('admin:posts_post_change', args=[obj.post.id])
+            return format_html('<a href="{}">{}</a>', url, obj.post)
+        return '-'
+
+    post_link.short_description = 'post'
 
 
 class ViewsFilter(admin.SimpleListFilter):
@@ -35,6 +56,10 @@ class ViewsFilter(admin.SimpleListFilter):
         return queryset
 
 
+class PostYearFilter(YearFilter):
+    data_field = 'date_published'
+
+
 class PostAdminForm(forms.ModelForm):
     class Meta:
         model = Post
@@ -48,10 +73,11 @@ class PostAdminForm(forms.ModelForm):
 
 
 @admin.register(Post)
-class PostAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'date_published', 'category_link', 'author_link', 'is_published', 'views')
-    list_filter = ('category', 'author', 'is_published', ViewsFilter)
+class PostAdmin(AuthorLinkMixin, admin.ModelAdmin):
+    list_display = ['id', 'title', 'author_link', 'date_published', 'category_link', 'is_published', 'views']
+    list_filter = [PostYearFilter, 'category', ViewsFilter, 'author', 'is_published']
     search_fields = ['title', 'content', 'category__title', 'author__username__iexact']
+    readonly_fields = ['date_published', 'views', 'author']
     form = PostAdminForm
 
     def category_link(self, obj):
@@ -59,23 +85,22 @@ class PostAdmin(admin.ModelAdmin):
             url = reverse('admin:posts_category_change', args=[obj.category.id])
             return format_html('<a href="{}">{}</a>', url, obj.category)
         return '-'
-    category_link.short_description = 'category'
 
-    def author_link(self, obj):
-        if obj.author:
-            url = reverse('admin:auth_user_change', args=[obj.author.id])
-            return format_html('<a href="{}">{}</a>', url, obj.author)
-        return '-'
-    author_link.short_description = 'author'
+    category_link.short_description = 'category'
 
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
-    pass
+    list_display = ['title', 'description']
+    search_fields = ['title', 'description']
 
 
 @admin.register(ViewedPost)
-class ViewedPostAdmin(admin.ModelAdmin):
+class ViewedPostAdmin(PostLinkMixin, admin.ModelAdmin):
+    list_display = ['id', 'post_link', 'timestamp', 'ip_address']
+    list_filter = ['post']
+    search_fields = ['timestamp', 'ip_address']
+    readonly_fields = ['post', 'ip_address', 'timestamp']
     change_list_template = 'admin/viewedpost_change_list.html'
 
     def get_urls(self):
@@ -93,6 +118,22 @@ class ViewedPostAdmin(admin.ModelAdmin):
         return HttpResponseRedirect(reverse('admin:posts_viewedpost_changelist'))
 
 
+class CommentYearFilter(YearFilter):
+    data_field = 'timestamp'
+
+
 @admin.register(Comment)
-class CommentAdmin(admin.ModelAdmin):
-    pass
+class CommentAdmin(PostLinkMixin, AuthorLinkMixin, admin.ModelAdmin):
+    list_display = ['id', 'author_link', 'post_link', 'parent_comment_link', 'is_deleted', 'likes_count',
+                    'dislikes_count']
+    list_filter = [CommentYearFilter, 'post', 'is_deleted']
+    search_fields = ['content', 'author', ]
+    readonly_fields = ['author', 'post', 'timestamp', 'parent_comment']
+
+    def parent_comment_link(self, obj):
+        if obj.parent_comment:
+            url = reverse('admin:posts_post_change', args=[obj.parent_comment.id])
+            return format_html('<a href="{}">{}</a>', url, obj.parent_comment)
+        return '-'
+
+    parent_comment_link.short_description = 'parent comment id'

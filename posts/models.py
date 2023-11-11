@@ -69,6 +69,9 @@ class Comment(models.Model):
     class Meta:
         ordering = ['timestamp']
 
+    def __str__(self):
+        return str(self.id)
+
 
 class CommentReaction(models.Model):
     REACTION_CHOICES = [
