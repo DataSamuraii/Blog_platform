@@ -1,3 +1,4 @@
+import logging
 from django.contrib import messages
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -12,6 +13,8 @@ from posts.models import Post
 from .models import UnbanRequest
 from .forms import CustomUserCreationForm, CustomUserEditForm, CustomAuthenticationForm, UnbanRequestForm
 
+logger = logging.getLogger(__name__.split('.')[0])
+
 
 class CustomLoginView(auth_views.LoginView):
     form_class = CustomAuthenticationForm
@@ -23,21 +26,26 @@ class CustomLoginView(auth_views.LoginView):
         return super().dispatch(request, *args, **kwargs)
 
     def form_valid(self, form):
+        response = super().form_valid(form)
         messages.success(self.request, 'Successfully logged in!')
-        return super().form_valid(form)
+        logger.info(f"User {form.get_user().username} logged in, IP: {self.request.META['REMOTE_ADDR']}")
+        return response
 
     def form_invalid(self, form):
         if getattr(self.request, 'banned', False):
             return redirect(reverse('banned_user'))
 
-        return super().form_invalid(form)
+        response = super().form_invalid(form)
+        logger.warning(f"Failed login attempt for {self.request.POST['username']}, IP: {self.request.META['REMOTE_ADDR']}")
+        return response
 
 
 class CustomLogoutView(LoginRequiredMixin, auth_views.LogoutView):
-    
+
     def dispatch(self, request, *args, **kwargs):
         response = super().dispatch(request, *args, **kwargs)
         messages.success(request, 'Successfully logged out!')
+        logger.info(f"User {request.user.username} logged out")
         return response
 
 
@@ -52,6 +60,7 @@ class RegisterUserView(CreateView):
         user.backend = 'django.contrib.auth.backends.ModelBackend'
         response = super().form_valid(form)
         messages.success(self.request, 'You have successfully registered!')
+        logger.info(f"New user registered: {user.username}")
         return response
 
 
@@ -67,6 +76,7 @@ class EditUserView(LoginRequiredMixin, UpdateView):
     def form_valid(self, form):
         response = super().form_valid(form)
         messages.success(self.request, 'Successfully edited user info!')
+        logger.info(f"User {self.request.user.username} changed fields: {form.changed_data}")
         return response
 
 

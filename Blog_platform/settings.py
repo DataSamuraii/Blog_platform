@@ -45,7 +45,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'users.middleware.SocialAuthBanMiddleware'
+    'users.middleware.SocialAuthBanMiddleware',
+    'users.middleware.AdminLoggingMiddleware',
 ]
 
 ROOT_URLCONF = 'Blog_platform.urls'
@@ -150,7 +151,6 @@ SOCIAL_AUTH_PIPELINE = (
     'social_core.pipeline.user.user_details',
 )
 
-
 AUTH_USER_MODEL = 'users.CustomUser'
 
 SOCIAL_AUTH_GITHUB_KEY = os.getenv('SOCIAL_AUTH_GITHUB_KEY')
@@ -188,3 +188,44 @@ STRIP_COMMENTS = True
 
 RECAPTCHA_PUBLIC_KEY = os.getenv('RECAPTCHA_PUBLIC_KEY')
 RECAPTCHA_PRIVATE_KEY = os.getenv('RECAPTCHA_PRIVATE_KEY')
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '{levelname} {asctime} {module} {message} ',
+            'style': '{'
+        }
+    },
+    'handlers': {
+        'posts': {
+            'level': 'INFO',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': 'logs/posts.log',
+            'maxBytes': 1024 * 1024 * 5,  # 5 MB
+            'backupCount': 5,
+            'formatter': 'verbose',
+        },
+        'users': {
+            'level': 'INFO',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': 'logs/users.log',
+            'maxBytes': 1024 * 1024 * 5,  # 5 MB
+            'backupCount': 5,
+            'formatter': 'verbose',
+        },
+    },
+    'loggers': {
+        'posts': {
+            'handlers': ['posts'],
+            'level': 'INFO',
+            'propagate': False
+        },
+        'users': {
+            'handlers': ['users'],
+            'level': 'INFO',
+            'propagate': False
+        }
+    },
+}

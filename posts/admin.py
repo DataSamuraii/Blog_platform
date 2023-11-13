@@ -1,4 +1,5 @@
 from datetime import timedelta
+import logging
 
 from django import forms
 from django.contrib import admin
@@ -10,6 +11,8 @@ from django.utils.translation import gettext_lazy as _
 
 from users.admin import YearFilter
 from .models import Post, Category, ViewedPost, Comment
+
+logger = logging.getLogger(__name__.split('.')[0])
 
 
 class AuthorLinkMixin:

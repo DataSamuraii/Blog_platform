@@ -1,8 +1,12 @@
+import logging
+
 from django.contrib import admin, messages
 from django.db import transaction, DatabaseError
 from django.utils import timezone
 
 from .models import UnbanRequest, CustomUser
+
+logger = logging.getLogger(__name__.split('.')[0])
 
 
 class YearFilter(admin.SimpleListFilter):
@@ -36,6 +40,7 @@ class CustomUserAdmin(admin.ModelAdmin):
     full_name.short_description = 'Full name'
 
     def ban_user(self, request, queryset):
+        logger.warning(f'ban_user action called by {request.user}')
         if not request.user.is_superuser:
             messages.error(request, 'Only superusers can perform this action.')
             return
@@ -49,7 +54,7 @@ class CustomUserAdmin(admin.ModelAdmin):
                         user.save()
                         messages.success(request, f'Banned user {user}')
                     except DatabaseError as e:
-                        print(f'Error banning user {user}: {e}')
+                        logger.error(f'Error banning user {user}: {e}')
 
     ban_user.short_description = 'Ban selected users'
 
