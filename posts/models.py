@@ -1,7 +1,11 @@
+import logging
+
 import bleach
 from ckeditor.fields import RichTextField
 from django.conf import settings
 from django.db import models
+
+logger = logging.getLogger(__name__.split('.')[0])
 
 
 class Post(models.Model):
@@ -29,6 +33,10 @@ class Post(models.Model):
         )
         super().save(*args, **kwargs)
 
+    def delete(self, *args, **kwargs):
+        logger.warning(f"Deleting post: {self.title} (ID: {self.pk})")
+        super().delete(*args, **kwargs)
+
     class Meta:
         ordering = ['-date_published']
 
@@ -36,6 +44,10 @@ class Post(models.Model):
 class Category(models.Model):
     title = models.CharField(max_length=30)
     description = models.TextField()
+
+    def delete(self, *args, **kwargs):
+        logger.warning(f"Deleting category: {self.title} (ID: {self.pk})")
+        super().delete(*args, **kwargs)
 
     def __str__(self):
         return self.title
@@ -49,6 +61,10 @@ class ViewedPost(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     ip_address = models.GenericIPAddressField()
     timestamp = models.DateTimeField(auto_now_add=True)
+
+    def delete(self, *args, **kwargs):
+        logger.warning(f"Deleting ViewedPost: {self.title} (ID: {self.pk})")
+        super().delete(*args, **kwargs)
 
 
 class Comment(models.Model):
@@ -67,11 +83,15 @@ class Comment(models.Model):
     def dislikes_count(self):
         return self.reactions.filter(reaction_type='dislike').count()
 
-    class Meta:
-        ordering = ['timestamp']
+    def delete(self, *args, **kwargs):
+        logger.warning(f"Deleting comment: {self.title} (ID: {self.pk})")
+        super().delete(*args, **kwargs)
 
     def __str__(self):
         return str(self.id)
+
+    class Meta:
+        ordering = ['timestamp']
 
 
 class CommentReaction(models.Model):

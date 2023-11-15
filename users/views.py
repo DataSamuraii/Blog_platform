@@ -36,7 +36,8 @@ class CustomLoginView(auth_views.LoginView):
             return redirect(reverse('banned_user'))
 
         response = super().form_invalid(form)
-        logger.warning(f"Failed login attempt for {self.request.POST['username']}, IP: {self.request.META['REMOTE_ADDR']}")
+        logger.warning(
+            f"Failed login attempt for {self.request.POST['username']}, IP: {self.request.META['REMOTE_ADDR']}")
         return response
 
 

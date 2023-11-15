@@ -1,3 +1,4 @@
+import logging
 from datetime import timedelta
 
 from django.contrib import messages
@@ -15,6 +16,8 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from .forms import PostForm, CategoryForm, CommentForm
 from .models import Post, Category, ViewedPost, Comment, CommentReaction
+
+logger = logging.getLogger(__name__.split('.')[0])
 
 
 class PostListView(ListView):
@@ -69,6 +72,7 @@ class PostDetailView(DetailView):
             self.request.session[session_key] = True
             self.request.session.set_expiry(86400)  # 24 hours in seconds
             ViewedPost.objects.create(post=self.object, ip_address=ip)
+            logger.info(f'Created new ViewedPost for IP {ip}, post {self.object, self.object.pk}')
 
 
 class CreatePostView(LoginRequiredMixin, CreateView):
@@ -82,6 +86,7 @@ class CreatePostView(LoginRequiredMixin, CreateView):
         post.author = self.request.user
         response = super().form_valid(form)
         messages.success(self.request, 'Successfully published a new post')
+        logger.info(f'User {self.request.user} created new post {post.pk}')
         return response
 
 
@@ -103,6 +108,7 @@ class EditPostView(LoginRequiredMixin, UpdateView):
     def form_valid(self, form):
         response = super().form_valid(form)
         messages.success(self.request, 'Successfully updated post!')
+        logger.info(f'User {self.request.user} edited post {self.object.pk}')
         return response
 
 
@@ -120,6 +126,7 @@ class DeletePostView(LoginRequiredMixin, DeleteView):
     def form_valid(self, form):
         response = super().form_valid(form)
         messages.success(self.request, 'Successfully deleted post!')
+        logger.warning(f'User {self.request.user} deleted post {self.object.pk}')
         return response
 
 
@@ -149,6 +156,13 @@ class CreateCategoryView(LoginRequiredMixin, CreateView):
             return next_url
         return reverse_lazy(next_url)
 
+    def form_valid(self, form):
+        category = form.save(commit=False)
+        response = super().form_valid(form)
+        messages.success(self.request, 'Successfully created a new category')
+        logger.info(f'User {self.request.user} created new category {category.pk}')
+        return response
+
 
 class CreateCommentView(LoginRequiredMixin, CreateView):
     model = Comment
@@ -170,6 +184,7 @@ class CreateCommentView(LoginRequiredMixin, CreateView):
 
         response = super().form_valid(form)
         messages.success(self.request, 'Successfully posted new comment!')
+        logger.info(f'User {self.request.user} posted a new comment {comment.pk}')
         return response
 
     def form_invalid(self, form):
@@ -194,6 +209,7 @@ class DeleteCommentView(LoginRequiredMixin, DeleteView):
         self.object.is_deleted = True
         self.object.save()
         messages.success(self.request, 'Successfully deleted comment')
+        logger.warning(f'User {self.request.user} deleted comment {self.object.pk}')
         return redirect('post_detail', self.object.post.id)
 
 

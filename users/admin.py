@@ -29,7 +29,11 @@ class CustomUserAdmin(admin.ModelAdmin):
     list_display = ['id', 'username', 'full_name', 'is_staff', 'is_banned']
     list_filter = ['is_staff', 'is_banned', YearFilter]
     search_fields = ['username', 'full_name']
-    readonly_fields = ['date_joined', 'last_login']
+    readonly_fields = [
+        'username', 'first_name', 'last_name', 'email', 'date_joined', 'last_login', 'is_superuser', 'is_staff',
+        'is_active', 'user_permissions', 'groups', 'is_banned'
+    ]
+    exclude = ['password']
     actions = ['ban_user']
 
     def full_name(self, obj):
@@ -68,4 +72,4 @@ class UnbanRequestAdmin(admin.ModelAdmin):
     list_display = ['id', 'user', 'created_at', 'status']
     list_filter = ['status', UnbanRequestYearFilter]
     search_fields = ['user', 'content']
-    readonly_fields = ['user', 'created_at']
+    readonly_fields = ['user', 'content', 'created_at']

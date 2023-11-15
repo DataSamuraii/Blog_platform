@@ -1,0 +1,34 @@
+INFO 2023-11-14 22:47:59,115 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-14 22:47:59,143 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+WARNING 2023-11-14 22:48:02,545 admin ban_user action called by root 
+WARNING 2023-11-14 22:48:02,546 signals Fields updated for random_user: is_banned: False -> True 
+INFO 2023-11-14 22:48:02,711 middleware Admin action by root: POST /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-14 22:48:02,725 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-14 22:48:02,748 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-14 22:50:59,552 middleware Admin action by : GET /admin/users/customuser/1/change/ Resolved users_customuser_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-14 22:50:59,575 middleware Admin action by : GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-14 22:56:59,200 middleware Admin action by root: GET /admin/users/unbanrequest/ Resolved users_unbanrequest_changelist with args () and kwargs {} 
+INFO 2023-11-14 22:56:59,224 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-14 22:57:00,506 middleware Admin action by root: GET /admin/users/unbanrequest/1/change/ Resolved users_unbanrequest_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-14 22:57:00,526 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+WARNING 2023-11-14 22:57:04,275 models UnbanRequest 1 'status' changed from pending to reviewed 
+WARNING 2023-11-14 22:57:04,276 signals Fields updated for UnbanRequest 1: status: pending -> reviewed 
+INFO 2023-11-14 22:57:04,452 middleware Admin action by root: POST /admin/users/unbanrequest/1/change/ Resolved users_unbanrequest_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-14 22:57:04,463 middleware Admin action by root: GET /admin/users/unbanrequest/1/change/ Resolved users_unbanrequest_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-14 22:57:04,492 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-14 23:03:06,161 middleware Admin action by root: GET /admin/posts/post/ Resolved posts_post_changelist with args () and kwargs {} 
+INFO 2023-11-14 23:03:06,189 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-14 23:03:07,933 middleware Admin action by root: GET /admin/posts/post/1/change/ Resolved posts_post_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-14 23:03:07,976 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-14 23:14:46,291 middleware Admin action by root: GET /admin/posts/comment/ Resolved posts_comment_changelist with args () and kwargs {} 
+INFO 2023-11-14 23:14:46,322 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-14 23:14:49,554 middleware Admin action by root: GET /admin/posts/comment/1/change/ Resolved posts_comment_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-14 23:14:49,580 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-14 23:14:53,439 middleware Admin action by root: GET /admin/posts/comment/ Resolved posts_comment_changelist with args () and kwargs {} 
+INFO 2023-11-14 23:17:51,882 middleware Admin action by root: GET /admin/posts/post/ Resolved posts_post_changelist with args () and kwargs {} 
+INFO 2023-11-14 23:17:51,908 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-14 23:17:52,848 middleware Admin action by root: GET /admin/posts/post/1/change/ Resolved posts_post_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-14 23:17:52,965 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-14 23:18:31,077 middleware Admin action by root: GET /admin/posts/post/ Resolved posts_post_changelist with args () and kwargs {} 
+INFO 2023-11-15 19:51:38,964 middleware Admin action by root: GET /admin/posts/post/ Resolved posts_post_changelist with args () and kwargs {} 
+INFO 2023-11-15 19:51:39,006 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
