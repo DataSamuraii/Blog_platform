@@ -5,9 +5,6 @@ import bleach
 from django.contrib.messages import constants as messages
 from dotenv import load_dotenv
 
-# TODO add permission management, group permissions
-# TODO add superuser to be able edit readonly fields
-
 # Load environment variables from .env file
 load_dotenv()
 

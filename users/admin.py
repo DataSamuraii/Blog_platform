@@ -2,7 +2,9 @@ import logging
 
 from django.contrib import admin, messages
 from django.db import transaction, DatabaseError
+from django.urls import reverse
 from django.utils import timezone
+from django.utils.html import format_html
 
 from .models import UnbanRequest, CustomUser
 
@@ -26,7 +28,7 @@ class YearFilter(admin.SimpleListFilter):
 
 @admin.register(CustomUser)
 class CustomUserAdmin(admin.ModelAdmin):
-    list_display = ['id', 'username', 'full_name', 'is_staff', 'is_banned']
+    list_display = ['id', 'username', 'full_name', 'is_staff', 'is_banned', 'group_link']
     list_filter = ['is_staff', 'is_banned', YearFilter]
     search_fields = ['username', 'full_name']
     readonly_fields = [
@@ -42,6 +44,14 @@ class CustomUserAdmin(admin.ModelAdmin):
         return '-'
 
     full_name.short_description = 'Full name'
+
+    def group_link(self, obj):
+        return format_html(
+            ', '.join([f'<a href="{reverse("admin:auth_group_change", args=[group.pk])}">{group.name}</a>' for group in
+                       obj.groups.all()])
+        )
+
+    group_link.short_description = 'Group(s)'
 
     def ban_user(self, request, queryset):
         logger.warning(f'ban_user action called by {request.user}')
@@ -62,6 +72,12 @@ class CustomUserAdmin(admin.ModelAdmin):
 
     ban_user.short_description = 'Ban selected users'
 
+    def get_actions(self, request):
+        actions = super().get_actions(request)
+        if request.user.has_perm('users.change_customuser'):
+            return actions
+        return []
+
 
 class UnbanRequestYearFilter(YearFilter):
     data_field = 'created_at'
@@ -72,4 +88,3 @@ class UnbanRequestAdmin(admin.ModelAdmin):
     list_display = ['id', 'user', 'created_at', 'status']
     list_filter = ['status', UnbanRequestYearFilter]
     search_fields = ['user', 'content']
-    readonly_fields = ['user', 'content', 'created_at']

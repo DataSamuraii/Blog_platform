@@ -1,9 +1,9 @@
-from datetime import timedelta
 import logging
+from datetime import timedelta
 
 from django import forms
 from django.contrib import admin
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponseForbidden
 from django.urls import path, reverse
 from django.utils import timezone
 from django.utils.html import format_html
@@ -80,7 +80,7 @@ class PostAdmin(AuthorLinkMixin, admin.ModelAdmin):
     list_display = ['id', 'title', 'author_link', 'date_published', 'category_link', 'is_published', 'views']
     list_filter = [PostYearFilter, 'category', ViewsFilter, 'author', 'is_published']
     search_fields = ['title', 'content', 'category__title', 'author__username__iexact']
-    readonly_fields = [field.name for field in Post._meta.fields]
+
     form = PostAdminForm
 
     def category_link(self, obj):
@@ -96,7 +96,6 @@ class PostAdmin(AuthorLinkMixin, admin.ModelAdmin):
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ['title', 'description']
     search_fields = ['title', 'description']
-    readonly_fields = [field.name for field in Category._meta.fields]
 
 
 @admin.register(ViewedPost)
@@ -104,7 +103,6 @@ class ViewedPostAdmin(PostLinkMixin, admin.ModelAdmin):
     list_display = ['id', 'post_link', 'timestamp', 'ip_address']
     list_filter = ['post']
     search_fields = ['timestamp', 'ip_address']
-    readonly_fields = [field.name for field in ViewedPost._meta.fields]
     change_list_template = 'admin/viewedpost_change_list.html'
 
     def get_urls(self):
@@ -114,6 +112,9 @@ class ViewedPostAdmin(PostLinkMixin, admin.ModelAdmin):
         return my_urls + super().get_urls()
 
     def purge_old_views(self, request):
+        if not request.user.has_perm('posts.delete_viewedpost'):
+            return HttpResponseForbidden('You do not have permission to perform this action.')
+
         logger.warning(f'purge_old_views action called by {request.user}')
         time_threshold = timezone.now() - timedelta(hours=24)
         old_records = ViewedPost.objects.filter(timestamp__lte=time_threshold)
@@ -133,7 +134,6 @@ class CommentAdmin(PostLinkMixin, AuthorLinkMixin, admin.ModelAdmin):
                     'dislikes_count']
     list_filter = [CommentYearFilter, 'post', 'is_deleted']
     search_fields = ['content', 'author', ]
-    readonly_fields = [field.name for field in Comment._meta.fields]
 
     def parent_comment_link(self, obj):
         if obj.parent_comment:

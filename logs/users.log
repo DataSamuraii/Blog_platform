@@ -32,3 +32,433 @@ INFO 2023-11-14 23:17:52,965 middleware Admin action by root: GET /admin/jsi18n/
 INFO 2023-11-14 23:18:31,077 middleware Admin action by root: GET /admin/posts/post/ Resolved posts_post_changelist with args () and kwargs {} 
 INFO 2023-11-15 19:51:38,964 middleware Admin action by root: GET /admin/posts/post/ Resolved posts_post_changelist with args () and kwargs {} 
 INFO 2023-11-15 19:51:39,006 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 18:59:31,026 middleware Admin action by root: GET /admin/posts/post/ Resolved posts_post_changelist with args () and kwargs {} 
+INFO 2023-11-16 18:59:31,113 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:07:27,080 middleware Admin action by root: GET /admin/posts/comment/ Resolved posts_comment_changelist with args () and kwargs {} 
+INFO 2023-11-16 19:07:27,109 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:07:28,074 middleware Admin action by root: GET /admin/users/customuser/3/change/ Resolved users_customuser_change with args () and kwargs {'object_id': '3'} 
+INFO 2023-11-16 19:07:28,097 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:07:35,764 middleware Admin action by root: GET /admin/users/customuser/3/change/ Resolved users_customuser_change with args () and kwargs {'object_id': '3'} 
+INFO 2023-11-16 19:07:35,797 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:07:38,728 middleware Admin action by root: GET /admin/posts/comment/ Resolved posts_comment_changelist with args () and kwargs {} 
+INFO 2023-11-16 19:07:38,754 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:07:40,202 middleware Admin action by root: GET /admin/posts/comment/1/change/ Resolved posts_comment_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-16 19:07:40,226 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:07:47,872 middleware Admin action by root: GET /admin/posts/comment/1/change/ Resolved posts_comment_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-16 19:07:47,900 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:08:48,360 middleware Admin action by root: GET /admin/auth/group/ Resolved auth_group_changelist with args () and kwargs {} 
+INFO 2023-11-16 19:08:48,388 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:29:17,392 middleware Admin action by root: GET /admin/auth/group/add/ Resolved auth_group_add with args () and kwargs {} 
+INFO 2023-11-16 19:29:17,417 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:30:06,558 middleware Admin action by root: POST /admin/auth/group/add/ Resolved auth_group_add with args () and kwargs {} 
+INFO 2023-11-16 19:30:06,574 middleware Admin action by root: GET /admin/auth/group/add/ Resolved auth_group_add with args () and kwargs {} 
+INFO 2023-11-16 19:30:06,601 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:31:59,744 middleware Admin action by root: POST /admin/auth/group/add/ Resolved auth_group_add with args () and kwargs {} 
+INFO 2023-11-16 19:31:59,763 middleware Admin action by root: GET /admin/auth/group/2/change/ Resolved auth_group_change with args () and kwargs {'object_id': '2'} 
+INFO 2023-11-16 19:31:59,782 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:32:02,221 middleware Admin action by root: POST /admin/auth/group/2/change/ Resolved auth_group_change with args () and kwargs {'object_id': '2'} 
+INFO 2023-11-16 19:32:02,237 middleware Admin action by root: GET /admin/auth/group/add/ Resolved auth_group_add with args () and kwargs {} 
+INFO 2023-11-16 19:32:02,265 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:33:48,212 middleware Admin action by root: POST /admin/auth/group/add/ Resolved auth_group_add with args () and kwargs {} 
+INFO 2023-11-16 19:33:48,228 middleware Admin action by root: GET /admin/auth/group/add/ Resolved auth_group_add with args () and kwargs {} 
+INFO 2023-11-16 19:33:48,254 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:34:16,973 middleware Admin action by root: GET /admin/auth/group/ Resolved auth_group_changelist with args () and kwargs {} 
+INFO 2023-11-16 19:34:17,000 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:34:26,664 middleware Admin action by root: GET /admin/auth/group/add/ Resolved auth_group_add with args () and kwargs {} 
+INFO 2023-11-16 19:34:29,878 middleware Admin action by root: GET /admin/auth/group/ Resolved auth_group_changelist with args () and kwargs {} 
+INFO 2023-11-16 19:34:29,902 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:34:49,755 middleware Admin action by root: POST /admin/auth/group/ Resolved auth_group_changelist with args () and kwargs {} 
+INFO 2023-11-16 19:34:49,765 middleware Admin action by root: GET /admin/auth/group/ Resolved auth_group_changelist with args () and kwargs {} 
+INFO 2023-11-16 19:34:49,787 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:34:52,548 middleware Admin action by root: GET /admin/auth/group/add/ Resolved auth_group_add with args () and kwargs {} 
+INFO 2023-11-16 19:34:52,571 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:37:05,065 middleware Admin action by root: POST /admin/auth/group/add/ Resolved auth_group_add with args () and kwargs {} 
+INFO 2023-11-16 19:37:05,083 middleware Admin action by root: GET /admin/auth/group/4/change/ Resolved auth_group_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-11-16 19:37:05,108 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:37:36,286 middleware Admin action by root: POST /admin/auth/group/4/change/ Resolved auth_group_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-11-16 19:37:36,297 middleware Admin action by root: GET /admin/auth/group/ Resolved auth_group_changelist with args () and kwargs {} 
+INFO 2023-11-16 19:37:36,324 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:43:13,797 middleware Admin action by root: GET /admin/auth/group/1/change/ Resolved auth_group_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-16 19:43:13,897 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:43:16,149 middleware Admin action by root: GET /admin/auth/group/ Resolved auth_group_changelist with args () and kwargs {} 
+INFO 2023-11-16 19:43:18,453 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 19:43:18,472 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:43:23,606 middleware Admin action by root: GET /admin/users/customuser/1/change/ Resolved users_customuser_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-16 19:43:23,633 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:43:29,604 middleware Admin action by root: GET /admin/auth/group/add/ Resolved auth_group_add with args () and kwargs {} 
+INFO 2023-11-16 19:43:29,628 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:43:45,383 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 19:44:11,774 middleware Admin action by root: GET /admin/auth/group/ Resolved auth_group_changelist with args () and kwargs {} 
+INFO 2023-11-16 19:44:11,796 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:44:12,580 middleware Admin action by root: GET /admin/auth/group/1/change/ Resolved auth_group_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-16 19:44:12,600 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:44:14,131 middleware Admin action by root: GET /admin/auth/group/ Resolved auth_group_changelist with args () and kwargs {} 
+INFO 2023-11-16 19:44:15,215 middleware Admin action by root: GET /admin/auth/group/3/change/ Resolved auth_group_change with args () and kwargs {'object_id': '3'} 
+INFO 2023-11-16 19:44:15,237 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:44:16,055 middleware Admin action by root: GET /admin/auth/group/ Resolved auth_group_changelist with args () and kwargs {} 
+INFO 2023-11-16 19:44:17,634 middleware Admin action by root: GET /admin/auth/group/3/change/ Resolved auth_group_change with args () and kwargs {'object_id': '3'} 
+INFO 2023-11-16 19:44:17,680 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:44:19,361 middleware Admin action by root: GET /admin/auth/group/ Resolved auth_group_changelist with args () and kwargs {} 
+INFO 2023-11-16 19:44:20,037 middleware Admin action by root: GET /admin/auth/group/2/change/ Resolved auth_group_change with args () and kwargs {'object_id': '2'} 
+INFO 2023-11-16 19:44:20,064 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:44:23,977 middleware Admin action by root: GET /admin/auth/group/ Resolved auth_group_changelist with args () and kwargs {} 
+INFO 2023-11-16 19:44:24,848 middleware Admin action by root: GET /admin/auth/group/4/change/ Resolved auth_group_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-11-16 19:44:24,897 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:44:27,567 middleware Admin action by root: GET /admin/auth/group/ Resolved auth_group_changelist with args () and kwargs {} 
+INFO 2023-11-16 19:44:28,372 middleware Admin action by root: GET /admin/auth/group/2/change/ Resolved auth_group_change with args () and kwargs {'object_id': '2'} 
+INFO 2023-11-16 19:44:28,397 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:44:47,494 middleware Admin action by root: POST /admin/auth/group/2/change/ Resolved auth_group_change with args () and kwargs {'object_id': '2'} 
+INFO 2023-11-16 19:44:47,505 middleware Admin action by root: GET /admin/auth/group/ Resolved auth_group_changelist with args () and kwargs {} 
+INFO 2023-11-16 19:44:47,529 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:44:48,718 middleware Admin action by root: GET /admin/auth/group/2/change/ Resolved auth_group_change with args () and kwargs {'object_id': '2'} 
+INFO 2023-11-16 19:44:48,739 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:44:49,662 middleware Admin action by root: GET /admin/auth/group/ Resolved auth_group_changelist with args () and kwargs {} 
+INFO 2023-11-16 19:44:50,379 middleware Admin action by root: GET /admin/auth/group/4/change/ Resolved auth_group_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-11-16 19:44:50,405 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:44:53,372 middleware Admin action by root: GET /admin/auth/group/ Resolved auth_group_changelist with args () and kwargs {} 
+INFO 2023-11-16 19:44:54,333 middleware Admin action by root: GET /admin/auth/group/4/change/ Resolved auth_group_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-11-16 19:44:54,363 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:44:56,515 middleware Admin action by root: GET /admin/auth/group/ Resolved auth_group_changelist with args () and kwargs {} 
+INFO 2023-11-16 19:44:58,032 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 19:44:58,058 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:44:59,224 middleware Admin action by root: GET /admin/users/customuser/2/change/ Resolved users_customuser_change with args () and kwargs {'object_id': '2'} 
+INFO 2023-11-16 19:44:59,241 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+WARNING 2023-11-16 19:45:11,887 signals Updated CustomUser 2: is_staff: True -> False 
+INFO 2023-11-16 19:45:12,060 middleware Admin action by root: POST /admin/users/customuser/2/change/ Resolved users_customuser_change with args () and kwargs {'object_id': '2'} 
+INFO 2023-11-16 19:45:12,072 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 19:45:12,097 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:45:13,311 middleware Admin action by root: GET /admin/users/customuser/2/change/ Resolved users_customuser_change with args () and kwargs {'object_id': '2'} 
+INFO 2023-11-16 19:45:13,333 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:45:23,073 middleware Admin action by root: GET /admin/auth/group/add/ Resolved auth_group_add with args () and kwargs {} 
+INFO 2023-11-16 19:45:23,102 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:46:01,404 middleware Admin action by root: POST /admin/users/customuser/2/change/ Resolved users_customuser_change with args () and kwargs {'object_id': '2'} 
+INFO 2023-11-16 19:46:01,417 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 19:46:01,444 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:46:02,559 middleware Admin action by root: GET /admin/users/customuser/2/change/ Resolved users_customuser_change with args () and kwargs {'object_id': '2'} 
+INFO 2023-11-16 19:46:02,582 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+WARNING 2023-11-16 19:46:24,046 signals Updated CustomUser 2: last_name: staff -> staf 
+INFO 2023-11-16 19:46:24,222 middleware Admin action by root: POST /admin/users/customuser/2/change/ Resolved users_customuser_change with args () and kwargs {'object_id': '2'} 
+INFO 2023-11-16 19:46:24,234 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 19:46:24,260 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:46:26,315 middleware Admin action by root: GET /admin/users/customuser/2/change/ Resolved users_customuser_change with args () and kwargs {'object_id': '2'} 
+INFO 2023-11-16 19:46:26,339 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+WARNING 2023-11-16 19:46:29,300 signals Updated CustomUser 2: last_name: staf -> staff 
+INFO 2023-11-16 19:46:29,469 middleware Admin action by root: POST /admin/users/customuser/2/change/ Resolved users_customuser_change with args () and kwargs {'object_id': '2'} 
+INFO 2023-11-16 19:46:29,510 middleware Admin action by root: GET /admin/users/customuser/2/change/ Resolved users_customuser_change with args () and kwargs {'object_id': '2'} 
+INFO 2023-11-16 19:46:29,536 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:46:43,411 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 19:46:43,436 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:46:44,994 middleware Admin action by root: GET /admin/users/customuser/4/change/ Resolved users_customuser_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-11-16 19:46:45,020 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:48:25,922 middleware Admin action by root: GET /admin/auth/group/ Resolved auth_group_changelist with args () and kwargs {} 
+INFO 2023-11-16 19:48:25,952 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:48:27,139 middleware Admin action by root: GET /admin/auth/group/1/change/ Resolved auth_group_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-16 19:48:27,239 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:48:41,412 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 19:48:41,432 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:48:43,519 middleware Admin action by root: GET /admin/users/customuser/1/change/ Resolved users_customuser_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-16 19:48:43,542 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:48:53,388 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 19:48:53,408 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:48:55,041 middleware Admin action by root: GET /admin/users/customuser/3/change/ Resolved users_customuser_change with args () and kwargs {'object_id': '3'} 
+INFO 2023-11-16 19:48:55,064 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:52:05,807 middleware Admin action by root: GET /admin/users/customuser/3/change/ Resolved users_customuser_change with args () and kwargs {'object_id': '3'} 
+INFO 2023-11-16 19:52:05,830 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:52:55,564 middleware Admin action by root: GET /admin/users/customuser/3/change/ Resolved users_customuser_change with args () and kwargs {'object_id': '3'} 
+INFO 2023-11-16 19:52:55,589 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:53:17,893 middleware Admin action by root: GET /admin/users/customuser/3/change/ Resolved users_customuser_change with args () and kwargs {'object_id': '3'} 
+INFO 2023-11-16 19:53:17,933 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:54:59,897 middleware Admin action by root: GET /admin/auth/group/ Resolved auth_group_changelist with args () and kwargs {} 
+INFO 2023-11-16 19:54:59,922 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:55:01,919 middleware Admin action by root: GET /admin/auth/group/1/change/ Resolved auth_group_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-16 19:55:02,012 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:55:09,374 middleware Admin action by root: GET /admin/auth/group/1/change/ Resolved auth_group_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-16 19:55:11,867 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 19:55:11,896 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:55:14,188 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 19:55:14,215 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:55:15,219 middleware Admin action by root: GET /admin/users/customuser/6/change/ Resolved users_customuser_change with args () and kwargs {'object_id': '6'} 
+INFO 2023-11-16 19:55:15,239 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:56:48,098 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 19:56:48,126 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:56:48,990 middleware Admin action by root: GET /admin/users/customuser/2/change/ Resolved users_customuser_change with args () and kwargs {'object_id': '2'} 
+INFO 2023-11-16 19:56:49,018 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:56:55,063 middleware Admin action by root: POST /admin/users/customuser/2/change/ Resolved users_customuser_change with args () and kwargs {'object_id': '2'} 
+INFO 2023-11-16 19:56:55,076 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 19:56:55,102 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:56:56,556 middleware Admin action by root: GET /admin/users/customuser/2/change/ Resolved users_customuser_change with args () and kwargs {'object_id': '2'} 
+INFO 2023-11-16 19:56:56,580 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:57:21,382 middleware Admin action by root: POST /admin/users/customuser/2/change/ Resolved users_customuser_change with args () and kwargs {'object_id': '2'} 
+INFO 2023-11-16 19:57:21,394 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 19:57:21,419 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:57:26,543 middleware Admin action by root: GET /admin/users/customuser/1/change/ Resolved users_customuser_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-16 19:57:26,563 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+WARNING 2023-11-16 19:57:29,216 signals Updated CustomUser 1: last_login: 2023-11-10 11:25:31.417749+00:00 -> 2023-11-10 11:25:31+00:00 
+INFO 2023-11-16 19:57:29,386 middleware Admin action by root: POST /admin/users/customuser/1/change/ Resolved users_customuser_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-16 19:57:29,398 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 19:57:29,424 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:57:30,565 middleware Admin action by root: GET /admin/users/customuser/3/change/ Resolved users_customuser_change with args () and kwargs {'object_id': '3'} 
+INFO 2023-11-16 19:57:30,591 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:57:37,818 middleware Admin action by root: POST /admin/users/customuser/3/change/ Resolved users_customuser_change with args () and kwargs {'object_id': '3'} 
+INFO 2023-11-16 19:57:37,830 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 19:57:37,856 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:57:45,030 middleware Admin action by root: GET /admin/users/customuser/4/change/ Resolved users_customuser_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-11-16 19:57:45,073 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+WARNING 2023-11-16 19:57:51,468 signals Updated CustomUser 4: last_login: 2023-11-07 21:00:46.877171+00:00 -> 2023-11-07 21:00:46+00:00 
+INFO 2023-11-16 19:57:51,544 middleware Admin action by root: POST /admin/users/customuser/4/change/ Resolved users_customuser_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-11-16 19:57:51,556 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 19:57:51,582 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:57:52,716 middleware Admin action by root: GET /admin/users/customuser/4/change/ Resolved users_customuser_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-11-16 19:57:52,741 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:58:19,942 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 19:58:19,968 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:59:03,522 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 19:59:03,559 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:59:22,050 middleware Admin action by root: GET /admin/users/customuser/2/change/ Resolved users_customuser_change with args () and kwargs {'object_id': '2'} 
+INFO 2023-11-16 19:59:22,080 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+WARNING 2023-11-16 19:59:26,445 signals Updated CustomUser 2: is_staff: False -> True 
+INFO 2023-11-16 19:59:26,528 middleware Admin action by root: POST /admin/users/customuser/2/change/ Resolved users_customuser_change with args () and kwargs {'object_id': '2'} 
+INFO 2023-11-16 19:59:26,540 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 19:59:26,577 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:59:32,048 middleware Admin action by root: GET /admin/users/customuser/3/change/ Resolved users_customuser_change with args () and kwargs {'object_id': '3'} 
+INFO 2023-11-16 19:59:32,074 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+WARNING 2023-11-16 19:59:34,633 signals Updated CustomUser 3: is_staff: False -> True 
+INFO 2023-11-16 19:59:34,811 middleware Admin action by root: POST /admin/users/customuser/3/change/ Resolved users_customuser_change with args () and kwargs {'object_id': '3'} 
+INFO 2023-11-16 19:59:34,824 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 19:59:34,849 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 19:59:36,909 middleware Admin action by root: GET /admin/users/customuser/4/change/ Resolved users_customuser_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-11-16 19:59:36,939 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+WARNING 2023-11-16 19:59:38,820 signals Updated CustomUser 4: is_staff: False -> True 
+INFO 2023-11-16 19:59:38,894 middleware Admin action by root: POST /admin/users/customuser/4/change/ Resolved users_customuser_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-11-16 19:59:38,907 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 19:59:38,936 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:07:02,566 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:07:02,593 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:07:16,745 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:07:50,490 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:07:50,510 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:20:54,696 middleware Admin action by root: GET /admin/users/customuser/3/change/ Resolved users_customuser_change with args () and kwargs {'object_id': '3'} 
+INFO 2023-11-16 20:20:54,726 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:21:02,340 middleware Admin action by root: POST /admin/users/customuser/3/change/ Resolved users_customuser_change with args () and kwargs {'object_id': '3'} 
+INFO 2023-11-16 20:21:02,365 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:21:02,393 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:21:07,470 middleware Admin action by root: GET /admin/auth/group/ Resolved auth_group_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:21:07,497 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:21:08,597 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:21:20,764 middleware Admin action by root: GET /admin/auth/group/ Resolved auth_group_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:21:20,788 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:21:23,611 middleware Admin action by root: GET /admin/auth/group/1/change/ Resolved auth_group_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-16 20:21:24,096 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:21:25,904 middleware Admin action by root: GET /admin/auth/group/ Resolved auth_group_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:21:26,657 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:21:32,148 middleware Admin action by root: GET /admin/auth/group/2/change/ Resolved auth_group_change with args () and kwargs {'object_id': '2'} 
+INFO 2023-11-16 20:21:32,173 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:21:36,400 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:21:37,092 middleware Admin action by root: GET /admin/auth/group/3/change/ Resolved auth_group_change with args () and kwargs {'object_id': '3'} 
+INFO 2023-11-16 20:21:37,118 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:21:41,871 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:21:42,672 middleware Admin action by root: GET /admin/auth/group/2/change/ Resolved auth_group_change with args () and kwargs {'object_id': '2'} 
+INFO 2023-11-16 20:21:42,696 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:21:45,506 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:21:46,624 middleware Admin action by root: GET /admin/auth/group/3/change/ Resolved auth_group_change with args () and kwargs {'object_id': '3'} 
+INFO 2023-11-16 20:21:46,648 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:21:47,050 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:21:47,475 middleware Admin action by root: GET /admin/auth/group/4/change/ Resolved auth_group_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-11-16 20:21:47,511 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:21:48,958 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:21:50,330 middleware Admin action by root: GET /admin/auth/group/4/change/ Resolved auth_group_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-11-16 20:21:50,354 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:21:54,441 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:21:55,323 middleware Admin action by root: GET /admin/auth/group/3/change/ Resolved auth_group_change with args () and kwargs {'object_id': '3'} 
+INFO 2023-11-16 20:21:55,370 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:21:58,096 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:22:28,864 middleware Admin action by AnonymousUser: POST /admin/logout/ Resolved logout with args () and kwargs {} 
+WARNING 2023-11-16 20:22:40,532 signals Updated CustomUser 3: last_login: 2023-11-09 16:50:57+00:00 -> 2023-11-16 18:22:40.532830+00:00 
+INFO 2023-11-16 20:22:40,606 views User datasamuraii logged in, IP: 127.0.0.1 
+INFO 2023-11-16 20:22:43,809 middleware Admin action by datasamuraii: GET /admin/ Resolved index with args () and kwargs {} 
+INFO 2023-11-16 20:22:47,227 middleware Admin action by datasamuraii: GET /admin/posts/category/ Resolved posts_category_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:22:48,335 middleware Admin action by datasamuraii: GET /admin/ Resolved index with args () and kwargs {} 
+INFO 2023-11-16 20:22:57,000 middleware Admin action by datasamuraii: GET /admin/posts/post/ Resolved posts_post_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:22:59,339 middleware Admin action by datasamuraii: GET /admin/users/customuser/4/change/ Resolved users_customuser_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-11-16 20:23:00,379 middleware Admin action by datasamuraii: GET /admin/posts/post/ Resolved posts_post_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:23:03,857 middleware Admin action by datasamuraii: GET /admin/posts/post/1/change/ Resolved posts_post_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-16 20:23:03,885 middleware Admin action by datasamuraii: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:23:20,907 middleware Admin action by AnonymousUser: GET /admin/posts/post/1/change/ Resolved posts_post_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-16 20:23:21,023 middleware Admin action by AnonymousUser: GET /admin/login/ Resolved login with args () and kwargs {} 
+WARNING 2023-11-16 20:23:25,168 signals Updated CustomUser 1: last_login: 2023-11-10 11:25:31+00:00 -> 2023-11-16 18:23:25.167134+00:00 
+INFO 2023-11-16 20:23:25,241 middleware Admin action by root: POST /admin/login/ Resolved login with args () and kwargs {} 
+INFO 2023-11-16 20:23:25,331 middleware Admin action by root: GET /admin/posts/post/1/change/ Resolved posts_post_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-16 20:23:25,347 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:23:28,506 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:23:28,518 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:23:35,147 middleware Admin action by root: GET /admin/auth/group/2/change/ Resolved auth_group_change with args () and kwargs {'object_id': '2'} 
+INFO 2023-11-16 20:23:35,157 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:23:39,673 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:23:40,848 middleware Admin action by root: GET /admin/auth/group/3/change/ Resolved auth_group_change with args () and kwargs {'object_id': '3'} 
+INFO 2023-11-16 20:23:40,858 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:24:55,538 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:24:56,850 middleware Admin action by root: GET /admin/auth/group/4/change/ Resolved auth_group_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-11-16 20:24:56,862 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:25:06,401 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:25:07,512 middleware Admin action by root: GET /admin/auth/group/2/change/ Resolved auth_group_change with args () and kwargs {'object_id': '2'} 
+INFO 2023-11-16 20:25:07,522 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:25:08,978 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:25:09,905 middleware Admin action by root: GET /admin/auth/group/3/change/ Resolved auth_group_change with args () and kwargs {'object_id': '3'} 
+INFO 2023-11-16 20:25:09,915 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:25:12,546 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:25:13,686 middleware Admin action by root: GET /admin/auth/group/2/change/ Resolved auth_group_change with args () and kwargs {'object_id': '2'} 
+INFO 2023-11-16 20:25:13,696 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:25:15,002 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:25:15,652 middleware Admin action by root: GET /admin/auth/group/3/change/ Resolved auth_group_change with args () and kwargs {'object_id': '3'} 
+INFO 2023-11-16 20:25:15,662 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:25:16,563 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:26:38,381 middleware Admin action by root: GET /admin/auth/group/2/change/ Resolved auth_group_change with args () and kwargs {'object_id': '2'} 
+INFO 2023-11-16 20:26:38,396 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:34:36,797 middleware Admin action by datasamuraii: GET /admin/posts/post/1/change/ Resolved posts_post_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-16 20:34:36,817 middleware Admin action by datasamuraii: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:34:53,000 middleware Admin action by root: GET /admin/auth/group/ Resolved auth_group_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:34:53,015 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:34:54,377 middleware Admin action by root: GET /admin/auth/group/1/change/ Resolved auth_group_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-16 20:34:54,459 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:34:54,928 middleware Admin action by root: GET /admin/auth/group/ Resolved auth_group_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:34:56,074 middleware Admin action by root: GET /admin/auth/group/4/change/ Resolved auth_group_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-11-16 20:34:56,084 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:34:59,978 middleware Admin action by root: GET /admin/auth/group/ Resolved auth_group_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:35:04,396 middleware Admin action by root: GET /admin/auth/group/4/change/ Resolved auth_group_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-11-16 20:35:04,405 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:35:17,096 middleware Admin action by root: POST /admin/auth/group/4/change/ Resolved auth_group_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-11-16 20:35:17,113 middleware Admin action by root: GET /admin/auth/group/4/change/ Resolved auth_group_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-11-16 20:35:17,125 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:35:51,001 middleware Admin action by root: POST /admin/auth/group/4/change/ Resolved auth_group_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-11-16 20:35:51,011 middleware Admin action by root: GET /admin/auth/group/ Resolved auth_group_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:35:51,024 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:36:21,803 middleware Admin action by root: GET /admin/auth/group/ Resolved auth_group_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:36:21,813 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:36:24,934 middleware Admin action by datasamuraii: GET /admin/posts/post/ Resolved posts_post_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:36:26,324 middleware Admin action by datasamuraii: GET /admin/posts/post/1/change/ Resolved posts_post_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-16 20:36:26,349 middleware Admin action by datasamuraii: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:36:41,339 middleware Admin action by datasamuraii: GET /admin/posts/post/1/change/ Resolved posts_post_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-16 20:36:41,366 middleware Admin action by datasamuraii: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:36:50,768 middleware Admin action by root: GET /admin/social_django/nonce/ Resolved social_django_nonce_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:36:50,779 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:36:54,320 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:36:54,330 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:36:56,141 middleware Admin action by root: GET /admin/auth/group/2/change/ Resolved auth_group_change with args () and kwargs {'object_id': '2'} 
+INFO 2023-11-16 20:36:56,153 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:37:26,046 middleware Admin action by datasamuraii: GET /admin/posts/post/1/change/ Resolved posts_post_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-16 20:37:26,069 middleware Admin action by datasamuraii: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:37:36,681 middleware Admin action by datasamuraii: GET /admin/posts/post/1/change/ Resolved posts_post_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-16 20:37:36,738 middleware Admin action by datasamuraii: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:37:47,092 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:37:47,108 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:37:50,001 middleware Admin action by root: GET /admin/auth/group/2/change/ Resolved auth_group_change with args () and kwargs {'object_id': '2'} 
+INFO 2023-11-16 20:37:50,012 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:37:54,084 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:37:54,747 middleware Admin action by root: GET /admin/auth/group/4/change/ Resolved auth_group_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-11-16 20:37:54,757 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:37:55,197 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:37:55,601 middleware Admin action by root: GET /admin/auth/group/3/change/ Resolved auth_group_change with args () and kwargs {'object_id': '3'} 
+INFO 2023-11-16 20:37:55,611 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:37:58,396 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:38:00,105 middleware Admin action by root: GET /admin/auth/group/2/change/ Resolved auth_group_change with args () and kwargs {'object_id': '2'} 
+INFO 2023-11-16 20:38:00,115 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:38:04,702 middleware Admin action by root: POST /admin/auth/group/2/change/ Resolved auth_group_change with args () and kwargs {'object_id': '2'} 
+INFO 2023-11-16 20:38:04,719 middleware Admin action by root: GET /admin/auth/group/2/change/ Resolved auth_group_change with args () and kwargs {'object_id': '2'} 
+INFO 2023-11-16 20:38:04,730 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:38:06,683 middleware Admin action by datasamuraii: GET /admin/posts/post/1/change/ Resolved posts_post_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-16 20:38:06,710 middleware Admin action by datasamuraii: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:38:23,316 middleware Admin action by root: POST /admin/auth/group/2/change/ Resolved auth_group_change with args () and kwargs {'object_id': '2'} 
+INFO 2023-11-16 20:38:23,333 middleware Admin action by root: GET /admin/auth/group/2/change/ Resolved auth_group_change with args () and kwargs {'object_id': '2'} 
+INFO 2023-11-16 20:38:23,344 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:42:34,472 middleware Admin action by datasamuraii: GET /admin/posts/post/1/change/ Resolved posts_post_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-16 20:42:34,501 middleware Admin action by datasamuraii: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:42:44,461 middleware Admin action by root: POST /admin/auth/group/2/change/ Resolved auth_group_change with args () and kwargs {'object_id': '2'} 
+INFO 2023-11-16 20:42:44,481 middleware Admin action by root: GET /admin/auth/group/2/change/ Resolved auth_group_change with args () and kwargs {'object_id': '2'} 
+INFO 2023-11-16 20:42:44,496 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:42:46,209 middleware Admin action by datasamuraii: GET /admin/posts/post/1/change/ Resolved posts_post_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-16 20:42:46,255 middleware Admin action by datasamuraii: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:43:26,978 middleware Admin action by root: POST /admin/auth/group/2/change/ Resolved auth_group_change with args () and kwargs {'object_id': '2'} 
+INFO 2023-11-16 20:43:27,025 middleware Admin action by root: GET /admin/auth/group/2/change/ Resolved auth_group_change with args () and kwargs {'object_id': '2'} 
+INFO 2023-11-16 20:43:27,038 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:43:30,204 middleware Admin action by datasamuraii: GET /admin/posts/category/ Resolved posts_category_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:43:53,524 middleware Admin action by root: POST /admin/auth/group/2/change/ Resolved auth_group_change with args () and kwargs {'object_id': '2'} 
+INFO 2023-11-16 20:43:53,543 middleware Admin action by root: GET /admin/auth/group/2/change/ Resolved auth_group_change with args () and kwargs {'object_id': '2'} 
+INFO 2023-11-16 20:43:53,553 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:44:26,245 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:44:26,255 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:46:32,605 middleware Admin action by root: GET /admin/auth/group/4/change/ Resolved auth_group_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-11-16 20:46:32,621 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:46:36,038 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:46:36,791 middleware Admin action by root: GET /admin/auth/group/4/change/ Resolved auth_group_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-11-16 20:46:36,801 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:46:40,911 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:46:42,212 middleware Admin action by root: GET /admin/auth/group/3/change/ Resolved auth_group_change with args () and kwargs {'object_id': '3'} 
+INFO 2023-11-16 20:46:42,221 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:46:43,480 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:46:44,530 middleware Admin action by root: GET /admin/auth/group/2/change/ Resolved auth_group_change with args () and kwargs {'object_id': '2'} 
+INFO 2023-11-16 20:46:44,540 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:46:45,547 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:46:52,272 middleware Admin action by AnonymousUser: POST /admin/logout/ Resolved logout with args () and kwargs {} 
+WARNING 2023-11-16 20:47:02,558 views Failed login attempt for elizakirt, IP: 127.0.0.1 
+WARNING 2023-11-16 20:47:07,021 signals Updated CustomUser 4: last_login: 2023-11-07 21:00:46+00:00 -> 2023-11-16 18:47:07.020266+00:00 
+INFO 2023-11-16 20:47:07,093 views User elizakirt logged in, IP: 127.0.0.1 
+INFO 2023-11-16 20:47:08,834 middleware Admin action by elizakirt: GET /admin/ Resolved index with args () and kwargs {} 
+INFO 2023-11-16 20:47:19,953 middleware Admin action by elizakirt: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:47:24,417 middleware Admin action by elizakirt: GET /admin/ Resolved index with args () and kwargs {} 
+INFO 2023-11-16 20:47:26,808 middleware Admin action by root: GET /admin/auth/group/4/change/ Resolved auth_group_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-11-16 20:47:26,821 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:47:51,795 middleware Admin action by root: POST /admin/auth/group/4/change/ Resolved auth_group_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-11-16 20:47:51,812 middleware Admin action by root: GET /admin/auth/group/4/change/ Resolved auth_group_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-11-16 20:47:51,822 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:48:23,664 middleware Admin action by root: POST /admin/auth/group/4/change/ Resolved auth_group_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-11-16 20:48:23,681 middleware Admin action by root: GET /admin/auth/group/4/change/ Resolved auth_group_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-11-16 20:48:23,691 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:48:41,552 middleware Admin action by elizakirt: GET /admin/users/unbanrequest/ Resolved users_unbanrequest_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:48:43,686 middleware Admin action by elizakirt: GET /admin/users/unbanrequest/1/change/ Resolved users_unbanrequest_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-16 20:48:43,718 middleware Admin action by elizakirt: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:48:50,509 middleware Admin action by root: POST /admin/auth/group/4/change/ Resolved auth_group_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-11-16 20:48:50,528 middleware Admin action by root: GET /admin/auth/group/4/change/ Resolved auth_group_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-11-16 20:48:50,545 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:48:52,942 middleware Admin action by elizakirt: GET /admin/users/unbanrequest/1/change/ Resolved users_unbanrequest_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-16 20:48:52,966 middleware Admin action by elizakirt: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:48:57,304 middleware Admin action by root: POST /admin/auth/group/4/change/ Resolved auth_group_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-11-16 20:48:57,322 middleware Admin action by root: GET /admin/auth/group/4/change/ Resolved auth_group_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-11-16 20:48:57,335 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:53:18,420 middleware Admin action by elizakirt: GET /admin/users/unbanrequest/ Resolved users_unbanrequest_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:53:23,993 middleware Admin action by root: GET /admin/users/unbanrequest/ Resolved users_unbanrequest_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:53:24,007 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:53:37,807 middleware Admin action by root: GET /admin/posts/viewedpost/ Resolved posts_viewedpost_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:53:37,817 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:53:41,635 middleware Admin action by elizakirt: GET /admin/users/unbanrequest/ Resolved users_unbanrequest_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:53:43,181 middleware Admin action by elizakirt: GET /admin/posts/viewedpost/ Resolved posts_viewedpost_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:56:41,338 middleware Admin action by elizakirt: GET /admin/posts/comment/ Resolved posts_comment_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:56:43,861 middleware Admin action by elizakirt: GET /admin/posts/comment/1/change/ Resolved posts_comment_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-16 20:56:43,888 middleware Admin action by elizakirt: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:56:53,476 middleware Admin action by root: GET /admin/auth/group/ Resolved auth_group_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:56:53,494 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:56:55,111 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:56:55,121 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:57:01,926 middleware Admin action by root: GET /admin/auth/group/3/change/ Resolved auth_group_change with args () and kwargs {'object_id': '3'} 
+INFO 2023-11-16 20:57:01,938 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:57:07,428 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:57:08,831 middleware Admin action by root: GET /admin/auth/group/4/change/ Resolved auth_group_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-11-16 20:57:08,841 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:57:25,832 middleware Admin action by root: POST /admin/auth/group/4/change/ Resolved auth_group_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-11-16 20:57:25,849 middleware Admin action by root: GET /admin/auth/group/4/change/ Resolved auth_group_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-11-16 20:57:25,859 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:57:28,349 middleware Admin action by elizakirt: GET /admin/posts/comment/1/change/ Resolved posts_comment_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-16 20:57:28,376 middleware Admin action by elizakirt: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:57:35,015 middleware Admin action by elizakirt: GET /admin/posts/comment/1/change/ Resolved posts_comment_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-16 20:57:35,032 middleware Admin action by elizakirt: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:57:43,018 middleware Admin action by root: POST /admin/auth/group/4/change/ Resolved auth_group_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-11-16 20:57:43,038 middleware Admin action by root: GET /admin/auth/group/4/change/ Resolved auth_group_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-11-16 20:57:43,049 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:57:45,256 middleware Admin action by elizakirt: GET /admin/posts/comment/1/change/ Resolved posts_comment_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-16 20:57:45,282 middleware Admin action by elizakirt: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 20:59:27,724 middleware Admin action by elizakirt: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-16 20:59:27,750 middleware Admin action by elizakirt: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 21:00:54,198 middleware Admin action by root: GET /admin/auth/group/ Resolved auth_group_changelist with args () and kwargs {} 
+INFO 2023-11-16 21:00:54,216 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-16 21:00:55,755 middleware Admin action by root: GET /admin/auth/group/4/change/ Resolved auth_group_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-11-16 21:01:06,735 middleware Admin action by root: GET /admin/auth/group/ Resolved auth_group_changelist with args () and kwargs {} 
+INFO 2023-11-16 21:01:06,744 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
