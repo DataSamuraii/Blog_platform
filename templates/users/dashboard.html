@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block page_content %}
     <div class="row mt-4">
         <!-- Dashboard Actions -->
@@ -55,14 +57,24 @@
             <div class="col-md-4">
                 <div class="card border-0 shadow">
                     <div class="card-header bg-primary text-white">
-                        <h4>User Information</h4>
+                        <h4>Your profile</h4>
                     </div>
+
+                    <!-- Profile Picture -->
+                    <div class="text-center mb-3">
+                        <img src="{% if user.profile_picture %}{{ user.profile_picture.url }}{% else %}{% static 'images/profile-placeholder.jpg' %}{% endif %}"
+                             alt="Profile Picture" style="max-width: 100%; height: auto; max-height: 150px;">
+                    </div>
+
+                    <!-- User details -->
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">Username: {{ user.username }}</li>
+                        <li class="list-group-item">Your bio: {{ user.bio }}</li>
                         <li class="list-group-item">Email: {{ user.email }}</li>
                         <li class="list-group-item">Full Name: {{ user.first_name }} {{ user.last_name }}</li>
                         <li class="list-group-item">Date Joined: {{ user.date_joined|date:"F d, Y" }}</li>
                         <li class="list-group-item">Last Login: {{ user.last_login|date:"F d, Y, P" }}</li>
+                        <li class="list-group-item">Your media: {{ user.social_media }}</li>
                     </ul>
                     <a href="{% url 'edit_user' %}" class="mb-2 btn btn-warning">Edit Info</a>
                     <a href="{% url 'password_change' %}" class="btn btn-warning">Change Password</a>

@@ -19,6 +19,23 @@ from .models import Post, Category, ViewedPost, Comment, CommentReaction
 
 logger = logging.getLogger(__name__.split('.')[0])
 
+# TODO Email Notifications: subscribe for notifications, send when new post releases
+# TODO Scheduled Posts
+# TODO Automated profanity filters or sentiment analysis to flag potentially harmful comments
+
+
+class SearchResultsView(ListView):
+    model = Post
+    template_name = 'posts/search_results.html'
+    context_object_name = 'search_results'
+    paginate_by = 3
+
+    def get_queryset(self):
+        query = self.request.GET.get('query')
+        if query:
+            return Post.objects.filter(title__icontains=query)
+        return Post.objects.none()
+
 
 class PostListView(ListView):
     model = Post

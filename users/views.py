@@ -1,4 +1,6 @@
 import logging
+from django.contrib.auth import get_user_model
+
 from django.contrib import messages
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -14,6 +16,10 @@ from .models import UnbanRequest
 from .forms import CustomUserCreationForm, CustomUserEditForm, CustomAuthenticationForm, UnbanRequestForm
 
 logger = logging.getLogger(__name__.split('.')[0])
+
+# TODO Analytics: Track and analyze user interactions on your blog posts, like views, likes, and shares;
+#  use this data to recommend posts to users or just for your insights.
+# TODO Author Analytics Dashboard: Create a custom dashboard for authors to view the performance of their posts.
 
 
 class CustomLoginView(auth_views.LoginView):
@@ -66,7 +72,7 @@ class RegisterUserView(CreateView):
 
 
 class EditUserView(LoginRequiredMixin, UpdateView):
-    model = User
+    model = get_user_model()
     form_class = CustomUserEditForm
     template_name = 'users/user_edit.html'
     success_url = reverse_lazy('dashboard')

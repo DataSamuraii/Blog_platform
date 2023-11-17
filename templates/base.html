@@ -51,18 +51,29 @@
                 {% endif %}
             </ul>
             <ul class="navbar-nav">
+
+                <form method="GET" action="{% url 'search_results' %}" class="form-inline my-2 my-lg-0"
+                      style="margin-right: 10px; margin-left: 10px;">
+                    <input type="text" class="form-control" name="query" placeholder="Search..."
+                           style="font-family: Arial, 'Font Awesome 5 Free'; background-position: 10px 10px; background-repeat: no-repeat;"
+                           aria-label="Search">
+                </form>
+
                 {% if user.is_authenticated %}
+
                     {% if user.is_staff %}
                         <li class="nav-item">
                             <a class="nav-link btn btn-light mr-2" href="{% url 'admin:index' %}">Admin panel</a>
                         </li>
                     {% endif %}
+
                     <li class="nav-item">
                         <a class="nav-link btn btn-light mr-2" href="{% url 'dashboard' %}">Dashboard</a>
                     </li>
                     <li>
                         <a href="{% url 'logout' %}" class="nav-link btn btn-danger">Logout</a>
                     </li>
+
                 {% else %}
                     <li class="nav-item">
                         <a class="nav-link btn btn-light" href="{% url 'register' %}">Register</a>

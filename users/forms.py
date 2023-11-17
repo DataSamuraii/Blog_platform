@@ -4,6 +4,8 @@ from django import forms
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from .models import UnbanRequest
+import json
+from django.core.exceptions import ValidationError
 
 
 class CustomUserCreationForm(UserCreationForm):
@@ -16,7 +18,28 @@ class CustomUserCreationForm(UserCreationForm):
 class CustomUserEditForm(forms.ModelForm):
     class Meta:
         model = get_user_model()
-        fields = ['username', 'email', 'first_name', 'last_name']
+        fields = ['profile_picture', 'username', 'bio', 'email', 'first_name', 'last_name', 'social_media']
+        widgets = {
+            'profile_picture': forms.FileInput(attrs={'class': 'form-control'}),
+            'username': forms.TextInput(attrs={'class': 'form-control'}),
+            'bio': forms.TextInput(attrs={'class': 'form-control'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control'}),
+            'first_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'last_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'social_media': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter JSON format'}),
+        }
+
+    def clean_social_media(self):
+        social_media = self.cleaned_data.get('social_media')
+        if not social_media:
+            return {}
+
+        try:
+            json.loads(social_media)
+        except json.JSONDecodeError:
+            raise ValidationError
+
+        return social_media
 
 
 class CustomAuthenticationForm(AuthenticationForm):

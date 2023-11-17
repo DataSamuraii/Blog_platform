@@ -5,6 +5,8 @@ import bleach
 from django.contrib.messages import constants as messages
 from dotenv import load_dotenv
 
+# TODO RESTful CRUD API
+
 # Load environment variables from .env file
 load_dotenv()
 
@@ -112,7 +114,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    BASE_DIR / 'templates/static',  # Adjust this path to where your static files are located
+]
+STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -164,7 +169,8 @@ SOCIAL_AUTH_REDDIT_KEY = os.getenv('SOCIAL_AUTH_REDDIT_KEY')
 SOCIAL_AUTH_REDDIT_SECRET = os.getenv('SOCIAL_AUTH_REDDIT_SECRET')
 SOCIAL_AUTH_REDDIT_USER_AGENT = os.getenv('SOCIAL_AUTH_REDDIT_USER_AGENT')
 
-STATIC_ROOT = BASE_DIR / 'templates/staticfiles'
+MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = '/media/'
 
 ALLOWED_TAGS = list(bleach.sanitizer.ALLOWED_TAGS) + [
     'p', 'div', 'span', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6',

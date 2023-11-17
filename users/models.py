@@ -1,4 +1,5 @@
 import logging
+import os
 
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import AbstractUser
@@ -9,6 +10,19 @@ logger = logging.getLogger(__name__.split('.')[0])
 
 class CustomUser(AbstractUser):
     is_banned = models.BooleanField(default=False)
+    bio = models.CharField(max_length=200, blank=True, null=True, default=None)
+    social_media = models.JSONField(default=dict, blank=True)
+    profile_picture = models.ImageField(upload_to='profile_pictures/', blank=True, null=True)
+
+    def delete_old_profile_picture(self, new_file):
+        old_file = CustomUser.objects.get(pk=self.pk).profile_picture
+        if old_file and old_file != new_file and os.path.isfile(old_file.path):
+            os.remove(old_file.path)
+
+    def save(self, *args, **kwargs):
+        if self.profile_picture:
+            self.delete_old_profile_picture(self.profile_picture)
+        super(CustomUser, self).save(*args, **kwargs)
 
     def delete(self, *args, **kwargs):
         logger.warning(f"Deleting user: {self.username} (ID: {self.pk})")
