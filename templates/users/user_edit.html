@@ -21,7 +21,7 @@
                     {% endfor %}
                     <div class="list-group-item d-flex justify-content-between">
                         <input type="submit" value="Save Changes" class="btn btn-success">
-                        <a href="{% url 'dashboard' %}" class="btn btn-secondary">Cancel</a>
+                        <a href="{% url 'user_detail' user.id %}" class="btn btn-secondary">Cancel</a>
                     </div>
                 </form>
             </div>

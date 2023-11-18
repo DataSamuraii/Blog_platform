@@ -36,7 +36,7 @@ class CustomUserAdmin(admin.ModelAdmin):
         'is_active', 'user_permissions', 'groups', 'is_banned'
     ]
     exclude = ['password']
-    actions = ['ban_user']
+    actions = ['ban_user', 'unban_user']
 
     def full_name(self, obj):
         if obj.first_name and obj.last_name:
@@ -55,9 +55,6 @@ class CustomUserAdmin(admin.ModelAdmin):
 
     def ban_user(self, request, queryset):
         logger.warning(f'ban_user action called by {request.user}')
-        if not request.user.is_superuser:
-            messages.error(request, 'Only superusers can perform this action.')
-            return
         with transaction.atomic():
             for user in queryset:
                 if user.is_banned:
@@ -71,6 +68,27 @@ class CustomUserAdmin(admin.ModelAdmin):
                         logger.error(f'Error banning user {user}: {e}')
 
     ban_user.short_description = 'Ban selected users'
+
+    def unban_user(self, request, queryset):
+        logger.warning(f'unban_user action called by {request.user}')
+        with transaction.atomic():
+            for user in queryset:
+                if not user.is_banned:
+                    messages.warning(request, f'User {user} not banned')
+                else:
+                    try:
+                        user.is_banned = False
+                        user.save()
+                        messages.success(request, f'Unbanned user {user}')
+                    except DatabaseError as e:
+                        logger.error(f'Error unbanning user {user}: {e}')
+
+    unban_user.short_description = 'Unban selected users'
+
+    def get_readonly_fields(self, request, obj=None):
+        if request.user.is_superuser:
+            return []
+        return self.readonly_fields
 
     def get_actions(self, request):
         actions = super().get_actions(request)

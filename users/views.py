@@ -4,12 +4,12 @@ from django.contrib.auth import get_user_model
 from django.contrib import messages
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect
 from django.urls import reverse, reverse_lazy
+from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView
-from django.views.generic.list import ListView
+from django.shortcuts import get_object_or_404
 
 from posts.models import Post
 from .models import UnbanRequest
@@ -28,7 +28,7 @@ class CustomLoginView(auth_views.LoginView):
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated:
             messages.warning(request, 'You are already logged in.')
-            return HttpResponseRedirect(reverse('dashboard'))
+            return redirect('post_list')
         return super().dispatch(request, *args, **kwargs)
 
     def form_valid(self, form):
@@ -57,7 +57,7 @@ class CustomLogoutView(LoginRequiredMixin, auth_views.LogoutView):
 
 
 class RegisterUserView(CreateView):
-    model = User
+    model = get_user_model()
     form_class = CustomUserCreationForm
     template_name = 'users/register.html'
     success_url = reverse_lazy('login')
@@ -71,14 +71,35 @@ class RegisterUserView(CreateView):
         return response
 
 
+class UserDetailView(DetailView):
+    model = get_user_model()
+    template_name = 'users/user_detail.html'
+    context_object_name = 'user'
+
+    def get_object(self, queryset=None):
+        user_id = self.kwargs.get('user_id')
+        return get_object_or_404(self.model, pk=user_id)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['user_posts'] = self.object.post_set.filter(is_published=True)
+        return context
+
+    def get(self, request, *args, **kwargs):
+        obj = self.get_object()
+        if self.request.user == obj:
+            self.template_name = 'users/user_detail_dashboard.html'
+        return super().get(request, *args, **kwargs)
+
+
 class EditUserView(LoginRequiredMixin, UpdateView):
     model = get_user_model()
     form_class = CustomUserEditForm
     template_name = 'users/user_edit.html'
-    success_url = reverse_lazy('dashboard')
 
     def get_object(self, queryset=None):
-        return self.request.user
+        user_id = self.kwargs.get('user_id')
+        return get_object_or_404(self.model, pk=user_id)
 
     def form_valid(self, form):
         response = super().form_valid(form)
@@ -86,14 +107,8 @@ class EditUserView(LoginRequiredMixin, UpdateView):
         logger.info(f"User {self.request.user.username} changed fields: {form.changed_data}")
         return response
 
-
-class DashboardView(LoginRequiredMixin, ListView):
-    model = Post
-    template_name = 'users/dashboard.html'
-    context_object_name = 'user_posts'
-
-    def get_queryset(self):
-        return self.request.user.post_set.all()
+    def get_success_url(self):
+        return reverse('user_detail', args=[self.object.id])
 
 
 class BannedUserView(CreateView):

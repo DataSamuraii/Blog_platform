@@ -59,7 +59,7 @@ class PostDetailView(DetailView):
 
     def get_object(self, queryset=None):
         post_id = self.kwargs.get('post_id')
-        return get_object_or_404(Post, pk=post_id)
+        return get_object_or_404(self.model, pk=post_id)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -96,7 +96,6 @@ class CreatePostView(LoginRequiredMixin, CreateView):
     model = Post
     form_class = PostForm
     template_name = 'posts/post_create.html'
-    success_url = reverse_lazy('dashboard')
 
     def form_valid(self, form):
         post = form.save(commit=False)
@@ -105,6 +104,9 @@ class CreatePostView(LoginRequiredMixin, CreateView):
         messages.success(self.request, 'Successfully published a new post')
         logger.info(f'User {self.request.user} created new post {post.pk}')
         return response
+
+    def get_success_url(self):
+        return reverse('user_detail', args=[self.request.user.id])
 
 
 class EditPostView(LoginRequiredMixin, UpdateView):
@@ -117,7 +119,7 @@ class EditPostView(LoginRequiredMixin, UpdateView):
         return reverse('post_detail', args=[self.object.id])
 
     def get_object(self, queryset=None):
-        obj = get_object_or_404(Post, pk=self.kwargs.get('post_id'))
+        obj = get_object_or_404(self.model, pk=self.kwargs.get('post_id'))
         if obj.author != self.request.user:
             raise PermissionDenied("You don't have permission to delete this post.")
         return obj
@@ -131,11 +133,10 @@ class EditPostView(LoginRequiredMixin, UpdateView):
 
 class DeletePostView(LoginRequiredMixin, DeleteView):
     model = Post
-    success_url = reverse_lazy('dashboard')
     http_method_names = ['post']
 
     def get_object(self, queryset=None):
-        obj = get_object_or_404(Post, pk=self.kwargs.get('post_id'))
+        obj = get_object_or_404(self.model, pk=self.kwargs.get('post_id'))
         if obj.author != self.request.user:
             raise PermissionDenied("You don't have permission to delete this post.")
         return obj
@@ -146,6 +147,9 @@ class DeletePostView(LoginRequiredMixin, DeleteView):
         logger.warning(f'User {self.request.user} deleted post {self.object.pk}')
         return response
 
+    def get_success_url(self):
+        return reverse('user_detail', args=[self.request.user.id])
+
 
 class CategoryDetailView(DetailView):
     model = Category
@@ -154,7 +158,7 @@ class CategoryDetailView(DetailView):
 
     def get_object(self, queryset=None):
         category_id = self.kwargs.get('category_id')
-        return get_object_or_404(Category, pk=category_id)
+        return get_object_or_404(self.model, pk=category_id)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -168,7 +172,7 @@ class CreateCategoryView(LoginRequiredMixin, CreateView):
     template_name = 'posts/category_create.html'
 
     def get_success_url(self):
-        next_url = self.request.GET.get('next', 'dashboard')
+        next_url = self.request.GET.get('next', 'post_list')
         if next_url.startswith('/'):
             return next_url
         return reverse_lazy(next_url)
@@ -217,7 +221,7 @@ class DeleteCommentView(LoginRequiredMixin, DeleteView):
     http_method_names = ['post']
 
     def get_object(self, queryset=None):
-        obj = get_object_or_404(Comment, id=self.kwargs.get('comment_id'))
+        obj = get_object_or_404(self.model, id=self.kwargs.get('comment_id'))
         if obj.author != self.request.user:
             raise PermissionDenied("You don't have permission to delete this post.")
         return obj

@@ -68,7 +68,7 @@
                     {% endif %}
 
                     <li class="nav-item">
-                        <a class="nav-link btn btn-light mr-2" href="{% url 'dashboard' %}">Dashboard</a>
+                        <a class="nav-link btn btn-light mr-2" href="{% url 'user_detail' user_id=user.id %}">Dashboard</a>
                     </li>
                     <li>
                         <a href="{% url 'logout' %}" class="nav-link btn btn-danger">Logout</a>

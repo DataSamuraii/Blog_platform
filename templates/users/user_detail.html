@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block page_content %}
+    <div class="row mt-4">
+
+        <div class="col-md-12 mb-4">
+            {% if messages %}
+                <div class="mt-4">
+                    {% for message in messages %}
+                        <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}" role="alert">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+
+        {% if user.is_banned %}
+            <div class="alert alert-warning" role="alert">
+                This user is currently banned.
+            </div>
+        {% else %}
+            <!-- User Posts -->
+            <div class="col-md-8">
+                <div class="card border-0 shadow">
+                    <div class="card-header bg-dark text-white">
+                        <h4>{{ user.username }}`s posts</h4>
+                    </div>
+                    <div class="card-body">
+
+                        {% if user_posts %}
+                            <ul class="list-group list-group-flush">
+                                {% for post in user_posts %}
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <a href="{% url 'post_detail' post.id %}">{{ post.title }}</a>
+                                        <span class="badge bg-secondary">{{ post.date_published }}</span>
+                                        {% if post.is_published %}
+                                            <span class="badge bg-success">Status: Published</span>
+                                        {% else %}
+                                            <span class="badge bg-danger">Status: Unpublished</span>
+                                        {% endif %}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+
+                        {% else %}
+                            <p class="text-muted">{{ user.username }} haven't written any posts yet.</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <!-- User Info -->
+            <div class="col-md-4">
+                <div class="card border-0 shadow">
+
+                    <!-- Profile Picture -->
+                    <div class="text-center mb-3">
+                        <img alt="Profile Picture" style="max-width: 100%; height: auto; max-height: 150px;"
+                             src="
+
+
+                                     {% if user.profile_picture %}{{ user.profile_picture.url }}{% else %}{% static 'images/profile-placeholder.jpg' %}{% endif %}">
+                    </div>
+
+                    <!-- User details -->
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Username: {{ user.username }}</li>
+                        <li class="list-group-item">Bio: {{ user.bio }}</li>
+                        <li class="list-group-item">Email: {{ user.email }}</li>
+                        <li class="list-group-item">Full Name: {{ user.first_name }} {{ user.last_name }}</li>
+                        <li class="list-group-item">Date Joined: {{ user.date_joined|date:"F d, Y" }}</li>
+                        <li class="list-group-item">Last Login: {{ user.last_login|date:"F d, Y, P" }}</li>
+                        <li class="list-group-item">Media: {{ user.social_media }}</li>
+                    </ul>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

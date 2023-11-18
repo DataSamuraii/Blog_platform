@@ -7,7 +7,7 @@
         <!-- Dashboard Actions -->
         <div class="col-md-12 mb-4">
             <div class="d-flex justify-content-between align-items-center">
-                <h2>Dashboard</h2>
+                <h2>User profile</h2>
                 <div>
                     <a href="{% url 'category_create' %}" class="btn btn-secondary ml-3">Create a new category</a>
                     <a href="{% url 'create_post' %}" class="btn btn-dark me-2">Create a new post</a>
@@ -31,6 +31,7 @@
                     <h4>Your Posts</h4>
                 </div>
                 <div class="card-body">
+
                     {% if user_posts %}
                         <ul class="list-group list-group-flush">
                             {% for post in user_posts %}
@@ -45,6 +46,7 @@
                                 </li>
                             {% endfor %}
                         </ul>
+
                     {% else %}
                         <p class="text-muted">You haven't written any posts yet.</p>
                     {% endif %}
@@ -53,33 +55,28 @@
         </div>
 
         <!-- User Info -->
-        {% block user %}
-            <div class="col-md-4">
-                <div class="card border-0 shadow">
-                    <div class="card-header bg-primary text-white">
-                        <h4>Your profile</h4>
-                    </div>
+        <div class="col-md-4">
+            <div class="card border-0 shadow">
 
-                    <!-- Profile Picture -->
-                    <div class="text-center mb-3">
-                        <img src="{% if user.profile_picture %}{{ user.profile_picture.url }}{% else %}{% static 'images/profile-placeholder.jpg' %}{% endif %}"
-                             alt="Profile Picture" style="max-width: 100%; height: auto; max-height: 150px;">
-                    </div>
-
-                    <!-- User details -->
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Username: {{ user.username }}</li>
-                        <li class="list-group-item">Your bio: {{ user.bio }}</li>
-                        <li class="list-group-item">Email: {{ user.email }}</li>
-                        <li class="list-group-item">Full Name: {{ user.first_name }} {{ user.last_name }}</li>
-                        <li class="list-group-item">Date Joined: {{ user.date_joined|date:"F d, Y" }}</li>
-                        <li class="list-group-item">Last Login: {{ user.last_login|date:"F d, Y, P" }}</li>
-                        <li class="list-group-item">Your media: {{ user.social_media }}</li>
-                    </ul>
-                    <a href="{% url 'edit_user' %}" class="mb-2 btn btn-warning">Edit Info</a>
-                    <a href="{% url 'password_change' %}" class="btn btn-warning">Change Password</a>
+                <!-- Profile Picture -->
+                <div class="text-center mb-3">
+                    <img src="{% if user.profile_picture %}{{ user.profile_picture.url }}{% else %}{% static 'images/profile-placeholder.jpg' %}{% endif %}"
+                         alt="Profile Picture" style="max-width: 100%; height: auto; max-height: 150px;">
                 </div>
+
+                <!-- User details -->
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Username: {{ user.username }}</li>
+                    <li class="list-group-item">Your bio: {{ user.bio }}</li>
+                    <li class="list-group-item">Email: {{ user.email }}</li>
+                    <li class="list-group-item">Full Name: {{ user.first_name }} {{ user.last_name }}</li>
+                    <li class="list-group-item">Date Joined: {{ user.date_joined|date:"F d, Y" }}</li>
+                    <li class="list-group-item">Last Login: {{ user.last_login|date:"F d, Y, P" }}</li>
+                    <li class="list-group-item">Your media: {{ user.social_media }}</li>
+                </ul>
+                <a href="{% url 'edit_user' user.id %}" class="mb-2 btn btn-warning">Edit Info</a>
+                <a href="{% url 'password_change' %}" class="btn btn-warning">Change Password</a>
             </div>
-            </div>
-        {% endblock %}
+        </div>
+    </div>
 {% endblock %}
