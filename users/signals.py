@@ -5,7 +5,6 @@ from django.dispatch import receiver
 from django.utils.functional import SimpleLazyObject
 
 from .models import CustomUser, UnbanRequest
-from posts.models import Post, Category, ViewedPost
 
 logger = logging.getLogger(__name__.split('.')[0])
 

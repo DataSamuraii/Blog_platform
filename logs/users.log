@@ -555,3 +555,128 @@ INFO 2023-11-18 15:27:00,848 middleware Admin action by elizakirt: GET /admin/us
 INFO 2023-11-18 15:27:00,864 middleware Admin action by elizakirt: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
 INFO 2023-11-18 15:27:11,608 middleware Admin action by elizakirt: GET /admin/auth/group/1/change/ Resolved auth_group_change with args () and kwargs {'object_id': '1'} 
 INFO 2023-11-18 15:27:12,568 middleware Admin action by elizakirt: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-19 23:58:31,774 middleware Admin action by elizakirt: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-19 23:58:31,839 middleware Admin action by elizakirt: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-20 00:13:16,735 middleware Admin action by elizakirt: GET /admin/ Resolved index with args () and kwargs {} 
+INFO 2023-11-20 00:13:18,846 middleware Admin action by AnonymousUser: POST /admin/logout/ Resolved logout with args () and kwargs {} 
+WARNING 2023-11-20 00:13:29,390 signals Updated CustomUser 1: last_login: 2023-11-18 13:18:23.704423+00:00 -> 2023-11-19 22:13:29.389689+00:00 
+INFO 2023-11-20 00:13:29,463 views User root logged in, IP: 127.0.0.1 
+INFO 2023-11-20 00:13:30,900 middleware Admin action by root: GET /admin/ Resolved index with args () and kwargs {} 
+INFO 2023-11-20 00:14:43,100 middleware Admin action by root: GET /admin/auth/group/ Resolved auth_group_changelist with args () and kwargs {} 
+INFO 2023-11-20 00:14:43,134 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-20 00:14:46,949 middleware Admin action by root: GET /admin/auth/group/1/change/ Resolved auth_group_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-20 00:14:46,978 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-20 00:14:53,845 middleware Admin action by root: GET /admin/auth/group/ Resolved auth_group_changelist with args () and kwargs {} 
+INFO 2023-11-20 00:14:58,818 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-20 00:14:58,850 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-20 00:15:00,567 middleware Admin action by root: GET /admin/users/customuser/1/change/ Resolved users_customuser_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-20 00:15:00,605 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-20 00:16:47,546 middleware Admin action by root: GET /admin/users/customuser/1/change/ Resolved users_customuser_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-20 00:16:47,565 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-20 00:16:51,690 middleware Admin action by root: GET /admin/django_celery_beat/clockedschedule/ Resolved django_celery_beat_clockedschedule_changelist with args () and kwargs {} 
+INFO 2023-11-20 00:16:51,737 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-20 00:16:52,897 middleware Admin action by root: GET /admin/django_celery_beat/crontabschedule/ Resolved django_celery_beat_crontabschedule_changelist with args () and kwargs {} 
+INFO 2023-11-20 00:16:52,923 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-20 00:17:04,613 middleware Admin action by root: GET /admin/django_celery_beat/periodictask/ Resolved django_celery_beat_periodictask_changelist with args () and kwargs {} 
+INFO 2023-11-20 00:17:04,637 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-20 00:17:08,741 middleware Admin action by root: GET /admin/django_celery_beat/periodictask/add/ Resolved django_celery_beat_periodictask_add with args () and kwargs {} 
+INFO 2023-11-20 00:17:08,772 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-20 00:19:10,731 middleware Admin action by root: GET /admin/django_celery_beat/intervalschedule/add/ Resolved django_celery_beat_intervalschedule_add with args () and kwargs {} 
+INFO 2023-11-20 00:19:10,761 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-20 00:19:22,607 middleware Admin action by root: POST /admin/django_celery_beat/intervalschedule/add/ Resolved django_celery_beat_intervalschedule_add with args () and kwargs {} 
+INFO 2023-11-20 00:19:55,730 middleware Admin action by root: POST /admin/django_celery_beat/periodictask/add/ Resolved django_celery_beat_periodictask_add with args () and kwargs {} 
+INFO 2023-11-20 00:19:55,760 middleware Admin action by root: GET /admin/django_celery_beat/periodictask/1/change/ Resolved django_celery_beat_periodictask_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-20 00:19:55,786 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-20 00:54:22,937 middleware Admin action by AnonymousUser: POST /admin/logout/ Resolved logout with args () and kwargs {} 
+WARNING 2023-11-20 00:54:30,501 signals Updated CustomUser 3: last_login: 2023-11-17 20:02:31.675712+00:00 -> 2023-11-19 22:54:30.500161+00:00 
+INFO 2023-11-20 00:54:30,574 views User datasamuraii logged in, IP: 127.0.0.1 
+INFO 2023-11-20 01:00:59,359 middleware Admin action by datasamuraii: GET /admin/ Resolved index with args () and kwargs {} 
+INFO 2023-11-20 01:01:02,563 views User  logged out 
+WARNING 2023-11-20 01:01:08,674 signals Updated CustomUser 1: last_login: 2023-11-19 22:13:29.389689+00:00 -> 2023-11-19 23:01:08.673444+00:00 
+INFO 2023-11-20 01:01:08,747 views User root logged in, IP: 127.0.0.1 
+INFO 2023-11-20 01:01:11,016 middleware Admin action by root: GET /admin/ Resolved index with args () and kwargs {} 
+INFO 2023-11-20 01:01:16,839 middleware Admin action by root: GET /admin/auth/group/ Resolved auth_group_changelist with args () and kwargs {} 
+INFO 2023-11-20 01:01:16,872 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-20 01:01:18,446 middleware Admin action by root: GET /admin/auth/group/1/change/ Resolved auth_group_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-20 01:01:18,556 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-20 01:01:29,610 middleware Admin action by root: GET /admin/auth/group/ Resolved auth_group_changelist with args () and kwargs {} 
+INFO 2023-11-20 01:01:30,504 middleware Admin action by root: GET /admin/auth/group/1/change/ Resolved auth_group_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-20 01:01:30,530 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-20 01:01:34,831 middleware Admin action by root: GET /admin/auth/group/ Resolved auth_group_changelist with args () and kwargs {} 
+INFO 2023-11-20 01:01:36,133 middleware Admin action by root: GET /admin/auth/group/1/change/ Resolved auth_group_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-20 01:01:36,149 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-20 01:01:38,694 middleware Admin action by root: POST /admin/auth/group/1/change/ Resolved auth_group_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-20 01:01:38,717 middleware Admin action by root: GET /admin/auth/group/1/change/ Resolved auth_group_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-20 01:01:38,734 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-20 01:01:40,098 middleware Admin action by root: GET /admin/auth/group/ Resolved auth_group_changelist with args () and kwargs {} 
+INFO 2023-11-20 01:01:40,121 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-20 01:01:42,639 middleware Admin action by root: GET /admin/auth/group/4/change/ Resolved auth_group_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-11-20 01:01:42,665 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-20 01:01:51,762 middleware Admin action by root: GET /admin/auth/group/ Resolved auth_group_changelist with args () and kwargs {} 
+INFO 2023-11-20 01:01:51,793 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-21 13:34:20,384 middleware Admin action by root: GET /admin/auth/group/ Resolved auth_group_changelist with args () and kwargs {} 
+INFO 2023-11-21 13:34:20,481 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-21 13:34:27,573 middleware Admin action by root: GET /admin/django_celery_beat/solarschedule/ Resolved django_celery_beat_solarschedule_changelist with args () and kwargs {} 
+INFO 2023-11-21 13:34:27,599 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-21 13:34:28,595 middleware Admin action by root: GET /admin/django_celery_beat/clockedschedule/ Resolved django_celery_beat_clockedschedule_changelist with args () and kwargs {} 
+INFO 2023-11-21 13:34:28,617 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-21 13:34:31,202 middleware Admin action by root: GET /admin/django_celery_beat/crontabschedule/ Resolved django_celery_beat_crontabschedule_changelist with args () and kwargs {} 
+INFO 2023-11-21 13:34:31,225 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-21 13:34:31,751 middleware Admin action by root: GET /admin/django_celery_beat/intervalschedule/ Resolved django_celery_beat_intervalschedule_changelist with args () and kwargs {} 
+INFO 2023-11-21 13:34:31,769 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-21 13:34:33,357 middleware Admin action by root: GET /admin/django_celery_beat/periodictask/ Resolved django_celery_beat_periodictask_changelist with args () and kwargs {} 
+INFO 2023-11-21 13:34:33,404 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-21 13:34:36,790 middleware Admin action by root: GET /admin/django_celery_beat/periodictask/1/change/ Resolved django_celery_beat_periodictask_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-21 13:34:36,816 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-21 13:34:49,771 middleware Admin action by root: GET /admin/django_celery_beat/intervalschedule/add/ Resolved django_celery_beat_intervalschedule_add with args () and kwargs {} 
+INFO 2023-11-21 13:34:49,797 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-21 13:34:56,189 middleware Admin action by root: POST /admin/django_celery_beat/intervalschedule/add/ Resolved django_celery_beat_intervalschedule_add with args () and kwargs {} 
+INFO 2023-11-21 13:34:58,411 middleware Admin action by root: POST /admin/django_celery_beat/periodictask/1/change/ Resolved django_celery_beat_periodictask_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-21 13:34:58,426 middleware Admin action by root: GET /admin/django_celery_beat/periodictask/ Resolved django_celery_beat_periodictask_changelist with args () and kwargs {} 
+INFO 2023-11-21 13:34:58,452 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-21 13:47:53,228 middleware Admin action by root: GET /admin/django_celery_beat/periodictask/ Resolved django_celery_beat_periodictask_changelist with args () and kwargs {} 
+INFO 2023-11-21 13:47:53,258 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-21 13:47:55,003 middleware Admin action by root: GET /admin/django_celery_beat/periodictask/1/change/ Resolved django_celery_beat_periodictask_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-21 13:47:55,030 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-21 13:48:11,682 middleware Admin action by root: GET /admin/django_celery_beat/periodictask/ Resolved django_celery_beat_periodictask_changelist with args () and kwargs {} 
+INFO 2023-11-21 13:48:12,512 middleware Admin action by root: GET /admin/django_celery_beat/periodictask/1/change/ Resolved django_celery_beat_periodictask_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-21 13:48:12,532 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-21 13:48:21,564 middleware Admin action by root: POST /admin/django_celery_beat/periodictask/1/change/ Resolved django_celery_beat_periodictask_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-21 13:48:21,591 middleware Admin action by root: GET /admin/django_celery_beat/periodictask/1/change/ Resolved django_celery_beat_periodictask_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-21 13:48:21,622 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-21 16:12:13,467 middleware Admin action by root: POST /admin/django_celery_beat/periodictask/1/change/ Resolved django_celery_beat_periodictask_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-21 16:12:13,506 middleware Admin action by root: GET /admin/django_celery_beat/periodictask/ Resolved django_celery_beat_periodictask_changelist with args () and kwargs {} 
+INFO 2023-11-21 16:12:13,537 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-21 16:12:17,274 middleware Admin action by root: GET /admin/django_celery_beat/periodictask/1/change/ Resolved django_celery_beat_periodictask_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-21 16:12:17,303 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-21 16:12:53,802 middleware Admin action by root: POST /admin/django_celery_beat/periodictask/1/change/ Resolved django_celery_beat_periodictask_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-21 16:12:53,832 middleware Admin action by root: GET /admin/django_celery_beat/periodictask/1/change/ Resolved django_celery_beat_periodictask_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-21 16:12:53,858 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-21 16:13:44,146 middleware Admin action by root: GET /admin/django_celery_beat/periodictask/ Resolved django_celery_beat_periodictask_changelist with args () and kwargs {} 
+INFO 2023-11-21 16:13:44,186 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-21 16:13:44,989 middleware Admin action by root: GET /admin/django_celery_beat/intervalschedule/ Resolved django_celery_beat_intervalschedule_changelist with args () and kwargs {} 
+INFO 2023-11-21 16:13:45,008 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-21 16:13:45,546 middleware Admin action by root: GET /admin/django_celery_beat/crontabschedule/ Resolved django_celery_beat_crontabschedule_changelist with args () and kwargs {} 
+INFO 2023-11-21 16:13:45,567 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-21 16:13:46,201 middleware Admin action by root: GET /admin/django_celery_beat/clockedschedule/ Resolved django_celery_beat_clockedschedule_changelist with args () and kwargs {} 
+INFO 2023-11-21 16:13:46,222 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-21 16:13:46,618 middleware Admin action by root: GET /admin/django_celery_beat/intervalschedule/ Resolved django_celery_beat_intervalschedule_changelist with args () and kwargs {} 
+INFO 2023-11-21 16:13:46,638 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-21 16:13:47,593 middleware Admin action by root: GET /admin/django_celery_beat/periodictask/ Resolved django_celery_beat_periodictask_changelist with args () and kwargs {} 
+INFO 2023-11-21 16:13:47,614 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-21 16:13:51,341 middleware Admin action by root: GET /admin/django_celery_beat/periodictask/1/change/ Resolved django_celery_beat_periodictask_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-21 16:13:51,370 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-21 16:13:54,494 middleware Admin action by root: GET /admin/django_celery_beat/periodictask/ Resolved django_celery_beat_periodictask_changelist with args () and kwargs {} 
+INFO 2023-11-21 16:19:24,087 middleware Admin action by root: GET /admin/django_celery_beat/periodictask/1/change/ Resolved django_celery_beat_periodictask_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-21 16:19:24,116 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-21 16:19:37,896 middleware Admin action by root: POST /admin/django_celery_beat/periodictask/1/change/ Resolved django_celery_beat_periodictask_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-21 16:19:37,925 middleware Admin action by root: GET /admin/django_celery_beat/periodictask/1/change/ Resolved django_celery_beat_periodictask_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-21 16:19:37,946 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-21 16:49:10,363 middleware Admin action by root: POST /admin/django_celery_beat/periodictask/1/change/ Resolved django_celery_beat_periodictask_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-21 16:49:10,405 middleware Admin action by root: GET /admin/django_celery_beat/periodictask/ Resolved django_celery_beat_periodictask_changelist with args () and kwargs {} 
+INFO 2023-11-21 16:49:10,433 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-21 17:01:52,054 middleware Admin action by root: GET /admin/django_celery_beat/periodictask/1/change/ Resolved django_celery_beat_periodictask_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-21 17:01:52,078 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-21 17:01:57,238 middleware Admin action by root: POST /admin/django_celery_beat/periodictask/1/change/ Resolved django_celery_beat_periodictask_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-21 17:01:57,266 middleware Admin action by root: GET /admin/django_celery_beat/periodictask/1/change/ Resolved django_celery_beat_periodictask_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-21 17:01:57,295 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 

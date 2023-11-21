@@ -20,7 +20,6 @@ from .models import Post, Category, ViewedPost, Comment, CommentReaction
 logger = logging.getLogger(__name__.split('.')[0])
 
 # TODO Email Notifications: subscribe for notifications, send when new post releases
-# TODO Scheduled Posts
 # TODO Automated profanity filters or sentiment analysis to flag potentially harmful comments
 
 

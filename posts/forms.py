@@ -9,16 +9,30 @@ class PostForm(forms.ModelForm):
 
     class Meta:
         model = Post
-        fields = ['title', 'content', 'category', 'is_published']
+        fields = ['title', 'content', 'category', 'is_published', 'date_scheduled']
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control'}),
             'category': forms.Select(attrs={'class': 'form-select'}),
             'is_published': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
+            'date_scheduled': forms.DateTimeInput(attrs={'type': 'datetime-local', 'class': 'form-control'}),
         }
-        labels = {'is_published': 'Publish this post?'}
+        labels = {
+            'is_published': 'Publish this post?',
+            'date_scheduled': 'Schedule this post?',
+        }
         help_texts = {
             'title': 'Your post title goes here.',
         }
+
+    def clean(self):
+        cleaned_data = super().clean()
+        is_published = cleaned_data.get('is_published')
+        date_scheduled = cleaned_data.get('date_scheduled')
+        if is_published and date_scheduled:
+            raise forms.ValidationError("You cannot set a post to be published and scheduled at the same time.")
+
+        return cleaned_data
+
 
     def clean_title(self):
         title = self.cleaned_data.get('title')

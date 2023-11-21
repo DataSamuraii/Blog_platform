@@ -2,6 +2,7 @@ import logging
 
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
+from django.utils import timezone
 from django.utils.functional import SimpleLazyObject
 
 from .models import Post, Category, ViewedPost
@@ -31,3 +32,12 @@ def track_changes(sender, instance, **kwargs):
     if changed_fields:
         change_desc = ', '.join([f'{field}: {init} -> {curr}' for field, init, curr in changed_fields])
         logger.warning(f'{action} {sender.__name__} {instance.pk if instance.pk else ""}: {change_desc}')
+
+
+@receiver(pre_save, sender=Post)
+def set_date(sender, instance, **kwargs):
+    logger.info(f'Starting set_date for post {instance.pk}')
+    if instance.is_published:
+        instance.date_published = instance.date_scheduled if instance.date_scheduled else timezone.now()
+        logger.info(f'date_published set to {instance.date_published} for post {instance.pk}')
+

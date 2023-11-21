@@ -49,4 +49,27 @@
         <!-- Action Buttons -->
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+
+    <script>
+        // JavaScript to toggle fields based on user selection
+        document.addEventListener('DOMContentLoaded', function () {
+            let isPublishedCheckbox = document.getElementById('id_is_published');
+            let dateScheduledInput = document.getElementById('id_date_scheduled');
+
+            isPublishedCheckbox.addEventListener('change', function () {
+                if (this.checked) {
+                    dateScheduledInput.value = '';
+                    dateScheduledInput.disabled = true;
+                } else {
+                    dateScheduledInput.disabled = false;
+                }
+            });
+
+            dateScheduledInput.addEventListener('change', function () {
+                if (this.value) {
+                    isPublishedCheckbox.checked = false;
+                }
+            });
+        });
+    </script>
 {% endblock %}

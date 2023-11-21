@@ -1,19 +1,17 @@
 import logging
-from django.contrib.auth import get_user_model
 
 from django.contrib import messages
+from django.contrib.auth import get_user_model
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http import HttpResponseRedirect
+from django.shortcuts import get_object_or_404
 from django.shortcuts import redirect
 from django.urls import reverse, reverse_lazy
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView
-from django.shortcuts import get_object_or_404
 
-from posts.models import Post
-from .models import UnbanRequest
 from .forms import CustomUserCreationForm, CustomUserEditForm, CustomAuthenticationForm, UnbanRequestForm
+from .models import UnbanRequest
 
 logger = logging.getLogger(__name__.split('.')[0])
 
@@ -82,7 +80,7 @@ class UserDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['user_posts'] = self.object.post_set.filter(is_published=True)
+        context['user_posts'] = self.object.post_set.all()
         return context
 
     def get(self, request, *args, **kwargs):
