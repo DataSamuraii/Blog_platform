@@ -1,10 +1,10 @@
 import logging
 
-from django.db.models.signals import pre_save
+from django.db.models.signals import pre_save, post_save
 from django.dispatch import receiver
 from django.utils.functional import SimpleLazyObject
 
-from .models import CustomUser, UnbanRequest
+from .models import CustomUser, UnbanRequest, EmailSubscriber
 
 logger = logging.getLogger(__name__.split('.')[0])
 
@@ -30,3 +30,11 @@ def track_changes(sender, instance, **kwargs):
     if changed_fields:
         change_desc = ', '.join([f'{field}: {init} -> {curr}' for field, init, curr in changed_fields])
         logger.warning(f'{action} {sender.__name__} {instance.pk if instance.pk else ""}: {change_desc}')
+
+
+@receiver(post_save, sender=CustomUser)
+def create_subscriber_for_new_user(sender, instance, created, **kwargs):
+    logger.info(f'Starting create_subscriber_for_new_user signal for new user {instance.pk}')
+    if created:
+        EmailSubscriber.objects.create(user=instance)
+        logger.info(f'Created new email subscription for new user {instance.pk}')

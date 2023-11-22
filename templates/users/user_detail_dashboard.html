@@ -60,7 +60,8 @@
 
                 <!-- Profile Picture -->
                 <div class="text-center mb-3">
-                    <img src="{% if user.profile_picture %}{{ user.profile_picture.url }}{% else %}{% static 'images/profile-placeholder.jpg' %}{% endif %}"
+                    <img src="
+                            {% if user.profile_picture %}{{ user.profile_picture.url }}{% else %}{% static 'images/profile-placeholder.jpg' %}{% endif %}"
                          alt="Profile Picture" style="max-width: 100%; height: auto; max-height: 150px;">
                 </div>
 
@@ -76,7 +77,35 @@
                 </ul>
                 <a href="{% url 'edit_user' user.id %}" class="mb-2 btn btn-warning">Edit Info</a>
                 <a href="{% url 'password_change' %}" class="btn btn-warning">Change Password</a>
+
+                <!-- Subscription Button -->
+                {% if is_subscribed %}
+                    <form id="unsubscribe-form" action="{% url 'delete_email_subscriber' %}" method="post">
+                        {% csrf_token %}
+                        <button onclick="confirmUnsubscribe()" class="btn btn-danger mt-2" style="width: 100%;">Unsubscribe from Email notification</button>
+                    </form>
+                {% else %}
+                    <form id="subscribe-form" action="{% url 'create_email_subscriber' %}" method="post">
+                        {% csrf_token %}
+                        <button onclick="confirmSubscribe()" class="btn btn-success mt-2" style="width: 100%;">Subscribe to Email notification</button>
+                    </form>
+                {% endif %}
             </div>
         </div>
     </div>
+
+    <script type="text/javascript">
+        function confirmUnsubscribe() {
+            if (confirm('Are you sure you want to unsubscribe from Email notification?')) {
+                // If the user confirms, submit the hidden form
+                document.getElementById('unsubscribe-form').submit();
+            }
+        }
+        function confirmSubscribe() {
+            if (confirm('Are you sure you want to subscribe to Email notification?')) {
+                // If the user confirms, submit the hidden form
+                document.getElementById('subscribe-form').submit();
+            }
+        }
+    </script>
 {% endblock %}

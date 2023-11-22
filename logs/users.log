@@ -680,3 +680,72 @@ INFO 2023-11-21 17:01:52,078 middleware Admin action by root: GET /admin/jsi18n/
 INFO 2023-11-21 17:01:57,238 middleware Admin action by root: POST /admin/django_celery_beat/periodictask/1/change/ Resolved django_celery_beat_periodictask_change with args () and kwargs {'object_id': '1'} 
 INFO 2023-11-21 17:01:57,266 middleware Admin action by root: GET /admin/django_celery_beat/periodictask/1/change/ Resolved django_celery_beat_periodictask_change with args () and kwargs {'object_id': '1'} 
 INFO 2023-11-21 17:01:57,295 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-21 20:59:58,757 middleware Admin action by AnonymousUser: POST /admin/logout/ Resolved logout with args () and kwargs {} 
+WARNING 2023-11-21 21:00:07,147 signals Updated CustomUser 4: last_login: 2023-11-18 13:22:32.439067+00:00 -> 2023-11-21 19:00:07.146514+00:00 
+INFO 2023-11-21 21:00:07,220 views User elizakirt logged in, IP: 127.0.0.1 
+INFO 2023-11-21 21:36:39,836 signals Starting create_subscriber_for_new_user signal for new user 4 
+INFO 2023-11-21 21:36:39,843 views User elizakirt changed fields: [] 
+INFO 2023-11-21 21:37:30,401 signals Starting create_subscriber_for_new_user signal for new user 4 
+INFO 2023-11-21 21:37:30,475 signals Created new email subscription for user 4 
+INFO 2023-11-21 21:37:30,475 views User elizakirt changed fields: [] 
+INFO 2023-11-21 21:42:53,895 views User elizakirt added to email subscription 
+WARNING 2023-11-21 21:48:41,800 models Deleting email subscription for elizakirt 
+INFO 2023-11-21 21:48:41,881 views User elizakirt removed from email subscription 
+INFO 2023-11-21 21:54:46,807 views User elizakirt added to email subscription 
+INFO 2023-11-21 21:55:44,102 views User elizakirt added to email subscription 
+WARNING 2023-11-21 21:57:19,091 models Deleting email subscription for elizakirt 
+INFO 2023-11-21 21:57:19,268 views User elizakirt removed from email subscription 
+INFO 2023-11-21 21:57:20,943 views User elizakirt added to email subscription 
+WARNING 2023-11-21 22:06:33,621 models Deleting email subscription for elizakirt 
+INFO 2023-11-21 22:06:33,796 views User elizakirt removed from email subscription 
+INFO 2023-11-21 22:22:10,968 views User  logged out 
+WARNING 2023-11-21 22:22:22,828 signals Updated CustomUser 4: last_login: 2023-11-21 19:00:07.146514+00:00 -> 2023-11-21 20:22:22.827785+00:00 
+INFO 2023-11-21 22:22:22,901 signals Starting create_subscriber_for_new_user signal for new user 4 
+INFO 2023-11-21 22:22:22,901 views User elizakirt logged in, IP: 127.0.0.1 
+INFO 2023-11-21 22:22:23,060 views User  logged out 
+WARNING 2023-11-21 22:22:39,216 signals Updated CustomUser 4: last_login: 2023-11-21 20:22:22.827785+00:00 -> 2023-11-21 20:22:39.215588+00:00 
+INFO 2023-11-21 22:22:39,289 signals Starting create_subscriber_for_new_user signal for new user 4 
+INFO 2023-11-21 22:22:39,289 views User elizakirt logged in, IP: 127.0.0.1 
+INFO 2023-11-21 22:22:40,894 middleware Admin action by elizakirt: GET /admin/ Resolved index with args () and kwargs {} 
+INFO 2023-11-21 23:40:56,974 signals Starting create_subscriber_for_new_user signal for new user 4 
+INFO 2023-11-21 23:40:57,048 signals Created new email subscription for user 4 
+INFO 2023-11-21 23:40:57,048 views User elizakirt changed fields: [] 
+WARNING 2023-11-21 23:40:59,577 models Deleting email subscription for elizakirt 
+INFO 2023-11-21 23:40:59,793 views User elizakirt removed from email subscription 
+ERROR 2023-11-21 23:57:26,842 views Form errors: <ul class="errorlist"><li>user<ul class="errorlist"><li>This field is required.</li></ul></li></ul> 
+INFO 2023-11-21 23:58:17,127 views User elizakirt added to email subscription 
+WARNING 2023-11-21 23:58:18,541 models Deleting email subscription for elizakirt 
+INFO 2023-11-21 23:58:18,714 views User elizakirt removed from email subscription 
+INFO 2023-11-21 23:58:36,489 views User elizakirt added to email subscription 
+WARNING 2023-11-21 23:58:37,708 models Deleting email subscription for elizakirt 
+INFO 2023-11-21 23:58:37,874 views User elizakirt removed from email subscription 
+INFO 2023-11-22 00:05:28,603 views User elizakirt added to email subscription 
+WARNING 2023-11-22 00:05:36,276 models Deleting email subscription for elizakirt 
+INFO 2023-11-22 00:05:36,449 views User elizakirt removed from email subscription 
+INFO 2023-11-22 00:05:37,645 views User elizakirt added to email subscription 
+WARNING 2023-11-22 00:05:38,825 models Deleting email subscription for elizakirt 
+INFO 2023-11-22 00:05:38,996 views User elizakirt removed from email subscription 
+INFO 2023-11-22 00:07:49,482 views User elizakirt added to email subscription 
+WARNING 2023-11-22 00:07:51,326 models Deleting email subscription for elizakirt 
+INFO 2023-11-22 00:07:51,500 views User elizakirt removed from email subscription 
+INFO 2023-11-22 00:07:56,375 views User elizakirt added to email subscription 
+INFO 2023-11-22 12:47:56,737 middleware Admin action by elizakirt: GET /admin/ Resolved index with args () and kwargs {} 
+INFO 2023-11-22 12:47:57,982 middleware Admin action by elizakirt: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-22 12:47:58,008 middleware Admin action by elizakirt: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-22 12:48:01,558 middleware Admin action by elizakirt: GET /admin/users/customuser/4/change/ Resolved users_customuser_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-11-22 12:48:01,582 middleware Admin action by elizakirt: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-22 12:49:44,495 middleware Admin action by AnonymousUser: POST /admin/logout/ Resolved logout with args () and kwargs {} 
+WARNING 2023-11-22 12:49:52,125 signals Updated CustomUser 3: last_login: 2023-11-19 22:54:30.500161+00:00 -> 2023-11-22 10:49:52.124099+00:00 
+INFO 2023-11-22 12:49:52,197 signals Starting create_subscriber_for_new_user signal for new user 3 
+INFO 2023-11-22 12:49:52,197 views User datasamuraii logged in, IP: 127.0.0.1 
+INFO 2023-11-22 12:50:00,073 views User datasamuraii added to email subscription 
+INFO 2023-11-22 12:54:19,652 views User  logged out 
+INFO 2023-11-22 12:54:19,668 views User  logged out 
+WARNING 2023-11-22 12:54:31,211 views Failed login attempt for randomuser, IP: 127.0.0.1 
+WARNING 2023-11-22 12:54:45,331 signals Updated CustomUser 5: last_login: 2023-11-07 21:44:29.781153+00:00 -> 2023-11-22 10:54:45.330283+00:00 
+INFO 2023-11-22 12:54:45,404 signals Starting create_subscriber_for_new_user signal for new user 5 
+INFO 2023-11-22 12:54:45,404 views User random_user logged in, IP: 127.0.0.1 
+INFO 2023-11-22 12:54:45,563 views User  logged out 
+WARNING 2023-11-22 12:54:54,945 signals Updated CustomUser 5: last_login: 2023-11-22 10:54:45.330283+00:00 -> 2023-11-22 10:54:54.944110+00:00 
+INFO 2023-11-22 12:54:55,018 signals Starting create_subscriber_for_new_user signal for new user 5 
+INFO 2023-11-22 12:54:55,018 views User random_user logged in, IP: 127.0.0.1 

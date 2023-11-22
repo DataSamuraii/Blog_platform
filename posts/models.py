@@ -9,7 +9,7 @@ logger = logging.getLogger(__name__.split('.')[0])
 
 
 class Post(models.Model):
-    title = models.CharField(max_length=50, unique=True)
+    title = models.CharField(max_length=100, unique=True)
     content = RichTextField()
     category = models.ForeignKey('Category', on_delete=models.SET_NULL, null=True)
     date_scheduled = models.DateTimeField(null=True, blank=True)

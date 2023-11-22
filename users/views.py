@@ -4,14 +4,16 @@ from django.contrib import messages
 from django.contrib.auth import get_user_model
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.exceptions import PermissionDenied
 from django.shortcuts import get_object_or_404
 from django.shortcuts import redirect
 from django.urls import reverse, reverse_lazy
 from django.views.generic.detail import DetailView
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
-from .forms import CustomUserCreationForm, CustomUserEditForm, CustomAuthenticationForm, UnbanRequestForm
-from .models import UnbanRequest
+from .forms import CustomUserCreationForm, CustomUserEditForm, CustomAuthenticationForm, UnbanRequestForm, \
+    EmailSubscriberForm
+from .models import UnbanRequest, EmailSubscriber
 
 logger = logging.getLogger(__name__.split('.')[0])
 
@@ -81,6 +83,10 @@ class UserDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['user_posts'] = self.object.post_set.all()
+        try:
+            context['is_subscribed'] = self.object.email_subscriber.get()
+        except EmailSubscriber.DoesNotExist:
+            context['is_subscribed'] = False
         return context
 
     def get(self, request, *args, **kwargs):
@@ -109,6 +115,52 @@ class EditUserView(LoginRequiredMixin, UpdateView):
         return reverse('user_detail', args=[self.object.id])
 
 
+class CreateEmailSubscriber(LoginRequiredMixin, CreateView):
+    model = EmailSubscriber
+    form_class = EmailSubscriberForm
+    http_method_names = ['post']
+
+    def form_valid(self, form):
+        obj = form.save(commit=False)
+        obj.user = self.request.user
+        response = super().form_valid(form)
+        messages.success(self.request, 'Successfully added to email subscription list!')
+        logger.info(f"User {self.request.user.username} added to email subscription")
+        return response
+
+    def get_success_url(self):
+        return reverse('user_detail', args=[self.object.user.id])
+
+
+class DeleteEmailSubscriber(LoginRequiredMixin, DeleteView):
+    model = EmailSubscriber
+    template_name = 'users/email_subscriber_delete.html'
+
+    def dispatch(self, request, *args, **kwargs):
+        try:
+            obj = self.model.objects.get(user=request.user)
+        except self.model.DoesNotExist:
+            messages.info(request, 'You are not subscribed.')
+            return redirect('user_detail', request.user.id)
+        else:
+            return super().dispatch(request, *args, **kwargs)
+
+    def get_object(self, queryset=None):
+        obj = get_object_or_404(self.model, user=self.request.user)
+        if obj.user != self.request.user:
+            raise PermissionDenied("You don't have permission to delete this post.")
+        return obj
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        messages.success(self.request, 'Successfully removed from email subscription list.')
+        logger.info(f"User {self.request.user.username} removed from email subscription")
+        return response
+
+    def get_success_url(self):
+        return reverse('user_detail', args=[self.object.user.id])
+
+
 class BannedUserView(CreateView):
     model = UnbanRequest
     form_class = UnbanRequestForm
@@ -120,4 +172,5 @@ class BannedUserView(CreateView):
         obj.user = self.request.user
         response = super().form_valid(form)
         messages.success(self.request, 'Your unban request has been received!')
+        logger.info(f"User {obj.user} submitted unban request")
         return response

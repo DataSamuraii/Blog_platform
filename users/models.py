@@ -35,6 +35,20 @@ class CustomUser(AbstractUser):
         ordering = ['id']
 
 
+class EmailSubscriber(models.Model):
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='email_subscriber')
+
+    def delete(self, *args, **kwargs):
+        logger.warning(f"Deleting email subscription for {self.user}")
+        super().delete(*args, **kwargs)
+
+    def __str__(self):
+        return self.user.email
+
+    class Meta:
+        ordering = ['id']
+
+
 class UnbanRequest(models.Model):
     UNBAN_STATUS_CHOICES = [
         ('pending', 'Pending'),

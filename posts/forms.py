@@ -33,7 +33,6 @@ class PostForm(forms.ModelForm):
 
         return cleaned_data
 
-
     def clean_title(self):
         title = self.cleaned_data.get('title')
         if len(title) < 5:

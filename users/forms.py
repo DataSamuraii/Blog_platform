@@ -1,11 +1,13 @@
+import json
+
 from captcha.fields import ReCaptchaField
 from captcha.widgets import ReCaptchaV2Checkbox
 from django import forms
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from .models import UnbanRequest
-import json
 from django.core.exceptions import ValidationError
+
+from .models import UnbanRequest, EmailSubscriber
 
 
 class CustomUserCreationForm(UserCreationForm):
@@ -40,6 +42,12 @@ class CustomUserEditForm(forms.ModelForm):
             raise ValidationError
 
         return social_media
+
+
+class EmailSubscriberForm(forms.ModelForm):
+    class Meta:
+        model = EmailSubscriber
+        fields = []
 
 
 class CustomAuthenticationForm(AuthenticationForm):

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block page_content %}
+    <div>
+        {% if messages %}
+            <div class="mt-4">
+                {% for message in messages %}
+                    <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}" role="alert">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        <h2>Unsubscribe from Email Notifications</h2>
+        <p>Are you sure you want to unsubscribe from email notifications?</p>
+
+        <form action="" method="post">
+            {% csrf_token %}
+            <input type="submit" value="Confirm Unsubscribe">
+        </form>
+    </div>
+{% endblock %}
