@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comment Notification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .comment-container {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        .profile-picture {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+
+        .comment-content {
+            flex: 1;
+        }
+
+        .footer {
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid #ddd;
+            font-size: 12px;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+<a href="{{ post_url }}" style="text-decoration: none; color: inherit;">
+    <table class="comment-container" style="border-collapse: collapse; width: 100%;">
+        <tr>
+            <td style="padding: 10px; {% if comment.is_deleted %}text-decoration: line-through; color: #000000; pointer-events: none; opacity: 0.6; cursor: not-allowed;{% endif %}">
+                <!-- Profile picture and content container -->
+                <table style="width: 100%;">
+                    <tr>
+                        <!-- Profile picture -->
+                        <td style="width: 60px;">
+                            <img src="
+                                    {% if comment.author.profile_picture %}{{ comment.author.profile_picture.url }}{% else %}images/profile-placeholder.jpg{% endif %}"
+                                 class="profile-picture" alt="Profile Picture">
+                        </td>
+                        <!-- Comment content -->
+                        <td style="vertical-align: top;">
+                            <strong style="display: block;">{{ comment.author }}</strong>
+                            <p style="margin: 0;">{{ comment.content }}</p>
+                            <div style="display: flex; align-items: center; margin-top: 10px;">
+                                <div style="margin-right: 5px; font-size: small;">
+                                    {{ comment.likes_count }} 👍
+                                </div>
+                                <div style="margin-right: 20px; font-size: small;">
+                                    {{ comment.dislikes_count }} 👎
+                                </div>
+                                <small style="color: #666;">{{ comment.timestamp|timesince }} ago · {{ comment.timestamp }}</small>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</a>
+</body>
+</html>

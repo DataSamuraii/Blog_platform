@@ -63,7 +63,7 @@ class ViewedPost(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
 
     def delete(self, *args, **kwargs):
-        logger.warning(f"Deleting ViewedPost: {self.title} (ID: {self.pk})")
+        logger.warning(f"Deleting ViewedPost ID: {self.pk}")
         super().delete(*args, **kwargs)
 
 
@@ -84,7 +84,7 @@ class Comment(models.Model):
         return self.reactions.filter(reaction_type='dislike').count()
 
     def delete(self, *args, **kwargs):
-        logger.warning(f"Deleting comment: {self.title} (ID: {self.pk})")
+        logger.warning(f"Deleting comment: {self.content} (ID: {self.pk})")
         super().delete(*args, **kwargs)
 
     def __str__(self):

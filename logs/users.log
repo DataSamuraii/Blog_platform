@@ -749,3 +749,34 @@ INFO 2023-11-22 12:54:45,563 views User  logged out
 WARNING 2023-11-22 12:54:54,945 signals Updated CustomUser 5: last_login: 2023-11-22 10:54:45.330283+00:00 -> 2023-11-22 10:54:54.944110+00:00 
 INFO 2023-11-22 12:54:55,018 signals Starting create_subscriber_for_new_user signal for new user 5 
 INFO 2023-11-22 12:54:55,018 views User random_user logged in, IP: 127.0.0.1 
+INFO 2023-11-23 14:15:03,121 views User  logged out 
+WARNING 2023-11-23 14:15:16,022 signals Updated CustomUser 5: last_login: 2023-11-22 10:54:54.944110+00:00 -> 2023-11-23 12:15:16.021890+00:00 
+INFO 2023-11-23 14:15:16,096 signals Starting create_subscriber_for_new_user signal for new user 5 
+INFO 2023-11-23 14:15:16,096 views User random_user logged in, IP: 127.0.0.1 
+INFO 2023-11-23 14:19:51,217 views User  logged out 
+WARNING 2023-11-23 14:20:18,319 signals Updated CustomUser 3: last_login: 2023-11-22 10:49:52.124099+00:00 -> 2023-11-23 12:20:18.318701+00:00 
+INFO 2023-11-23 14:20:18,392 signals Starting create_subscriber_for_new_user signal for new user 3 
+INFO 2023-11-23 14:20:18,392 views User datasamuraii logged in, IP: 127.0.0.1 
+INFO 2023-11-23 14:39:43,668 views User  logged out 
+WARNING 2023-11-23 14:39:54,496 signals Updated CustomUser 4: last_login: 2023-11-21 20:22:39.215588+00:00 -> 2023-11-23 12:39:54.495239+00:00 
+INFO 2023-11-23 14:39:54,568 signals Starting create_subscriber_for_new_user signal for new user 4 
+INFO 2023-11-23 14:39:54,568 views User elizakirt logged in, IP: 127.0.0.1 
+INFO 2023-11-23 20:19:48,340 views User  logged out 
+WARNING 2023-11-23 20:19:56,146 signals Updated CustomUser 3: last_login: 2023-11-23 12:20:18.318701+00:00 -> 2023-11-23 18:19:56.145031+00:00 
+INFO 2023-11-23 20:19:56,218 signals Starting create_subscriber_for_new_user for new user 3 
+INFO 2023-11-23 20:19:56,219 signals Starting user_edit_notification for user 3 
+INFO 2023-11-23 20:19:58,960 signals Email user notification sent to rubashanov1209@gmail.com 
+INFO 2023-11-23 20:19:58,961 views User datasamuraii logged in, IP: 127.0.0.1 
+WARNING 2023-11-23 20:20:12,511 signals Updated CustomUser 3: bio: None -> Cool post writer 
+INFO 2023-11-23 20:20:12,592 signals Starting create_subscriber_for_new_user for new user 3 
+INFO 2023-11-23 20:20:12,593 signals Starting user_edit_notification for user 3 
+INFO 2023-11-23 20:20:14,458 signals Email user notification sent to rubashanov1209@gmail.com 
+INFO 2023-11-23 20:20:14,459 views User datasamuraii changed fields: ['bio'] 
+INFO 2023-11-23 20:21:29,524 signals Starting create_subscriber_for_new_user for new user 3 
+INFO 2023-11-23 20:21:29,524 signals Starting user_edit_notification for user 3 
+INFO 2023-11-23 20:21:32,526 signals Email user notification sent to rubashanov1209@gmail.com 
+INFO 2023-11-23 20:21:32,527 views User datasamuraii changed fields: [] 
+INFO 2023-11-23 20:22:21,227 signals Starting create_subscriber_for_new_user for new user 3 
+INFO 2023-11-23 20:22:21,227 signals Starting user_edit_notification for user 3 
+INFO 2023-11-23 20:22:23,828 signals Email user notification sent to rubashanov1209@gmail.com 
+INFO 2023-11-23 20:22:23,829 views User datasamuraii changed fields: [] 

@@ -254,3 +254,30 @@ INFO 2023-11-22 16:56:08,486 signals Starting set_date for post 6
 INFO 2023-11-22 16:56:08,486 signals date_published set to 2023-11-22 14:56:08.486485+00:00 for post 6 
 INFO 2023-11-22 16:56:08,677 signals Starting post_create_notification for post 6 
 INFO 2023-11-22 16:56:11,501 views User random_user edited post 6 
+WARNING 2023-11-23 13:14:06,950 signals Updated Post 1: views: 89 -> 90 
+INFO 2023-11-23 13:14:06,975 signals Starting set_date for post 1 
+INFO 2023-11-23 13:14:06,976 signals Starting post_create_notification for post 1 
+WARNING 2023-11-23 13:14:07,068 signals Created ViewedPost : id: None -> None, post: None -> Fifth Post, ip_address: None -> 127.0.0.1, timestamp: None -> None 
+INFO 2023-11-23 13:14:07,142 views Created new ViewedPost for IP 127.0.0.1, post (<Post: Fifth Post>, 1) 
+WARNING 2023-11-23 14:15:17,716 signals Updated Post 6: views: 4 -> 5 
+INFO 2023-11-23 14:15:17,730 signals Starting set_date for post 6 
+INFO 2023-11-23 14:15:17,730 signals Starting post_create_notification for post 6 
+WARNING 2023-11-23 14:15:17,817 signals Created ViewedPost : id: None -> None, post: None -> Sixth post: A Look at Sam Altman's Dramatic Ousting and Return, ip_address: None -> 127.0.0.1, timestamp: None -> None 
+INFO 2023-11-23 14:15:17,891 views Created new ViewedPost for IP 127.0.0.1, post (<Post: Sixth post: A Look at Sam Altman's Dramatic Ousting and Return>, 6) 
+WARNING 2023-11-23 14:19:08,139 signals Updated Post 3: views: 12 -> 13 
+INFO 2023-11-23 14:19:08,139 signals Starting set_date for post 3 
+INFO 2023-11-23 14:19:08,139 signals Starting post_create_notification for post 3 
+WARNING 2023-11-23 14:19:08,576 signals Created ViewedPost : id: None -> None, post: None -> Second Post, ip_address: None -> 127.0.0.1, timestamp: None -> None 
+INFO 2023-11-23 14:19:08,650 views Created new ViewedPost for IP 127.0.0.1, post (<Post: Second Post>, 3) 
+INFO 2023-11-23 14:19:33,952 signals Starting comment_reply_notification for comment 14 
+INFO 2023-11-23 14:19:33,953 views User random_user posted a new comment 14 
+INFO 2023-11-23 14:20:34,822 signals Starting comment_reply_notification for comment 15 
+INFO 2023-11-23 14:40:12,599 signals Starting comment_reply_notification for comment 16 
+INFO 2023-11-23 14:40:15,509 signals Email comment notification sent to rubashanov1209@gmail.com 
+INFO 2023-11-23 14:40:15,510 views User elizakirt posted a new comment 16 
+INFO 2023-11-23 14:49:57,401 signals Starting comment_reply_notification for comment 17 
+INFO 2023-11-23 14:49:59,316 signals Email comment notification sent to rubashanov1209@gmail.com 
+INFO 2023-11-23 14:49:59,317 views User elizakirt posted a new comment 17 
+INFO 2023-11-23 15:35:52,602 signals Starting comment_reply_notification for comment 18 
+INFO 2023-11-23 15:35:55,681 signals Email comment notification sent to rubashanov1209@gmail.com 
+INFO 2023-11-23 15:35:55,681 views User elizakirt posted a new comment 18 

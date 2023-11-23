@@ -1,7 +1,18 @@
+{% load static %}
+
 <div>
     <div class="card mt-2" style="margin-left: {{ depth|default:'0' }}px;">
         <div class="card-body comment-container {% if comment.is_deleted %}deleted-comment{% endif %}">
-            <p>{{ comment.content }}</p>
+            <div class="comment-flex-container">
+                <!-- Profile picture -->
+                <img src="{% if comment.author.profile_picture %}{{ comment.author.profile_picture.url }}{% else %}{% static 'images/profile-placeholder.jpg' %}{% endif %}"
+                     class="profile-picture" alt="Profile Picture">
+                <!-- Grouped content -->
+                <div class="comment-content">
+                    <strong>{{ comment.author }}</strong>
+                    <p>{{ comment.content }}</p>
+                </div>
+            </div>
 
             {% if comment.author == request.user %}
                 <form id="delete-comment-form-{{ comment.id }}" action="{% url 'comment_delete' comment.id %}"
@@ -21,7 +32,7 @@
                     {% csrf_token %}
                     <input type="hidden" name="reaction_type" value="like">
                     <button type="submit" class="btn btn-sm btn-outline-primary me-2">
-                        <i class="bi bi-thumbs-up"></i> {{ comment.likes_count }} likes
+                        <i class="bi bi-thumbs-up"></i> {{ comment.likes_count }} 👍
                     </button>
                 </form>
 
@@ -30,12 +41,11 @@
                     {% csrf_token %}
                     <input type="hidden" name="reaction_type" value="dislike">
                     <button type="submit" class="btn btn-sm btn-outline-danger me-4">
-                        <i class="bi bi-thumbs-down"></i> {{ comment.dislikes_count }} dislikes
+                        <i class="bi bi-thumbs-down"></i> {{ comment.dislikes_count }} 👎
                     </button>
                 </form>
 
-                <small class="text-muted">{{ comment.author }} · {{ comment.timestamp|timesince }} ago
-                    · {{ comment.timestamp }}</small>
+                <small class="text-muted">{{ comment.timestamp|timesince }} ago · {{ comment.timestamp }}</small>
                 <button type="button" onclick="setReplyTo('{{ comment.id }}', '{{ comment.content|escapejs }}');"
                         class="btn btn-sm btn-outline-secondary m-auto">Reply
                 </button>

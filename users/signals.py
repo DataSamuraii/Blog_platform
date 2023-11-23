@@ -4,6 +4,7 @@ from django.db.models.signals import pre_save, post_save
 from django.dispatch import receiver
 from django.utils.functional import SimpleLazyObject
 
+from utils.utils import EmailUserNotification
 from .models import CustomUser, UnbanRequest, EmailSubscriber
 
 logger = logging.getLogger(__name__.split('.')[0])
@@ -34,7 +35,19 @@ def track_changes(sender, instance, **kwargs):
 
 @receiver(post_save, sender=CustomUser)
 def create_subscriber_for_new_user(sender, instance, created, **kwargs):
-    logger.info(f'Starting create_subscriber_for_new_user signal for new user {instance.pk}')
+    logger.info(f'Starting create_subscriber_for_new_user for new user {instance.pk}')
     if created:
         EmailSubscriber.objects.create(user=instance)
         logger.info(f'Created new email subscription for new user {instance.pk}')
+
+
+@receiver(post_save, sender=CustomUser)
+def user_edit_notification(sender, instance, created, **kwargs):
+    logger.info(f'Starting user_edit_notification for user {instance.pk}')
+    subject = f'Your account data has been changed at DataSamurai`s blog'
+    recipient_email = instance.email
+
+    email_notification = EmailUserNotification(subject, instance, recipient_email)
+    email_notification.send()
+
+    logger.info(f'Email user notification sent to {recipient_email}')

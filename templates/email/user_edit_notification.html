@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Account Update Notification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+            padding: 20px;
+            text-align: center;
+        }
+        .email-header {
+            background-color: #f8f8f8;
+            padding: 10px;
+            border-bottom: 1px solid #e7e7e7;
+        }
+        .email-content {
+            margin: 20px 0;
+            text-align: left;
+        }
+        .email-footer {
+            background-color: #f8f8f8;
+            padding: 10px;
+            border-top: 1px solid #e7e7e7;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="email-header">
+            <h2>Your Personal Data Has Been Updated</h2>
+        </div>
+        <div class="email-content">
+            <p>Dear {{ user.username }},</p>
+            <p>This is a notification to let you know that your personal data on our system has been updated. If you did not initiate this change, please contact us immediately.</p>
+            <p>We also recommend to log in and reset your password here: <a href="{{ user_detail_url }}" style="color: #007bff; text-decoration: none;">User dashboard</a></p>
+            <p>For your security, we do not display all details. To review or revert any changes, please log in to your account.</p>
+        </div>
+        <div class="email-footer">
+            This is an automated message. If you have any questions or concerns, please contact our support team.
+            <br>
+        </div>
+    </div>
+</body>
+</html>

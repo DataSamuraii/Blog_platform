@@ -4,10 +4,10 @@ from django.db.models.signals import pre_save, post_save
 from django.dispatch import receiver
 from django.utils import timezone
 from django.utils.functional import SimpleLazyObject
-from utils.utils import EmailNotification, send_email_notification
 
-from .models import Post, Category, ViewedPost
 from users.models import EmailSubscriber
+from utils.utils import EmailPostNotification, EmailCommentNotification
+from .models import Post, Category, ViewedPost, Comment
 
 logger = logging.getLogger(__name__.split('.')[0])
 
@@ -51,13 +51,28 @@ def post_create_notification(sender, instance, **kwargs):
     logger.info(f'Starting post_create_notification for post {instance.pk}')
     initial = SimpleLazyObject(lambda: sender.objects.get(pk=instance.pk))
     if not initial.is_published and instance.is_published:
-        subject = f"New post on DataSamurai`s blog: {instance.title}"
+        subject = f'New post on DataSamurai`s blog: {instance.title}'
         recipient_list = [subscriber.user.email for subscriber in EmailSubscriber.objects.all()]
 
-        email_notification = EmailNotification(subject, instance, recipient_list)
+        email_notification = EmailPostNotification(subject, instance, recipient_list)
         email_notification.send()
 
         # Enqueueing Celery task
         # send_email_notification(subject, instance.pk, recipient_list)
 
         logger.info(f'Email post notification sent to {recipient_list}')
+
+
+@receiver(post_save, sender=Comment)
+def comment_reply_notification(sender, instance, created, **kwargs):
+    logger.info(f'Starting comment_reply_notification for comment {instance.pk}')
+    if created and instance.parent_comment:
+        subject = f'New reply at DataSamurai`s Blog: {instance.parent_comment.content}'
+        recipient_email = instance.parent_comment.author.email
+
+        email_notification = EmailCommentNotification(subject, instance, recipient_email)
+        email_notification.send()
+
+        logger.info(f'Email comment notification sent to {recipient_email}')
+
+
