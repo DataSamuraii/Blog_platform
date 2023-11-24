@@ -8,6 +8,7 @@ from django.utils.functional import SimpleLazyObject
 from users.models import EmailSubscriber
 from utils.utils import EmailPostNotification, EmailCommentNotification
 from .models import Post, Category, ViewedPost, Comment
+from .tasks import check_comment_profanity, check_comment_negativity
 
 logger = logging.getLogger(__name__.split('.')[0])
 
@@ -37,12 +38,12 @@ def track_changes(sender, instance, **kwargs):
 
 
 @receiver(pre_save, sender=Post)
-def set_date(sender, instance, **kwargs):
+def post_set_date(sender, instance, **kwargs):
     logger.info(f'Starting set_date for post {instance.pk}')
     initial = SimpleLazyObject(lambda: sender.objects.get(pk=instance.pk))
     if not initial.is_published and instance.is_published:
         date_to_set = instance.date_scheduled if instance.date_scheduled else timezone.now()
-        sender.objects.filter(pk=instance.pk).update(date_published=date_to_set)
+        instance.date_published = date_to_set
         logger.info(f'date_published set to {date_to_set} for new post {instance.pk}')
 
 
@@ -58,7 +59,7 @@ def post_create_notification(sender, instance, **kwargs):
         email_notification.send()
 
         # Enqueueing Celery task
-        # send_email_notification(subject, instance.pk, recipient_list)
+        # send_email_post_notification.delay(subject, instance.pk, recipient_list)
 
         logger.info(f'Email post notification sent to {recipient_list}')
 
@@ -76,3 +77,15 @@ def comment_reply_notification(sender, instance, created, **kwargs):
         logger.info(f'Email comment notification sent to {recipient_email}')
 
 
+@receiver(post_save, sender=Comment)
+def comment_profanity_check(sender, instance, created, **kwargs):
+    logger.info(f'Starting comment_profanity_check for comment {instance.pk}')
+    if created:
+        check_comment_profanity.delay(instance.pk)
+
+
+@receiver(post_save, sender=Comment)
+def comment_negativity_check(sender, instance, created, **kwargs):
+    logger.info(f'Starting comment_negativity_check for comment {instance.pk}')
+    if created:
+        check_comment_negativity.delay(instance.pk)

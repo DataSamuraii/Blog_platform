@@ -3,6 +3,7 @@
         position: relative; /* Set the positioning context for absolutely positioned children */
         padding: 10px; /* Optional: some padding to ensure content doesn't overlap with the delete button */
     }
+
     .delete-button {
         background-color: transparent;
         border: none;
@@ -15,9 +16,11 @@
         right: 10px; /* Position from the right */
         z-index: 10; /* Ensure it's above other content */
     }
+
     .delete-button:hover {
         color: #ff0000; /* Red color on hover */
     }
+
     .deleted-comment {
         text-decoration: line-through; /* Crossed out effect */
         color: #000000; /* Grey color to indicate it's inactive or deleted */
@@ -25,20 +28,38 @@
         opacity: 0.6; /* Reduces the opacity to visually show it's disabled */
         cursor: not-allowed; /* Shows a "not allowed" cursor on hover */
     }
+
     .comment-flex-container {
         display: flex;
         align-items: start;
         margin-bottom: 10px;
     }
+
     .comment-content {
         flex-grow: 1; /* Ensures that the content takes the remaining space */
     }
+
     .profile-picture {
         border-radius: 50%; /* Makes the image round */
         width: 50px; /* Adjust as needed */
         height: 50px; /* Adjust as needed */
         object-fit: cover; /* Ensures the image covers the area */
         margin-right: 15px;
+    }
+
+    .content-placeholder {
+        color: #aaa;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .hide-content-btn {
+        margin-top: 10px;
+        background-color: #f8f9fa;
+        border: 1px solid #dadce0;
+        color: #3c4043;
+        cursor: pointer;
+        /* Additional styling as needed */
     }
 
 </style>
@@ -103,4 +124,20 @@
         document.getElementById('post_button').value = "Post Comment"
     }
 
+    function toggleCommentContent(element, commentId) {
+        let originalContent = document.getElementById('comment-content-' + commentId);
+        let placeholder = document.querySelector('.content-placeholder');
+
+        if (originalContent.style.display === 'none') {
+            originalContent.style.display = 'block';
+            if (element) {
+                element.style.display = 'none';
+            }
+        } else {
+            originalContent.style.display = 'none';
+            if (placeholder) {
+                placeholder.style.display = 'block';
+            }
+        }
+    }
 </script>

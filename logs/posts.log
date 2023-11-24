@@ -281,3 +281,8 @@ INFO 2023-11-23 14:49:59,317 views User elizakirt posted a new comment 17
 INFO 2023-11-23 15:35:52,602 signals Starting comment_reply_notification for comment 18 
 INFO 2023-11-23 15:35:55,681 signals Email comment notification sent to rubashanov1209@gmail.com 
 INFO 2023-11-23 15:35:55,681 views User elizakirt posted a new comment 18 
+WARNING 2023-11-24 14:57:56,414 signals Updated Post 2: views: 57 -> 58 
+INFO 2023-11-24 14:57:56,427 signals Starting set_date for post 2 
+INFO 2023-11-24 14:57:56,428 signals Starting post_create_notification for post 2 
+WARNING 2023-11-24 14:57:56,679 signals Created ViewedPost : id: None -> None, post: None -> Fourth Post, ip_address: None -> 127.0.0.1, timestamp: None -> None 
+INFO 2023-11-24 14:57:56,964 views Created new ViewedPost for IP 127.0.0.1, post (<Post: Fourth Post>, 2) 

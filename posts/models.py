@@ -72,8 +72,10 @@ class Comment(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True)
     post = models.ForeignKey('Post', on_delete=models.CASCADE)
     timestamp = models.DateTimeField(auto_now_add=True)
-    is_deleted = models.BooleanField(default=False)
     parent_comment = models.ForeignKey('self', on_delete=models.CASCADE, null=True, default=None)
+    is_deleted = models.BooleanField(default=False)
+    is_profane = models.BooleanField(default=False)
+    is_negative = models.BooleanField(default=False)
 
     @property
     def likes_count(self):

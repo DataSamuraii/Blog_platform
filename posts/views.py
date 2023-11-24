@@ -19,8 +19,6 @@ from .models import Post, Category, ViewedPost, Comment, CommentReaction
 
 logger = logging.getLogger(__name__.split('.')[0])
 
-# TODO Automated profanity filters or sentiment analysis to flag potentially harmful comments
-
 
 class SearchResultsView(ListView):
     model = Post

@@ -5,12 +5,26 @@
         <div class="card-body comment-container {% if comment.is_deleted %}deleted-comment{% endif %}">
             <div class="comment-flex-container">
                 <!-- Profile picture -->
-                <img src="{% if comment.author.profile_picture %}{{ comment.author.profile_picture.url }}{% else %}{% static 'images/profile-placeholder.jpg' %}{% endif %}"
+                <img src="
+                        {% if comment.author.profile_picture %}{{ comment.author.profile_picture.url }}{% else %}{% static 'images/profile-placeholder.jpg' %}{% endif %}"
                      class="profile-picture" alt="Profile Picture">
                 <!-- Grouped content -->
                 <div class="comment-content">
                     <strong>{{ comment.author }}</strong>
-                    <p>{{ comment.content }}</p>
+                    {% if comment.is_profane or comment.is_negative %}
+                        <p class="content-placeholder" onclick="toggleCommentContent(this, {{ comment.id }})">
+                            THIS COMMENT HAS BEEN MARKED FOR PROFANITY OR NEGATIVITY. CLICK TO REVEAL.
+                        </p>
+                        <p class="original-content" id="comment-content-{{ comment.id }}" style="display: none;">
+                            {{ comment.content }}
+                            <button onclick="toggleCommentContent(null, {{ comment.id }})" class="hide-content-btn">
+                                Hide
+                            </button>
+
+                        </p>
+                    {% else %}
+                        <p>{{ comment.content }}</p>
+                    {% endif %}
                 </div>
             </div>
 
@@ -19,7 +33,6 @@
                       method="post" style="display: inline;">
                     {% csrf_token %}
                     <input type="hidden" name="next" value="{{ request.path }}">
-                    <!-- Use an onclick event to call the confirmDeleteComment function with the comment's ID -->
                     <button type="button" onclick="confirmDeleteComment({{ comment.id }})" class="delete-button"
                             title="Delete comment">x
                     </button>
