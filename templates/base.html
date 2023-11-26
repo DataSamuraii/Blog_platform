@@ -59,6 +59,10 @@
                            aria-label="Search">
                 </form>
 
+                <li class="nav-item">
+                    <a class="nav-link btn btn-light" href="{% url 'api_post_list' %}">API page</a>
+                </li>
+
                 {% if user.is_authenticated %}
 
                     {% if user.is_staff %}
@@ -68,7 +72,8 @@
                     {% endif %}
 
                     <li class="nav-item">
-                        <a class="nav-link btn btn-light mr-2" href="{% url 'user_detail' user_id=user.id %}">Dashboard</a>
+                        <a class="nav-link btn btn-light mr-2"
+                           href="{% url 'user_detail' user_id=user.id %}">Dashboard</a>
                     </li>
                     <li>
                         <a href="{% url 'logout' %}" class="nav-link btn btn-danger">Logout</a>

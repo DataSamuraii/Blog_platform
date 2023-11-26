@@ -5,8 +5,6 @@ import bleach
 from django.contrib.messages import constants as messages
 from dotenv import load_dotenv
 
-# TODO RESTful CRUD API
-
 # Load environment variables from .env file
 load_dotenv()
 
@@ -30,12 +28,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'django_celery_beat',
     'social_django',
     'ckeditor',
     'captcha',
     'posts',
     'users',
+    'api',
 ]
 
 MIDDLEWARE = [

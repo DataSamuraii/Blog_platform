@@ -48,6 +48,6 @@ def user_edit_notification(sender, instance, created, **kwargs):
     recipient_email = instance.email
 
     email_notification = EmailUserNotification(subject, instance, recipient_email)
-    email_notification.send()
+    # email_notification.send()
 
     logger.info(f'Email user notification sent to {recipient_email}')

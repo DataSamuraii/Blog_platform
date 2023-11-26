@@ -780,3 +780,227 @@ INFO 2023-11-23 20:22:21,227 signals Starting create_subscriber_for_new_user for
 INFO 2023-11-23 20:22:21,227 signals Starting user_edit_notification for user 3 
 INFO 2023-11-23 20:22:23,828 signals Email user notification sent to rubashanov1209@gmail.com 
 INFO 2023-11-23 20:22:23,829 views User datasamuraii changed fields: [] 
+INFO 2023-11-26 15:07:55,669 middleware Admin action by datasamuraii: GET /admin/ Resolved index with args () and kwargs {} 
+INFO 2023-11-26 15:07:57,606 middleware Admin action by AnonymousUser: POST /admin/logout/ Resolved logout with args () and kwargs {} 
+WARNING 2023-11-26 15:08:03,387 signals Updated CustomUser 1: last_login: 2023-11-19 23:01:08.673444+00:00 -> 2023-11-26 13:08:03.386897+00:00 
+INFO 2023-11-26 15:08:03,461 signals Starting create_subscriber_for_new_user for new user 1 
+INFO 2023-11-26 15:08:03,461 signals Starting user_edit_notification for user 1 
+WARNING 2023-11-26 15:10:15,231 signals Updated CustomUser 1: last_login: 2023-11-26 13:08:03.386897+00:00 -> 2023-11-26 13:10:15.230370+00:00 
+INFO 2023-11-26 15:10:15,304 signals Starting create_subscriber_for_new_user for new user 1 
+INFO 2023-11-26 15:10:15,304 signals Starting user_edit_notification for user 1 
+INFO 2023-11-26 15:10:15,304 signals Email user notification sent to rubashanov@gmail.com 
+INFO 2023-11-26 15:10:15,305 views User root logged in, IP: 127.0.0.1 
+INFO 2023-11-26 15:10:19,368 middleware Admin action by root: GET /admin/ Resolved index with args () and kwargs {} 
+INFO 2023-11-26 15:10:23,115 middleware Admin action by root: GET /admin/auth/group/ Resolved auth_group_changelist with args () and kwargs {} 
+INFO 2023-11-26 15:10:23,148 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-26 15:10:25,166 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-26 15:10:25,187 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-26 15:10:29,623 middleware Admin action by root: GET /admin/users/customuser/5/change/ Resolved users_customuser_change with args () and kwargs {'object_id': '5'} 
+INFO 2023-11-26 15:10:29,652 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-26 15:10:32,575 middleware Admin action by root: GET /admin/auth/group/ Resolved auth_group_changelist with args () and kwargs {} 
+INFO 2023-11-26 15:10:32,602 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-26 15:10:33,435 middleware Admin action by root: GET /admin/auth/group/3/change/ Resolved auth_group_change with args () and kwargs {'object_id': '3'} 
+INFO 2023-11-26 15:10:33,471 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-26 15:10:41,945 middleware Admin action by root: GET /admin/auth/group/ Resolved auth_group_changelist with args () and kwargs {} 
+INFO 2023-11-26 15:10:42,948 middleware Admin action by root: GET /admin/users/customuser/5/change/ Resolved users_customuser_change with args () and kwargs {'object_id': '5'} 
+INFO 2023-11-26 15:10:44,085 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-26 15:30:19,843 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-26 16:49:38,233 views User  logged out 
+WARNING 2023-11-26 16:49:45,906 signals Updated CustomUser 3: last_login: 2023-11-23 18:19:56.145031+00:00 -> 2023-11-26 14:49:45.905736+00:00 
+INFO 2023-11-26 16:49:45,979 signals Starting create_subscriber_for_new_user for new user 3 
+INFO 2023-11-26 16:49:45,979 signals Starting user_edit_notification for user 3 
+INFO 2023-11-26 16:49:45,979 signals Email user notification sent to rubashanov1209@gmail.com 
+INFO 2023-11-26 16:49:45,980 views User datasamuraii logged in, IP: 127.0.0.1 
+INFO 2023-11-26 21:52:06,192 middleware Admin action by datasamuraii: GET /admin/ Resolved index with args () and kwargs {} 
+INFO 2023-11-26 21:52:08,627 middleware Admin action by AnonymousUser: POST /admin/logout/ Resolved logout with args () and kwargs {} 
+WARNING 2023-11-26 21:52:13,821 signals Updated CustomUser 1: last_login: 2023-11-26 13:10:15.230370+00:00 -> 2023-11-26 19:52:13.820281+00:00 
+INFO 2023-11-26 21:52:13,894 signals Starting create_subscriber_for_new_user for new user 1 
+INFO 2023-11-26 21:52:13,894 signals Starting user_edit_notification for user 1 
+INFO 2023-11-26 21:52:13,894 signals Email user notification sent to rubashanov@gmail.com 
+INFO 2023-11-26 21:52:13,895 views User root logged in, IP: 127.0.0.1 
+INFO 2023-11-26 21:52:15,706 middleware Admin action by root: GET /admin/ Resolved index with args () and kwargs {} 
+INFO 2023-11-26 21:52:22,466 middleware Admin action by root: GET /admin/auth/group/ Resolved auth_group_changelist with args () and kwargs {} 
+INFO 2023-11-26 21:52:22,492 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-26 21:52:24,484 middleware Admin action by root: GET /admin/users/unbanrequest/ Resolved users_unbanrequest_changelist with args () and kwargs {} 
+INFO 2023-11-26 21:52:24,507 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-26 21:52:26,226 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-26 21:52:26,242 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-26 21:52:48,850 middleware Admin action by root: GET /admin/auth/group/3/change/ Resolved auth_group_change with args () and kwargs {'object_id': '3'} 
+INFO 2023-11-26 21:52:48,878 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-26 21:52:51,408 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-26 21:52:52,407 middleware Admin action by root: GET /admin/auth/group/2/change/ Resolved auth_group_change with args () and kwargs {'object_id': '2'} 
+INFO 2023-11-26 21:52:52,439 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-26 21:52:53,889 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-26 21:52:54,442 middleware Admin action by root: GET /admin/auth/group/4/change/ Resolved auth_group_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-11-26 21:52:54,465 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-26 22:13:45,912 views User  logged out 
+INFO 2023-11-26 22:13:54,899 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-26 22:13:54,922 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+WARNING 2023-11-26 22:14:03,695 signals Updated CustomUser 3: last_login: 2023-11-26 14:49:45.905736+00:00 -> 2023-11-26 20:14:03.694702+00:00 
+INFO 2023-11-26 22:14:03,768 signals Starting create_subscriber_for_new_user for new user 3 
+INFO 2023-11-26 22:14:03,768 signals Starting user_edit_notification for user 3 
+INFO 2023-11-26 22:14:03,769 signals Email user notification sent to rubashanov1209@gmail.com 
+INFO 2023-11-26 22:14:03,769 views User datasamuraii logged in, IP: 127.0.0.1 
+INFO 2023-11-26 22:14:03,927 views User  logged out 
+WARNING 2023-11-26 22:14:10,575 signals Updated CustomUser 3: last_login: 2023-11-26 20:14:03.694702+00:00 -> 2023-11-26 20:14:10.573579+00:00 
+INFO 2023-11-26 22:14:10,647 signals Starting create_subscriber_for_new_user for new user 3 
+INFO 2023-11-26 22:14:10,647 signals Starting user_edit_notification for user 3 
+INFO 2023-11-26 22:14:10,648 signals Email user notification sent to rubashanov1209@gmail.com 
+INFO 2023-11-26 22:14:10,648 views User datasamuraii logged in, IP: 127.0.0.1 
+INFO 2023-11-26 22:33:11,111 middleware Admin action by root: GET /admin/auth/group/4/change/ Resolved auth_group_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-11-26 22:33:11,144 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-26 22:33:16,687 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-26 22:33:18,500 middleware Admin action by root: GET /admin/auth/group/1/change/ Resolved auth_group_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-26 22:33:18,631 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-26 22:33:27,639 middleware Admin action by root: POST /admin/auth/group/1/change/ Resolved auth_group_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-26 22:33:27,663 middleware Admin action by root: GET /admin/auth/group/1/change/ Resolved auth_group_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-26 22:33:27,694 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-26 22:33:29,535 middleware Admin action by root: GET /admin/auth/group/ Resolved auth_group_changelist with args () and kwargs {} 
+INFO 2023-11-26 22:33:29,574 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-26 22:33:31,004 middleware Admin action by root: GET /admin/auth/group/4/change/ Resolved auth_group_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-11-26 22:33:31,027 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-26 22:33:52,112 middleware Admin action by root: POST /admin/auth/group/4/change/ Resolved auth_group_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-11-26 22:33:52,133 middleware Admin action by root: GET /admin/auth/group/4/change/ Resolved auth_group_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-11-26 22:33:52,159 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-26 22:36:22,171 views User  logged out 
+WARNING 2023-11-26 22:36:30,851 signals Updated CustomUser 4: last_login: 2023-11-23 12:39:54.495239+00:00 -> 2023-11-26 20:36:30.850722+00:00 
+INFO 2023-11-26 22:36:30,924 signals Starting create_subscriber_for_new_user for new user 4 
+INFO 2023-11-26 22:36:30,924 signals Starting user_edit_notification for user 4 
+INFO 2023-11-26 22:36:30,924 signals Email user notification sent to elizakirt@gmail.com 
+INFO 2023-11-26 22:36:30,925 views User elizakirt logged in, IP: 127.0.0.1 
+INFO 2023-11-26 22:36:35,420 middleware Admin action by elizakirt: GET /admin/ Resolved index with args () and kwargs {} 
+INFO 2023-11-26 22:40:35,759 views User  logged out 
+WARNING 2023-11-26 22:40:46,000 signals Updated CustomUser 3: last_login: 2023-11-26 20:14:10.573579+00:00 -> 2023-11-26 20:40:45.999610+00:00 
+INFO 2023-11-26 22:40:46,073 signals Starting create_subscriber_for_new_user for new user 3 
+INFO 2023-11-26 22:40:46,073 signals Starting user_edit_notification for user 3 
+INFO 2023-11-26 22:40:46,074 signals Email user notification sent to rubashanov1209@gmail.com 
+INFO 2023-11-26 22:40:46,074 views User datasamuraii logged in, IP: 127.0.0.1 
+INFO 2023-11-26 22:41:13,302 middleware Admin action by root: GET /admin/users/unbanrequest/ Resolved users_unbanrequest_changelist with args () and kwargs {} 
+INFO 2023-11-26 22:41:13,330 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-26 22:42:12,259 middleware Admin action by root: GET /admin/users/unbanrequest/ Resolved users_unbanrequest_changelist with args () and kwargs {} 
+INFO 2023-11-26 22:42:12,290 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-26 22:42:15,321 middleware Admin action by root: GET /admin/users/emailsubscriber/ Resolved users_emailsubscriber_changelist with args () and kwargs {} 
+INFO 2023-11-26 22:42:15,345 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-26 22:42:55,584 middleware Admin action by root: GET /admin/users/emailsubscriber/ Resolved users_emailsubscriber_changelist with args () and kwargs {} 
+INFO 2023-11-26 22:42:55,620 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-26 22:43:02,056 middleware Admin action by root: GET /admin/posts/post/ Resolved posts_post_changelist with args () and kwargs {} 
+INFO 2023-11-26 22:43:02,086 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-26 22:43:03,545 middleware Admin action by root: GET /admin/users/emailsubscriber/ Resolved users_emailsubscriber_changelist with args () and kwargs {} 
+INFO 2023-11-26 22:43:45,336 middleware Admin action by root: GET /admin/users/emailsubscriber/13/change/ Resolved users_emailsubscriber_change with args () and kwargs {'object_id': '13'} 
+INFO 2023-11-26 22:43:45,376 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-26 22:43:58,275 middleware Admin action by datasamuraii: GET /admin/ Resolved index with args () and kwargs {} 
+INFO 2023-11-26 22:44:01,092 middleware Admin action by datasamuraii: GET /admin/ Resolved index with args () and kwargs {} 
+INFO 2023-11-26 22:44:19,077 middleware Admin action by datasamuraii: GET /admin/ Resolved index with args () and kwargs {} 
+INFO 2023-11-26 22:44:20,450 middleware Admin action by AnonymousUser: POST /admin/logout/ Resolved logout with args () and kwargs {} 
+WARNING 2023-11-26 22:44:26,841 signals Updated CustomUser 4: last_login: 2023-11-26 20:36:30.850722+00:00 -> 2023-11-26 20:44:26.840926+00:00 
+INFO 2023-11-26 22:44:26,914 signals Starting create_subscriber_for_new_user for new user 4 
+INFO 2023-11-26 22:44:26,914 signals Starting user_edit_notification for user 4 
+INFO 2023-11-26 22:44:26,915 signals Email user notification sent to elizakirt@gmail.com 
+INFO 2023-11-26 22:44:26,915 views User elizakirt logged in, IP: 127.0.0.1 
+INFO 2023-11-26 22:44:28,171 middleware Admin action by elizakirt: GET /admin/ Resolved index with args () and kwargs {} 
+INFO 2023-11-26 22:44:29,703 middleware Admin action by elizakirt: GET /admin/users/emailsubscriber/ Resolved users_emailsubscriber_changelist with args () and kwargs {} 
+INFO 2023-11-26 22:44:30,704 middleware Admin action by elizakirt: GET /admin/users/emailsubscriber/13/change/ Resolved users_emailsubscriber_change with args () and kwargs {'object_id': '13'} 
+INFO 2023-11-26 22:44:30,717 middleware Admin action by elizakirt: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-26 22:44:36,271 middleware Admin action by root: GET /admin/auth/group/ Resolved auth_group_changelist with args () and kwargs {} 
+INFO 2023-11-26 22:44:36,299 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-26 22:44:37,503 middleware Admin action by root: GET /admin/auth/group/4/change/ Resolved auth_group_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-11-26 22:44:37,530 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-26 22:44:39,317 middleware Admin action by root: GET /admin/auth/group/ Resolved auth_group_changelist with args () and kwargs {} 
+INFO 2023-11-26 22:44:40,135 middleware Admin action by root: GET /admin/auth/group/2/change/ Resolved auth_group_change with args () and kwargs {'object_id': '2'} 
+INFO 2023-11-26 22:44:40,159 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-26 22:44:41,403 middleware Admin action by root: GET /admin/auth/group/ Resolved auth_group_changelist with args () and kwargs {} 
+INFO 2023-11-26 22:44:43,991 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-26 22:44:44,021 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-26 22:44:46,437 middleware Admin action by root: GET /admin/auth/group/4/change/ Resolved auth_group_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-11-26 22:44:46,462 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-26 22:45:26,874 middleware Admin action by elizakirt: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-26 22:45:26,889 middleware Admin action by elizakirt: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-26 22:45:28,028 middleware Admin action by elizakirt: GET /admin/auth/group/4/change/ Resolved auth_group_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-11-26 22:45:28,580 middleware Admin action by elizakirt: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-26 22:45:31,657 middleware Admin action by elizakirt: GET /admin/users/emailsubscriber/13/change/ Resolved users_emailsubscriber_change with args () and kwargs {'object_id': '13'} 
+INFO 2023-11-26 22:46:22,442 middleware Admin action by elizakirt: GET /admin/users/unbanrequest/ Resolved users_unbanrequest_changelist with args () and kwargs {} 
+INFO 2023-11-26 22:46:24,251 middleware Admin action by elizakirt: GET /admin/users/emailsubscriber/ Resolved users_emailsubscriber_changelist with args () and kwargs {} 
+INFO 2023-11-26 22:53:50,256 middleware Admin action by elizakirt: GET /admin/users/emailsubscriber/ Resolved users_emailsubscriber_changelist with args () and kwargs {} 
+INFO 2023-11-26 22:53:51,434 middleware Admin action by elizakirt: GET /admin/users/customuser/3/change/ Resolved users_customuser_change with args () and kwargs {'object_id': '3'} 
+INFO 2023-11-26 22:53:51,447 middleware Admin action by elizakirt: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-26 22:53:53,444 middleware Admin action by elizakirt: GET /admin/users/emailsubscriber/ Resolved users_emailsubscriber_changelist with args () and kwargs {} 
+INFO 2023-11-26 22:53:56,378 middleware Admin action by elizakirt: GET /admin/users/unbanrequest/ Resolved users_unbanrequest_changelist with args () and kwargs {} 
+INFO 2023-11-26 22:53:57,361 middleware Admin action by elizakirt: GET /admin/users/customuser/1/change/ Resolved users_customuser_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-11-26 22:53:57,372 middleware Admin action by elizakirt: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-26 22:53:57,842 middleware Admin action by elizakirt: GET /admin/users/unbanrequest/ Resolved users_unbanrequest_changelist with args () and kwargs {} 
+INFO 2023-11-26 22:53:58,031 middleware Admin action by elizakirt: GET /admin/users/emailsubscriber/ Resolved users_emailsubscriber_changelist with args () and kwargs {} 
+INFO 2023-11-26 23:05:59,654 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-26 23:05:59,681 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-26 23:06:19,230 middleware Admin action by root: GET /admin/auth/group/3/change/ Resolved auth_group_change with args () and kwargs {'object_id': '3'} 
+INFO 2023-11-26 23:06:19,260 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-26 23:06:21,639 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-26 23:06:23,188 middleware Admin action by root: GET /admin/auth/group/4/change/ Resolved auth_group_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-11-26 23:06:23,217 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-26 23:06:29,624 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-26 23:06:30,880 middleware Admin action by root: GET /admin/auth/group/2/change/ Resolved auth_group_change with args () and kwargs {'object_id': '2'} 
+INFO 2023-11-26 23:06:30,904 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-26 23:06:35,109 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-26 23:10:21,764 middleware Admin action by AnonymousUser: POST /admin/logout/ Resolved logout with args () and kwargs {} 
+WARNING 2023-11-26 23:10:30,239 signals Updated CustomUser 5: last_login: 2023-11-23 12:15:16.021890+00:00 -> 2023-11-26 21:10:30.238024+00:00 
+INFO 2023-11-26 23:10:30,312 signals Starting create_subscriber_for_new_user for new user 5 
+INFO 2023-11-26 23:10:30,313 signals Starting user_edit_notification for user 5 
+INFO 2023-11-26 23:10:30,313 signals Email user notification sent to random_user@mail.com 
+INFO 2023-11-26 23:10:30,313 views User random_user logged in, IP: 127.0.0.1 
+INFO 2023-11-26 23:11:02,058 views User  logged out 
+WARNING 2023-11-26 23:11:08,117 views Failed login attempt for datasamuraii, IP: 127.0.0.1 
+WARNING 2023-11-26 23:11:11,855 signals Updated CustomUser 3: last_login: 2023-11-26 20:40:45.999610+00:00 -> 2023-11-26 21:11:11.854403+00:00 
+INFO 2023-11-26 23:11:11,927 signals Starting create_subscriber_for_new_user for new user 3 
+INFO 2023-11-26 23:11:11,928 signals Starting user_edit_notification for user 3 
+INFO 2023-11-26 23:11:11,928 signals Email user notification sent to rubashanov1209@gmail.com 
+INFO 2023-11-26 23:11:11,928 views User datasamuraii logged in, IP: 127.0.0.1 
+INFO 2023-11-26 23:16:34,264 middleware Admin action by root: GET /admin/auth/group/4/change/ Resolved auth_group_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-11-26 23:16:34,296 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-26 23:16:41,925 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-26 23:17:51,051 middleware Admin action by root: GET /admin/auth/group/2/change/ Resolved auth_group_change with args () and kwargs {'object_id': '2'} 
+INFO 2023-11-26 23:17:51,080 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-26 23:17:55,456 middleware Admin action by root: GET /admin/users/customuser/ Resolved users_customuser_changelist with args () and kwargs {} 
+INFO 2023-11-26 23:18:02,022 views User  logged out 
+WARNING 2023-11-26 23:18:10,116 signals Updated CustomUser 5: last_login: 2023-11-26 21:10:30.238024+00:00 -> 2023-11-26 21:18:10.115536+00:00 
+INFO 2023-11-26 23:18:10,188 signals Starting create_subscriber_for_new_user for new user 5 
+INFO 2023-11-26 23:18:10,189 signals Starting user_edit_notification for user 5 
+INFO 2023-11-26 23:18:10,190 signals Email user notification sent to random_user@mail.com 
+INFO 2023-11-26 23:18:10,190 views User random_user logged in, IP: 127.0.0.1 
+INFO 2023-11-26 23:18:45,740 views User  logged out 
+WARNING 2023-11-26 23:19:00,328 signals Updated CustomUser 3: last_login: 2023-11-26 21:11:11.854403+00:00 -> 2023-11-26 21:19:00.327799+00:00 
+INFO 2023-11-26 23:19:00,401 signals Starting create_subscriber_for_new_user for new user 3 
+INFO 2023-11-26 23:19:00,401 signals Starting user_edit_notification for user 3 
+INFO 2023-11-26 23:19:00,401 signals Email user notification sent to rubashanov1209@gmail.com 
+INFO 2023-11-26 23:19:00,402 views User datasamuraii logged in, IP: 127.0.0.1 
+INFO 2023-11-26 23:21:17,319 views User  logged out 
+WARNING 2023-11-26 23:21:29,388 signals Updated CustomUser 5: last_login: 2023-11-26 21:18:10.115536+00:00 -> 2023-11-26 21:21:29.387586+00:00 
+INFO 2023-11-26 23:21:29,541 signals Starting create_subscriber_for_new_user for new user 5 
+INFO 2023-11-26 23:21:29,541 signals Starting user_edit_notification for user 5 
+INFO 2023-11-26 23:21:29,542 signals Email user notification sent to random_user@mail.com 
+INFO 2023-11-26 23:21:29,542 views User random_user logged in, IP: 127.0.0.1 
+INFO 2023-11-26 23:31:35,914 views User  logged out 
+WARNING 2023-11-26 23:38:15,870 signals Updated CustomUser 5: last_login: 2023-11-26 21:21:29.387586+00:00 -> 2023-11-26 21:38:15.869303+00:00 
+INFO 2023-11-26 23:38:15,943 signals Starting create_subscriber_for_new_user for new user 5 
+INFO 2023-11-26 23:38:15,943 signals Starting user_edit_notification for user 5 
+INFO 2023-11-26 23:38:15,952 signals Email user notification sent to random_user@mail.com 
+INFO 2023-11-26 23:38:15,952 views User random_user logged in, IP: 127.0.0.1 
+INFO 2023-11-26 23:39:09,547 middleware Admin action by random_user: GET /admin/auth/group/3/change/ Resolved auth_group_change with args () and kwargs {'object_id': '3'} 
+INFO 2023-11-26 23:39:09,709 middleware Admin action by random_user: GET /admin/login/ Resolved login with args () and kwargs {} 
+WARNING 2023-11-26 23:39:19,121 signals Updated CustomUser 1: last_login: 2023-11-26 19:52:13.820281+00:00 -> 2023-11-26 21:39:19.120482+00:00 
+INFO 2023-11-26 23:39:19,194 signals Starting create_subscriber_for_new_user for new user 1 
+INFO 2023-11-26 23:39:19,194 signals Starting user_edit_notification for user 1 
+INFO 2023-11-26 23:39:19,195 signals Email user notification sent to rubashanov@gmail.com 
+INFO 2023-11-26 23:39:19,195 middleware Admin action by root: POST /admin/login/ Resolved login with args () and kwargs {} 
+INFO 2023-11-26 23:39:19,303 middleware Admin action by root: GET /admin/auth/group/3/change/ Resolved auth_group_change with args () and kwargs {'object_id': '3'} 
+INFO 2023-11-26 23:39:19,329 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-11-26 23:42:16,798 views User  logged out 
+WARNING 2023-11-26 23:42:28,596 signals Updated CustomUser 3: last_login: 2023-11-26 21:19:00.327799+00:00 -> 2023-11-26 21:42:28.595225+00:00 
+INFO 2023-11-26 23:42:28,669 signals Starting create_subscriber_for_new_user for new user 3 
+INFO 2023-11-26 23:42:28,669 signals Starting user_edit_notification for user 3 
+INFO 2023-11-26 23:42:28,669 signals Email user notification sent to rubashanov1209@gmail.com 
+INFO 2023-11-26 23:42:28,670 views User datasamuraii logged in, IP: 127.0.0.1 
+INFO 2023-11-26 23:48:12,349 views User  logged out 
+WARNING 2023-11-26 23:48:19,877 signals Updated CustomUser 5: last_login: 2023-11-26 21:38:15.869303+00:00 -> 2023-11-26 21:48:19.877669+00:00 
+INFO 2023-11-26 23:48:19,950 signals Starting create_subscriber_for_new_user for new user 5 
+INFO 2023-11-26 23:48:19,950 signals Starting user_edit_notification for user 5 
+INFO 2023-11-26 23:48:19,951 signals Email user notification sent to random_user@mail.com 
+INFO 2023-11-26 23:48:19,951 views User random_user logged in, IP: 127.0.0.1 

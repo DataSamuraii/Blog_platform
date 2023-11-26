@@ -83,10 +83,7 @@ class UserDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['user_posts'] = self.object.post_set.all()
-        try:
-            context['is_subscribed'] = self.object.email_subscriber.get()
-        except EmailSubscriber.DoesNotExist:
-            context['is_subscribed'] = False
+        context['is_subscribed'] = hasattr(self.object, 'email_subscriber')
         return context
 
     def get(self, request, *args, **kwargs):

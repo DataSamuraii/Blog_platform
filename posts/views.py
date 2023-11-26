@@ -93,6 +93,14 @@ class CreatePostView(LoginRequiredMixin, CreateView):
     form_class = PostForm
     template_name = 'posts/post_create.html'
 
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.has_perm('posts.add_post'):
+            messages.error(
+                request, 'Only authorized authors are allowed to create posts. Contact support to become an author.'
+            )
+            return redirect('user_detail', request.user.id)
+        return super().dispatch(request, *args, **kwargs)
+
     def form_valid(self, form):
         post = form.save(commit=False)
         post.author = self.request.user
@@ -166,6 +174,14 @@ class CreateCategoryView(LoginRequiredMixin, CreateView):
     model = Category
     form_class = CategoryForm
     template_name = 'posts/category_create.html'
+
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.has_perm('posts.add_category'):
+            messages.error(
+                request, 'Only authorized authors are allowed to create categories.Contact support to become an author.'
+            )
+            return redirect('user_detail', request.user.id)
+        return super().dispatch(request, *args, **kwargs)
 
     def get_success_url(self):
         next_url = self.request.GET.get('next', 'post_list')

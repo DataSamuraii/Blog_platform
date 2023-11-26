@@ -36,7 +36,7 @@ class CustomUser(AbstractUser):
 
 
 class EmailSubscriber(models.Model):
-    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='email_subscriber')
+    user = models.OneToOneField(get_user_model(), on_delete=models.CASCADE, related_name='email_subscriber')
 
     def delete(self, *args, **kwargs):
         logger.warning(f"Deleting email subscription for {self.user}")

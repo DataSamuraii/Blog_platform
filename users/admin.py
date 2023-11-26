@@ -6,9 +6,19 @@ from django.urls import reverse
 from django.utils import timezone
 from django.utils.html import format_html
 
-from .models import UnbanRequest, CustomUser
+from .models import UnbanRequest, CustomUser, EmailSubscriber
 
 logger = logging.getLogger(__name__.split('.')[0])
+
+
+class UserLinkMixin:
+    def user_link(self, obj):
+        if obj.user:
+            url = reverse('admin:users_customuser_change', args=[obj.user.id])
+            return format_html('<a href="{}">{}</a>', url, obj.user)
+        return '-'
+
+    user_link.short_description = 'user'
 
 
 class YearFilter(admin.SimpleListFilter):
@@ -102,7 +112,13 @@ class UnbanRequestYearFilter(YearFilter):
 
 
 @admin.register(UnbanRequest)
-class UnbanRequestAdmin(admin.ModelAdmin):
-    list_display = ['id', 'user', 'created_at', 'status']
+class UnbanRequestAdmin(UserLinkMixin, admin.ModelAdmin):
+    list_display = ['id', 'user_link', 'created_at', 'status']
     list_filter = ['status', UnbanRequestYearFilter]
     search_fields = ['user', 'content']
+
+
+@admin.register(EmailSubscriber)
+class EmailSubscriberAdmin(UserLinkMixin, admin.ModelAdmin):
+    list_display = ['id', 'user_link']
+    search_fields = ['user']

@@ -4,7 +4,16 @@
     <div class="row mt-4">
         <!-- Blog posts -->
         <div class="col-md-8">
-            <h2 class="mb-4">Our Blogs</h2>
+            {% if messages %}
+                <div class="mt-4">
+                    {% for message in messages %}
+                        <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}" role="alert">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <h2 class="mb-4">Our Posts</h2>
             {% for post in posts %}
                 <div class="card mb-4 border-0 shadow-lg"> <!-- Changed shadow-sm to shadow-lg -->
                     <div class="card-header bg-secondary text-white d-flex justify-content-between">
