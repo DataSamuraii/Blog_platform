@@ -1,5 +1,7 @@
-from django.contrib.auth import get_user_model
-from rest_framework import generics, permissions
+from django.contrib.auth import get_user_model, authenticate, login
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import generics, permissions, status
 
 from posts.models import Post, Category, Comment, CommentReaction
 from users.models import EmailSubscriber, UnbanRequest
@@ -7,10 +9,23 @@ from . import permissions as custom_permissions
 from . import serializers
 
 
-# TODO JWT auth
 # TODO filtering, sorting, and searching
 # TODO Apply throttling to your API to control the rate of requests
 # TODO pagination
+
+
+class LoginView(APIView):
+    permission_classes = [permissions.AllowAny]
+
+    def post(self, request, *args, **kwargs):
+        username = request.data.get('username')
+        password = request.data.get('password')
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            return Response({'message': 'User logged in successfully'}, status=status.HTTP_200_OK)
+        return Response({'message': 'Invalid credentials'}, status=status.HTTP_400_BAD_REQUEST)
 
 
 class PostList(generics.ListCreateAPIView):
