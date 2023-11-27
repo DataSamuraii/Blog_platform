@@ -10,7 +10,6 @@ from . import serializers
 
 
 # TODO filtering, sorting, and searching
-# TODO Apply throttling to your API to control the rate of requests
 # TODO pagination
 
 
