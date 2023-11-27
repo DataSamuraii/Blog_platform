@@ -12,6 +12,7 @@ urlpatterns = [
     path('comment_reactions/', views.CommentReactionList.as_view(), name='api_comment_reactions_list'),
     path('comment_reactions/<int:pk>/', views.CommentReactionDetails.as_view(), name='api_comment_reactions_details'),
 
+    path('login/', views.LoginView.as_view(), name='api_login'),
     path('users/', views.UserList.as_view(), name='api_users_list'),
     path('users/<int:pk>/', views.UserDetails.as_view(), name='api_users_details'),
     path('email_subscribers/', views.EmailSubscriberList.as_view(), name='api_email_subscribers_list'),

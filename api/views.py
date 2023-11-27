@@ -1,7 +1,6 @@
 from django.contrib.auth import get_user_model, authenticate, login
-from rest_framework.views import APIView
-from rest_framework.response import Response
 from rest_framework import generics, permissions, status
+from rest_framework.response import Response
 
 from posts.models import Post, Category, Comment, CommentReaction
 from users.models import EmailSubscriber, UnbanRequest
@@ -13,8 +12,8 @@ from . import serializers
 # TODO pagination
 
 
-class LoginView(APIView):
-    permission_classes = [permissions.AllowAny]
+class LoginView(generics.GenericAPIView):
+    serializer_class = serializers.LoginSerializer
 
     def post(self, request, *args, **kwargs):
         username = request.data.get('username')

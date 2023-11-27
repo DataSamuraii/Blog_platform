@@ -5,6 +5,11 @@ from posts.models import Post, Category, Comment, CommentReaction
 from users.models import EmailSubscriber, UnbanRequest
 
 
+class LoginSerializer(serializers.Serializer):
+    username = serializers.CharField()
+    password = serializers.CharField()
+
+
 class PostSerializer(serializers.ModelSerializer):
     author = serializers.HyperlinkedRelatedField(view_name='api_users_details', read_only=True)
     id = serializers.HyperlinkedRelatedField(view_name='api_post_details', read_only=True)

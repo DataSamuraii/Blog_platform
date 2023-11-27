@@ -1004,3 +1004,7 @@ INFO 2023-11-26 23:48:19,950 signals Starting create_subscriber_for_new_user for
 INFO 2023-11-26 23:48:19,950 signals Starting user_edit_notification for user 5 
 INFO 2023-11-26 23:48:19,951 signals Email user notification sent to random_user@mail.com 
 INFO 2023-11-26 23:48:19,951 views User random_user logged in, IP: 127.0.0.1 
+WARNING 2023-11-27 16:45:58,783 signals Updated CustomUser 3: last_login: 2023-11-26 21:42:28.595225+00:00 -> 2023-11-27 14:45:58.782005+00:00 
+INFO 2023-11-27 16:45:58,938 signals Starting create_subscriber_for_new_user for new user 3 
+INFO 2023-11-27 16:45:58,938 signals Starting user_edit_notification for user 3 
+INFO 2023-11-27 16:45:58,939 signals Email user notification sent to rubashanov1209@gmail.com 
