@@ -17,8 +17,6 @@ from .models import UnbanRequest, EmailSubscriber
 
 logger = logging.getLogger(__name__.split('.')[0])
 
-# TODO Analytics: Track and analyze user interactions on your blog posts, like views, likes, and shares;
-#  use this data to recommend posts to users or just for your insights.
 # TODO Author Analytics Dashboard: Create a custom dashboard for authors to view the performance of their posts.
 
 

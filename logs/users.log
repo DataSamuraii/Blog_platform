@@ -1008,3 +1008,7 @@ WARNING 2023-11-27 16:45:58,783 signals Updated CustomUser 3: last_login: 2023-1
 INFO 2023-11-27 16:45:58,938 signals Starting create_subscriber_for_new_user for new user 3 
 INFO 2023-11-27 16:45:58,938 signals Starting user_edit_notification for user 3 
 INFO 2023-11-27 16:45:58,939 signals Email user notification sent to rubashanov1209@gmail.com 
+WARNING 2023-11-28 13:28:02,813 signals Updated CustomUser 1: last_login: 2023-11-26 21:39:19.120482+00:00 -> 2023-11-28 11:28:02.812524+00:00 
+INFO 2023-11-28 13:28:02,908 signals Starting create_subscriber_for_new_user for new user 1 
+INFO 2023-11-28 13:28:02,909 signals Starting user_edit_notification for user 1 
+INFO 2023-11-28 13:28:02,909 signals Email user notification sent to rubashanov@gmail.com 
