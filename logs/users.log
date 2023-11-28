@@ -1012,3 +1012,16 @@ WARNING 2023-11-28 13:28:02,813 signals Updated CustomUser 1: last_login: 2023-1
 INFO 2023-11-28 13:28:02,908 signals Starting create_subscriber_for_new_user for new user 1 
 INFO 2023-11-28 13:28:02,909 signals Starting user_edit_notification for user 1 
 INFO 2023-11-28 13:28:02,909 signals Email user notification sent to rubashanov@gmail.com 
+INFO 2023-11-28 19:57:29,659 views User  logged out 
+WARNING 2023-11-28 19:57:36,939 signals Updated CustomUser 4: last_login: 2023-11-26 20:44:26.840926+00:00 -> 2023-11-28 17:57:36.937611+00:00 
+INFO 2023-11-28 19:57:37,011 signals Starting create_subscriber_for_new_user for new user 4 
+INFO 2023-11-28 19:57:37,011 signals Starting user_edit_notification for user 4 
+INFO 2023-11-28 19:57:37,012 signals Email user notification sent to elizakirt@gmail.com 
+INFO 2023-11-28 19:57:37,012 views User elizakirt logged in, IP: 127.0.0.1 
+INFO 2023-11-28 20:50:52,833 views User  logged out 
+WARNING 2023-11-28 20:50:59,889 signals Updated CustomUser 3: last_login: 2023-11-27 14:45:58.782005+00:00 -> 2023-11-28 18:50:59.887966+00:00 
+INFO 2023-11-28 20:50:59,962 signals Starting create_subscriber_for_new_user for new user 3 
+INFO 2023-11-28 20:50:59,962 signals Starting user_edit_notification for user 3 
+INFO 2023-11-28 20:50:59,963 signals Email user notification sent to rubashanov1209@gmail.com 
+INFO 2023-11-28 20:50:59,963 views User datasamuraii logged in, IP: 127.0.0.1 
+INFO 2023-11-28 20:51:01,896 middleware Admin action by datasamuraii: GET /admin/ Resolved index with args () and kwargs {} 

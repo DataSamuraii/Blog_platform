@@ -1,3 +1,4 @@
+import json
 import logging
 
 from django.contrib import messages
@@ -16,8 +17,6 @@ from .forms import CustomUserCreationForm, CustomUserEditForm, CustomAuthenticat
 from .models import UnbanRequest, EmailSubscriber
 
 logger = logging.getLogger(__name__.split('.')[0])
-
-# TODO Author Analytics Dashboard: Create a custom dashboard for authors to view the performance of their posts.
 
 
 class CustomLoginView(auth_views.LoginView):
@@ -71,24 +70,27 @@ class RegisterUserView(CreateView):
 
 class UserDetailView(DetailView):
     model = get_user_model()
-    template_name = 'users/user_detail.html'
     context_object_name = 'user'
 
     def get_object(self, queryset=None):
         user_id = self.kwargs.get('user_id')
         return get_object_or_404(self.model, pk=user_id)
 
+    def get_template_names(self):
+        if self.request.user == self.object:
+            return 'users/user_detail_dashboard.html'
+        return 'users/user_detail.html'
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['user_posts'] = self.object.post_set.all()
-        context['is_subscribed'] = hasattr(self.object, 'email_subscriber')
+        user_posts = self.object.post_set.all()
+        context['user_posts'] = user_posts
+        if self.request.user == self.object:
+            context['post_views_and_comments'] = json.dumps(
+                [(post.title, post.views, post.comment_set.count()) for post in user_posts]
+            )
+            context['is_subscribed'] = hasattr(self.object, 'email_subscriber')
         return context
-
-    def get(self, request, *args, **kwargs):
-        obj = self.get_object()
-        if self.request.user == obj:
-            self.template_name = 'users/user_detail_dashboard.html'
-        return super().get(request, *args, **kwargs)
 
 
 class EditUserView(LoginRequiredMixin, UpdateView):
