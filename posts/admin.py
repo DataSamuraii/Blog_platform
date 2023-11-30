@@ -130,8 +130,8 @@ class CommentYearFilter(YearFilter):
 
 @admin.register(Comment)
 class CommentAdmin(PostLinkMixin, AuthorLinkMixin, admin.ModelAdmin):
-    list_display = ['id', 'author_link', 'post_link', 'parent_comment_link', 'is_deleted', 'likes_count',
-                    'dislikes_count']
+    list_display = ['id', 'author_link', 'post_link', 'parent_comment_link', 'is_deleted', 'is_profane', 'is_negative',
+                    'likes_count', 'dislikes_count']
     list_filter = [CommentYearFilter, 'post', 'is_deleted']
     search_fields = ['content', 'author', ]
 

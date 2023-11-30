@@ -15,7 +15,6 @@ from utils.utils import build_absolute_url
 from .models import Post, Comment
 
 logger = logging.getLogger(__name__.split('.')[0])
-classifier = TextClassifier.load('en-sentiment')
 
 
 @shared_task
@@ -65,6 +64,7 @@ def check_comment_negativity(comment_id):
     logger.info(f'Starting check_comment_negativity celery task for comment {comment_id}')
     comment = Comment.objects.get(id=comment_id)
     sentence = Sentence(comment.content)
+    classifier = TextClassifier.load('en-sentiment')
     classifier.predict(sentence)
     sentiment = sentence.labels[0].to_dict()
     comment.is_negative = (sentiment['value'] == 'NEGATIVE')

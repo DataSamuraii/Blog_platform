@@ -12,10 +12,10 @@ class Post(models.Model):
     title = models.CharField(max_length=100, unique=True)
     content = RichTextField()
     category = models.ForeignKey('Category', on_delete=models.SET_NULL, null=True)
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True)
     date_scheduled = models.DateTimeField(null=True, blank=True)
     date_published = models.DateTimeField(null=True, blank=True)
     views = models.PositiveIntegerField(default=0)
-    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True)
     is_published = models.BooleanField(default=False)
 
     def __str__(self):

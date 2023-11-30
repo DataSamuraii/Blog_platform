@@ -41,17 +41,16 @@ def track_changes(sender, instance, **kwargs):
 def post_set_date(sender, instance, **kwargs):
     logger.info(f'Starting set_date for post {instance.pk}')
     initial = SimpleLazyObject(lambda: sender.objects.get(pk=instance.pk))
-    if not initial.is_published and instance.is_published:
-        date_to_set = instance.date_scheduled if instance.date_scheduled else timezone.now()
-        instance.date_published = date_to_set
-        logger.info(f'date_published set to {date_to_set} for new post {instance.pk}')
+    if not initial or (not initial.is_published and instance.is_published):
+        instance.date_published = instance.date_scheduled if instance.date_scheduled else timezone.now()
+        logger.info(f'date_published set to {instance.date_published} for new post {instance.pk}')
 
 
 @receiver(pre_save, sender=Post)
 def post_create_notification(sender, instance, **kwargs):
     logger.info(f'Starting post_create_notification for post {instance.pk}')
     initial = SimpleLazyObject(lambda: sender.objects.get(pk=instance.pk))
-    if not initial.is_published and instance.is_published:
+    if (initial and not initial.is_published) and instance.is_published:
         subject = f'New post on DataSamurai`s blog: {instance.title}'
         recipient_list = [subscriber.user.email for subscriber in EmailSubscriber.objects.all()]
 

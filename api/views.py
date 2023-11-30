@@ -6,8 +6,6 @@ from users.models import EmailSubscriber, UnbanRequest
 from . import permissions as custom_permissions
 from . import serializers
 
-# TODO make code drier
-
 
 class LoginView(generics.GenericAPIView):
     serializer_class = serializers.LoginSerializer

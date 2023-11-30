@@ -102,14 +102,14 @@ class EditUserView(LoginRequiredMixin, UpdateView):
         user_id = self.kwargs.get('user_id')
         return get_object_or_404(self.model, pk=user_id)
 
+    def get_success_url(self):
+        return reverse('user_detail', args=[self.object.id])
+
     def form_valid(self, form):
         response = super().form_valid(form)
         messages.success(self.request, 'Successfully edited user info!')
         logger.info(f"User {self.request.user.username} changed fields: {form.changed_data}")
         return response
-
-    def get_success_url(self):
-        return reverse('user_detail', args=[self.object.id])
 
 
 class CreateEmailSubscriber(LoginRequiredMixin, CreateView):
@@ -135,7 +135,7 @@ class DeleteEmailSubscriber(LoginRequiredMixin, DeleteView):
 
     def dispatch(self, request, *args, **kwargs):
         try:
-            obj = self.model.objects.get(user=request.user)
+            self.model.objects.get(user=request.user)
         except self.model.DoesNotExist:
             messages.info(request, 'You are not subscribed.')
             return redirect('user_detail', request.user.id)
@@ -145,7 +145,7 @@ class DeleteEmailSubscriber(LoginRequiredMixin, DeleteView):
     def get_object(self, queryset=None):
         obj = get_object_or_404(self.model, user=self.request.user)
         if obj.user != self.request.user:
-            raise PermissionDenied("You don't have permission to delete this post.")
+            raise PermissionDenied("You don't have permission to unsubscribe this account.")
         return obj
 
     def form_valid(self, form):
