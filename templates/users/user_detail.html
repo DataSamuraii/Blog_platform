@@ -59,10 +59,7 @@
                     <!-- Profile Picture -->
                     <div class="text-center mb-3">
                         <img alt="Profile Picture" style="max-width: 100%; height: auto; max-height: 150px;"
-                             src="
-
-
-                                     {% if user.profile_picture %}{{ user.profile_picture.url }}{% else %}{% static 'images/profile-placeholder.jpg' %}{% endif %}">
+                             src="{% if user.profile_picture %}{{ user.profile_picture.url }}{% else %}{% static 'images/profile-placeholder.jpg' %}{% endif %}">
                     </div>
 
                     <!-- User details -->
@@ -73,10 +70,29 @@
                         <li class="list-group-item">Full Name: {{ user.first_name }} {{ user.last_name }}</li>
                         <li class="list-group-item">Date Joined: {{ user.date_joined|date:"F d, Y" }}</li>
                         <li class="list-group-item">Last Login: {{ user.last_login|date:"F d, Y, P" }}</li>
-                        <li class="list-group-item">Media: {{ user.social_media }}</li>
+                        <li class="list-group-item">Media:
+                            <div id="socialMediaList"></div>
+                        </li>
                     </ul>
                 </div>
             </div>
         {% endif %}
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Directly assign the JSON data to a JavaScript variable
+            let socialMediaData = {{ user.social_media|safe }};
+            let socialMediaList = document.getElementById('socialMediaList');
+
+            for (let key in socialMediaData) {
+                if (socialMediaData.hasOwnProperty(key)) {
+                    let link = socialMediaData[key];
+                    let element = document.createElement('div');
+                    element.innerHTML = `<strong>${key} -</strong> <a href="${link}" target="_blank">${link}</a>`;
+                    socialMediaList.appendChild(element);
+                }
+            }
+        });
+    </script>
 {% endblock %}

@@ -19,6 +19,8 @@ from .models import Post, Category, ViewedPost, Comment, CommentReaction
 
 logger = logging.getLogger(__name__.split('.')[0])
 
+# TODO expand statistics
+
 
 class SearchResultsView(ListView):
     model = Post

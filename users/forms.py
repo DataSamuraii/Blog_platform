@@ -36,11 +36,6 @@ class CustomUserEditForm(forms.ModelForm):
         if not social_media:
             return {}
 
-        try:
-            json.loads(social_media)
-        except json.JSONDecodeError:
-            raise ValidationError
-
         return social_media
 
 

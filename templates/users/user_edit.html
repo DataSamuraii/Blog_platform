@@ -8,17 +8,46 @@
                 <div class="card-header bg-primary text-white">
                     <h4>Edit User Information</h4>
                 </div>
-                <form method="post" class="list-group list-group-flush p-3" enctype="multipart/form-data">
+                <form id="editUserForm" method="post" class="list-group list-group-flush p-3"
+                      enctype="multipart/form-data">
                     {% csrf_token %}
                     {% for field in form %}
-                        <div class="list-group-item">
-                            {{ field.label_tag }}
-                            {{ field }}
-                            {% for error in field.errors %}
-                                <div class="alert alert-danger mt-2" role="alert">{{ error }}</div>
-                            {% endfor %}
-                        </div>
+                        {% if field.name != 'social_media' %}
+                            <div class="list-group-item">
+                                {{ field.label_tag }}
+                                {{ field }}
+                                {% for error in field.errors %}
+                                    <div class="alert alert-danger mt-2" role="alert">{{ error }}</div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
                     {% endfor %}
+
+
+                    <!-- Media Management Table -->
+                    <table id="mediaTable" class="table">
+                        <thead>
+                        <tr>
+                            <th>Media Name</th>
+                            <th>Media Link</th>
+                            <th>Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><input type="text" class="form-control" name="mediaName[]"></td>
+                            <td><input type="text" class="form-control" name="mediaLink[]"></td>
+                            <td>
+                                <button type="button" class="btn btn-primary addRow">+</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <!-- Hidden field for JSON data -->
+                    <input type="hidden" name="social_media" id="socialMediaField"
+                           value="{{ form.social_media.value|escapejs }}">
+
                     <div class="list-group-item d-flex justify-content-between">
                         <input type="submit" value="Save Changes" class="btn btn-success">
                         <a href="{% url 'user_detail' user.id %}" class="btn btn-secondary">Cancel</a>
@@ -27,4 +56,45 @@
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener('click', function (event) {
+            if (event.target.classList.contains('addRow')) {
+                let table = document.getElementById('mediaTable');
+                let newRow = table.insertRow(-1);
+                newRow.innerHTML = `
+            <td><input type="text" class="form-control" name="mediaName"></td>
+            <td><input type="text" class="form-control" name="mediaLink"></td>
+            <td><button type="button" class="btn btn-danger removeRow">-</button></td>
+        `;
+            }
+
+            if (event.target.classList.contains('removeRow')) {
+                let row = event.target.parentElement.parentElement;
+                row.remove();
+            }
+        });
+
+        document.getElementById('editUserForm').onsubmit = function (event) {
+            let mediaData = {};
+            let rows = document.getElementById('mediaTable').rows;
+
+            for (let i = 1; i < rows.length; i++) {
+                let mediaName = rows[i].cells[0].querySelector('input').value.trim();
+                let mediaLink = rows[i].cells[1].querySelector('input').value.trim();
+                if (mediaName) {
+                    mediaData[mediaName] = mediaLink;
+                }
+            }
+
+            document.getElementById('socialMediaField').value = JSON.stringify(mediaData);
+            console.log(mediaData)
+            console.log(JSON.stringify(mediaData))
+            console.log(document.getElementById('socialMediaField').value)
+
+            // Uncomment the below line to prevent actual form submission for testing
+            // event.preventDefault();
+        };
+
+
+    </script>
 {% endblock %}

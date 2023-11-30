@@ -1026,3 +1026,73 @@ INFO 2023-11-28 20:50:59,963 signals Email user notification sent to rubashanov1
 INFO 2023-11-28 20:50:59,963 views User datasamuraii logged in, IP: 127.0.0.1 
 INFO 2023-11-28 20:51:01,896 middleware Admin action by datasamuraii: GET /admin/ Resolved index with args () and kwargs {} 
 INFO 2023-11-29 18:59:37,936 middleware Admin action by datasamuraii: GET /admin/ Resolved index with args () and kwargs {} 
+WARNING 2023-11-30 19:29:30,621 signals Updated CustomUser 3: last_login: 2023-11-28 18:50:59.887966+00:00 -> 2023-11-30 17:29:30.620593+00:00 
+INFO 2023-11-30 19:29:30,694 signals Starting create_subscriber_for_new_user for new user 3 
+INFO 2023-11-30 19:29:30,694 signals Starting user_edit_notification for user 3 
+INFO 2023-11-30 19:29:30,694 signals Email user notification sent to rubashanov1209@gmail.com 
+INFO 2023-11-30 19:29:30,695 views User datasamuraii logged in, IP: 127.0.0.1 
+WARNING 2023-11-30 19:44:19,353 signals Updated CustomUser 3: social_media: {} -> {'github': 'https://github.com/DataSamuraii'} 
+INFO 2023-11-30 19:44:19,878 signals Starting create_subscriber_for_new_user for new user 3 
+INFO 2023-11-30 19:44:19,878 signals Starting user_edit_notification for user 3 
+INFO 2023-11-30 19:44:19,886 signals Email user notification sent to rubashanov1209@gmail.com 
+INFO 2023-11-30 19:44:19,887 views User datasamuraii changed fields: ['social_media'] 
+WARNING 2023-11-30 19:57:55,983 signals Updated CustomUser 3: social_media: {'github': 'https://github.com/DataSamuraii'} -> {} 
+INFO 2023-11-30 19:57:56,159 signals Starting create_subscriber_for_new_user for new user 3 
+INFO 2023-11-30 19:57:56,159 signals Starting user_edit_notification for user 3 
+INFO 2023-11-30 19:57:56,159 signals Email user notification sent to rubashanov1209@gmail.com 
+INFO 2023-11-30 19:57:56,160 views User datasamuraii changed fields: ['social_media'] 
+INFO 2023-11-30 20:10:36,725 signals Starting create_subscriber_for_new_user for new user 3 
+INFO 2023-11-30 20:10:36,726 signals Starting user_edit_notification for user 3 
+INFO 2023-11-30 20:10:36,726 signals Email user notification sent to rubashanov1209@gmail.com 
+INFO 2023-11-30 20:10:36,726 views User datasamuraii changed fields: ['social_media'] 
+INFO 2023-11-30 20:11:26,955 signals Starting create_subscriber_for_new_user for new user 3 
+INFO 2023-11-30 20:11:26,956 signals Starting user_edit_notification for user 3 
+INFO 2023-11-30 20:11:26,956 signals Email user notification sent to rubashanov1209@gmail.com 
+INFO 2023-11-30 20:11:26,956 views User datasamuraii changed fields: ['social_media'] 
+INFO 2023-11-30 20:19:03,191 signals Starting create_subscriber_for_new_user for new user 3 
+INFO 2023-11-30 20:19:03,191 signals Starting user_edit_notification for user 3 
+INFO 2023-11-30 20:19:03,192 signals Email user notification sent to rubashanov1209@gmail.com 
+INFO 2023-11-30 20:19:03,192 views User datasamuraii changed fields: ['social_media'] 
+INFO 2023-11-30 20:20:19,062 signals Starting create_subscriber_for_new_user for new user 3 
+INFO 2023-11-30 20:20:19,062 signals Starting user_edit_notification for user 3 
+INFO 2023-11-30 20:20:19,062 signals Email user notification sent to rubashanov1209@gmail.com 
+INFO 2023-11-30 20:20:19,063 views User datasamuraii changed fields: ['social_media'] 
+INFO 2023-11-30 20:22:30,632 signals Starting create_subscriber_for_new_user for new user 3 
+INFO 2023-11-30 20:22:30,632 signals Starting user_edit_notification for user 3 
+INFO 2023-11-30 20:22:30,633 signals Email user notification sent to rubashanov1209@gmail.com 
+INFO 2023-11-30 20:22:30,633 views User datasamuraii changed fields: ['social_media'] 
+INFO 2023-11-30 20:22:50,666 signals Starting create_subscriber_for_new_user for new user 3 
+INFO 2023-11-30 20:22:50,667 signals Starting user_edit_notification for user 3 
+INFO 2023-11-30 20:22:50,667 signals Email user notification sent to rubashanov1209@gmail.com 
+INFO 2023-11-30 20:22:50,667 views User datasamuraii changed fields: ['social_media'] 
+INFO 2023-11-30 20:24:59,345 signals Starting create_subscriber_for_new_user for new user 3 
+INFO 2023-11-30 20:24:59,346 signals Starting user_edit_notification for user 3 
+INFO 2023-11-30 20:24:59,346 signals Email user notification sent to rubashanov1209@gmail.com 
+INFO 2023-11-30 20:24:59,346 views User datasamuraii changed fields: ['social_media'] 
+INFO 2023-11-30 20:25:29,739 signals Starting create_subscriber_for_new_user for new user 3 
+INFO 2023-11-30 20:25:29,739 signals Starting user_edit_notification for user 3 
+INFO 2023-11-30 20:25:29,740 signals Email user notification sent to rubashanov1209@gmail.com 
+INFO 2023-11-30 20:25:29,740 views User datasamuraii changed fields: ['social_media'] 
+INFO 2023-11-30 20:30:20,591 signals Starting create_subscriber_for_new_user for new user 3 
+INFO 2023-11-30 20:30:20,591 signals Starting user_edit_notification for user 3 
+INFO 2023-11-30 20:30:20,591 signals Email user notification sent to rubashanov1209@gmail.com 
+INFO 2023-11-30 20:30:20,592 views User datasamuraii changed fields: ['social_media'] 
+INFO 2023-11-30 20:30:32,915 signals Starting create_subscriber_for_new_user for new user 3 
+INFO 2023-11-30 20:30:32,915 signals Starting user_edit_notification for user 3 
+INFO 2023-11-30 20:30:32,916 signals Email user notification sent to rubashanov1209@gmail.com 
+INFO 2023-11-30 20:30:32,916 views User datasamuraii changed fields: ['social_media'] 
+INFO 2023-11-30 20:31:22,869 signals Starting create_subscriber_for_new_user for new user 3 
+INFO 2023-11-30 20:31:22,869 signals Starting user_edit_notification for user 3 
+INFO 2023-11-30 20:31:22,870 signals Email user notification sent to rubashanov1209@gmail.com 
+INFO 2023-11-30 20:31:22,870 views User datasamuraii changed fields: ['social_media'] 
+WARNING 2023-11-30 20:47:39,567 signals Updated CustomUser 3: social_media: {} -> {'GH': 'https://github.com/DataSamuraii'} 
+INFO 2023-11-30 20:47:39,736 signals Starting create_subscriber_for_new_user for new user 3 
+INFO 2023-11-30 20:47:39,736 signals Starting user_edit_notification for user 3 
+INFO 2023-11-30 20:47:39,737 signals Email user notification sent to rubashanov1209@gmail.com 
+INFO 2023-11-30 20:47:39,737 views User datasamuraii changed fields: ['social_media'] 
+INFO 2023-11-30 21:08:16,140 views User  logged out 
+WARNING 2023-11-30 21:08:25,078 signals Updated CustomUser 4: last_login: 2023-11-28 17:57:36.937611+00:00 -> 2023-11-30 19:08:25.077160+00:00 
+INFO 2023-11-30 21:08:25,151 signals Starting create_subscriber_for_new_user for new user 4 
+INFO 2023-11-30 21:08:25,151 signals Starting user_edit_notification for user 4 
+INFO 2023-11-30 21:08:25,151 signals Email user notification sent to elizakirt@gmail.com 
+INFO 2023-11-30 21:08:25,152 views User elizakirt logged in, IP: 127.0.0.1 

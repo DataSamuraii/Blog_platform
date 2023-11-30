@@ -5,6 +5,8 @@ import bleach
 from django.contrib.messages import constants as messages
 from dotenv import load_dotenv
 
+# TODO expand allowed tags when bleaching
+
 # Load environment variables from .env file
 load_dotenv()
 
