@@ -1096,3 +1096,7 @@ INFO 2023-11-30 21:08:25,151 signals Starting create_subscriber_for_new_user for
 INFO 2023-11-30 21:08:25,151 signals Starting user_edit_notification for user 4 
 INFO 2023-11-30 21:08:25,151 signals Email user notification sent to elizakirt@gmail.com 
 INFO 2023-11-30 21:08:25,152 views User elizakirt logged in, IP: 127.0.0.1 
+INFO 2023-12-01 21:01:43,851 middleware Captured non-geo processed request, starting GeoDataMiddleware 
+INFO 2023-12-01 21:01:44,312 middleware Captured non-geo processed request, starting GeoDataMiddleware 
+INFO 2023-12-01 21:09:23,300 middleware Captured non-geo processed request, starting GeoDataMiddleware 
+INFO 2023-12-01 21:09:23,568 middleware Captured non-geo processed request, starting GeoDataMiddleware 

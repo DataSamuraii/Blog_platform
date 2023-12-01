@@ -50,6 +50,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'users.middleware.SocialAuthBanMiddleware',
     'users.middleware.AdminLoggingMiddleware',
+    'users.middleware.GeoDataMiddleware'
 ]
 
 ROOT_URLCONF = 'Blog_platform.urls'
@@ -278,3 +279,5 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 3,
     'MAX_LIMIT': 100
 }
+
+GEOIP_PATH = os.getenv('GEOIP_PATH')

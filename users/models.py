@@ -35,20 +35,6 @@ class CustomUser(AbstractUser):
         ordering = ['id']
 
 
-class EmailSubscriber(models.Model):
-    user = models.OneToOneField(get_user_model(), on_delete=models.CASCADE, related_name='email_subscriber')
-
-    def delete(self, *args, **kwargs):
-        logger.warning(f"Deleting email subscription for {self.user}")
-        super().delete(*args, **kwargs)
-
-    def __str__(self):
-        return self.user.email
-
-    class Meta:
-        ordering = ['id']
-
-
 class UnbanRequest(models.Model):
     UNBAN_STATUS_CHOICES = [
         ('pending', 'Pending'),
@@ -70,3 +56,24 @@ class UnbanRequest(models.Model):
 
     class Meta:
         ordering = ['id']
+
+
+class EmailSubscriber(models.Model):
+    user = models.OneToOneField(get_user_model(), on_delete=models.CASCADE, related_name='email_subscriber')
+
+    def delete(self, *args, **kwargs):
+        logger.warning(f"Deleting email subscription for {self.user}")
+        super().delete(*args, **kwargs)
+
+    def __str__(self):
+        return self.user.email
+
+    class Meta:
+        ordering = ['id']
+
+
+class VisitorGeoData(models.Model):
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, null=True, blank=True)
+    ip_address = models.GenericIPAddressField(unpack_ipv4=True)
+    country = models.CharField(max_length=50)
+    city = models.CharField(max_length=50)
