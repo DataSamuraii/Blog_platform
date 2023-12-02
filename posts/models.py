@@ -57,16 +57,6 @@ class Category(models.Model):
         verbose_name_plural = 'Categories'
 
 
-class ViewedPost(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE)
-    ip_address = models.GenericIPAddressField()
-    timestamp = models.DateTimeField(auto_now_add=True)
-
-    def delete(self, *args, **kwargs):
-        logger.warning(f"Deleting ViewedPost ID: {self.pk}")
-        super().delete(*args, **kwargs)
-
-
 class Comment(models.Model):
     content = models.CharField(max_length=500)
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True)
@@ -103,7 +93,7 @@ class CommentReaction(models.Model):
     ]
 
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    comment = models.ForeignKey(Comment, related_name='reactions', on_delete=models.CASCADE)
+    comment = models.ForeignKey('Comment', related_name='reactions', on_delete=models.CASCADE)
     reaction_type = models.CharField(max_length=10, choices=REACTION_CHOICES)
 
     class Meta:

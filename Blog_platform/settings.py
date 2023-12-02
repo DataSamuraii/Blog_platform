@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'captcha',
     'posts',
     'users',
+    'analytics',
     'api',
 ]
 
@@ -50,7 +51,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'users.middleware.SocialAuthBanMiddleware',
     'users.middleware.AdminLoggingMiddleware',
-    'users.middleware.GeoDataMiddleware'
+    'analytics.middleware.PageDataMiddleware'
+
+    # Temporarily disabled for dev, the localhost IP 127.0.0.1 raising exceptions
+    # 'analytics.middleware.GeoDataMiddleware'
 ]
 
 ROOT_URLCONF = 'Blog_platform.urls'
@@ -223,6 +227,14 @@ LOGGING = {
             'backupCount': 5,
             'formatter': 'verbose',
         },
+        'analytics': {
+            'level': 'INFO',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': 'logs/analytics.log',
+            'maxBytes': 1024 * 1024 * 5,  # 5 MB
+            'backupCount': 5,
+            'formatter': 'verbose',
+        },
     },
     'loggers': {
         'posts': {
@@ -232,6 +244,11 @@ LOGGING = {
         },
         'users': {
             'handlers': ['users'],
+            'level': 'INFO',
+            'propagate': False
+        },
+        'analytics': {
+            'handlers': ['analytics'],
             'level': 'INFO',
             'propagate': False
         }
@@ -280,4 +297,4 @@ REST_FRAMEWORK = {
     'MAX_LIMIT': 100
 }
 
-GEOIP_PATH = os.getenv('GEOIP_PATH')
+GEOIP_PATH = BASE_DIR / 'dbs/GeoLite2_City/GeoLite2-City.mmdb'

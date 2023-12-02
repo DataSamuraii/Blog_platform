@@ -1,0 +1,4 @@
+INFO 2023-12-02 19:18:45,228 middleware Starting PageDataMiddleware 
+INFO 2023-12-02 19:19:57,668 middleware Starting PageDataMiddleware 
+WARNING 2023-12-02 19:19:57,671 signals Created VisitorPageData : id: None -> None, user: None -> root, ip_address: None -> 127.0.0.1, timestamp: None -> None, page:  -> /blog/post/6/ 
+WARNING 2023-12-02 19:19:58,025 signals Created ViewedPost : id: None -> None, post: None -> A Look at Sam Altman's Dramatic Ousting and Return, ip_address: None -> 127.0.0.1, timestamp: None -> None 

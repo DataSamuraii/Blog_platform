@@ -1100,3 +1100,81 @@ INFO 2023-12-01 21:01:43,851 middleware Captured non-geo processed request, star
 INFO 2023-12-01 21:01:44,312 middleware Captured non-geo processed request, starting GeoDataMiddleware 
 INFO 2023-12-01 21:09:23,300 middleware Captured non-geo processed request, starting GeoDataMiddleware 
 INFO 2023-12-01 21:09:23,568 middleware Captured non-geo processed request, starting GeoDataMiddleware 
+INFO 2023-12-02 13:09:21,305 middleware Captured non-geo processed request, starting GeoDataMiddleware 
+ERROR 2023-12-02 13:09:21,325 middleware Exception raised when running GeoDataMiddleware: The address 127.0.0.1 is not in the database. 
+INFO 2023-12-02 13:09:21,430 middleware Captured non-geo processed request, starting GeoDataMiddleware 
+ERROR 2023-12-02 13:09:21,430 middleware Exception raised when running GeoDataMiddleware: The address 127.0.0.1 is not in the database. 
+INFO 2023-12-02 13:09:21,863 middleware Captured non-geo processed request, starting GeoDataMiddleware 
+ERROR 2023-12-02 13:09:21,864 middleware Exception raised when running GeoDataMiddleware: The address 127.0.0.1 is not in the database. 
+INFO 2023-12-02 13:10:11,830 middleware Captured non-geo processed request, starting GeoDataMiddleware 
+ERROR 2023-12-02 13:10:11,831 middleware Exception raised when running GeoDataMiddleware: The address 127.0.0.1 is not in the database. 
+INFO 2023-12-02 13:10:30,852 middleware Captured non-geo processed request, starting GeoDataMiddleware 
+ERROR 2023-12-02 13:10:30,852 middleware Exception raised when running GeoDataMiddleware: The address 127.0.0.1 is not in the database. 
+WARNING 2023-12-02 18:48:40,775 signals Updated CustomUser 3: last_login: 2023-11-30 17:29:30.620593+00:00 -> 2023-12-02 16:48:40.773606+00:00 
+INFO 2023-12-02 18:48:40,858 signals Starting create_subscriber_for_new_user for new user 3 
+INFO 2023-12-02 18:48:40,859 signals Starting user_edit_notification for user 3 
+INFO 2023-12-02 18:48:40,859 signals Email user notification sent to rubashanov1209@gmail.com 
+INFO 2023-12-02 18:48:40,859 views User datasamuraii logged in, IP: 127.0.0.1 
+INFO 2023-12-02 19:09:22,503 views User  logged out 
+WARNING 2023-12-02 19:09:27,764 signals Updated CustomUser 1: last_login: 2023-11-28 11:28:02.812524+00:00 -> 2023-12-02 17:09:27.763041+00:00 
+INFO 2023-12-02 19:09:27,836 signals Starting create_subscriber_for_new_user for new user 1 
+INFO 2023-12-02 19:09:27,837 signals Starting user_edit_notification for user 1 
+INFO 2023-12-02 19:09:27,837 signals Email user notification sent to rubashanov@gmail.com 
+INFO 2023-12-02 19:09:27,837 views User root logged in, IP: 127.0.0.1 
+INFO 2023-12-02 19:09:30,348 middleware Admin action by root: GET /admin/ Resolved index with args () and kwargs {} 
+INFO 2023-12-02 19:09:38,909 middleware Admin action by root: GET /admin/analytics/viewedpost/ Resolved analytics_viewedpost_changelist with args () and kwargs {} 
+INFO 2023-12-02 19:09:39,145 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-12-02 19:09:40,982 middleware Admin action by root: GET /admin/analytics/visitorgeodata/ Resolved analytics_visitorgeodata_changelist with args () and kwargs {} 
+INFO 2023-12-02 19:09:41,088 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-12-02 19:09:43,383 middleware Admin action by root: GET /admin/analytics/visitorpagedata/ Resolved analytics_visitorpagedata_changelist with args () and kwargs {} 
+INFO 2023-12-02 19:09:43,484 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-12-02 19:11:48,120 middleware Admin action by root: GET /admin/analytics/visitorpagedata/ Resolved analytics_visitorpagedata_changelist with args () and kwargs {} 
+INFO 2023-12-02 19:11:48,258 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-12-02 19:11:55,910 middleware Admin action by root: GET /admin/analytics/visitorpagedata/1/change/ Resolved analytics_visitorpagedata_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-12-02 19:11:56,033 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-12-02 19:12:00,114 middleware Admin action by root: GET /admin/auth/group/ Resolved auth_group_changelist with args () and kwargs {} 
+INFO 2023-12-02 19:12:00,219 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-12-02 19:12:01,985 middleware Admin action by root: GET /admin/auth/group/1/change/ Resolved auth_group_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-12-02 19:12:02,197 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-12-02 19:12:10,087 middleware Admin action by root: POST /admin/auth/group/1/change/ Resolved auth_group_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-12-02 19:12:10,194 middleware Admin action by root: GET /admin/auth/group/1/change/ Resolved auth_group_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-12-02 19:12:10,302 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-12-02 19:12:12,264 middleware Admin action by root: GET /admin/auth/group/ Resolved auth_group_changelist with args () and kwargs {} 
+INFO 2023-12-02 19:12:12,363 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-12-02 19:14:16,901 middleware Admin action by root: GET /admin/analytics/visitorpagedata/ Resolved analytics_visitorpagedata_changelist with args () and kwargs {} 
+INFO 2023-12-02 19:14:17,015 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-12-02 19:14:18,999 middleware Admin action by root: GET /admin/users/customuser/3/change/ Resolved users_customuser_change with args () and kwargs {'object_id': '3'} 
+INFO 2023-12-02 19:14:19,120 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-12-02 19:14:22,652 middleware Admin action by root: GET /admin/analytics/visitorpagedata/ Resolved analytics_visitorpagedata_changelist with args () and kwargs {} 
+INFO 2023-12-02 19:14:23,532 middleware Admin action by root: GET /admin/analytics/visitorpagedata/1/change/ Resolved analytics_visitorpagedata_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-12-02 19:14:23,629 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-12-02 19:14:27,391 middleware Admin action by root: POST /admin/analytics/visitorpagedata/1/change/ Resolved analytics_visitorpagedata_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-12-02 19:14:27,495 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-12-02 19:14:32,699 middleware Admin action by root: POST /admin/analytics/visitorpagedata/1/change/ Resolved analytics_visitorpagedata_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-12-02 19:14:32,794 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-12-02 19:17:50,708 middleware Admin action by root: GET /admin/analytics/visitorpagedata/1/change/ Resolved analytics_visitorpagedata_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-12-02 19:17:51,228 middleware Admin action by root: GET /admin/analytics/visitorpagedata/ Resolved analytics_visitorpagedata_changelist with args () and kwargs {} 
+INFO 2023-12-02 19:18:01,195 middleware Admin action by root: POST /admin/analytics/visitorpagedata/ Resolved analytics_visitorpagedata_changelist with args () and kwargs {} 
+INFO 2023-12-02 19:18:10,504 middleware Admin action by root: POST /admin/analytics/visitorpagedata/ Resolved analytics_visitorpagedata_changelist with args () and kwargs {} 
+INFO 2023-12-02 19:18:10,518 middleware Admin action by root: GET /admin/analytics/visitorpagedata/ Resolved analytics_visitorpagedata_changelist with args () and kwargs {} 
+INFO 2023-12-02 19:18:10,549 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-12-02 19:18:14,121 middleware Admin action by root: GET /admin/analytics/visitorpagedata/1/change/ Resolved analytics_visitorpagedata_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-12-02 19:18:14,147 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-12-02 19:18:17,755 middleware Admin action by root: POST /admin/analytics/visitorpagedata/1/change/ Resolved analytics_visitorpagedata_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-12-02 19:18:17,790 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-12-02 19:18:25,549 middleware Admin action by root: GET /admin/analytics/visitorpagedata/1/change/ Resolved analytics_visitorpagedata_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-12-02 19:19:53,738 middleware Admin action by root: GET /admin/analytics/visitorpagedata/1/change/ Resolved analytics_visitorpagedata_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-12-02 19:19:53,937 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-12-02 19:20:59,772 middleware Admin action by root: GET /admin/auth/group/ Resolved auth_group_changelist with args () and kwargs {} 
+INFO 2023-12-02 19:20:59,797 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-12-02 19:21:00,848 middleware Admin action by root: GET /admin/auth/group/1/change/ Resolved auth_group_change with args () and kwargs {'object_id': '1'} 
+INFO 2023-12-02 19:21:00,960 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-12-02 19:21:02,327 middleware Admin action by root: GET /admin/auth/group/ Resolved auth_group_changelist with args () and kwargs {} 
+INFO 2023-12-02 19:21:05,327 middleware Admin action by root: GET /admin/auth/group/3/change/ Resolved auth_group_change with args () and kwargs {'object_id': '3'} 
+INFO 2023-12-02 19:21:05,362 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-12-02 19:21:22,187 middleware Admin action by root: GET /admin/auth/group/ Resolved auth_group_changelist with args () and kwargs {} 
+INFO 2023-12-02 19:21:23,666 middleware Admin action by root: GET /admin/auth/group/4/change/ Resolved auth_group_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-12-02 19:21:23,689 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 
+INFO 2023-12-02 19:21:59,854 middleware Admin action by root: POST /admin/auth/group/4/change/ Resolved auth_group_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-12-02 19:21:59,882 middleware Admin action by root: GET /admin/auth/group/4/change/ Resolved auth_group_change with args () and kwargs {'object_id': '4'} 
+INFO 2023-12-02 19:21:59,912 middleware Admin action by root: GET /admin/jsi18n/ Resolved jsi18n with args () and kwargs {} 

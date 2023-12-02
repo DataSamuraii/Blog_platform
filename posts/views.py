@@ -15,11 +15,10 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from .forms import PostForm, CategoryForm, CommentForm
-from .models import Post, Category, ViewedPost, Comment, CommentReaction
+from .models import Post, Category, Comment, CommentReaction
+from analytics.models import ViewedPost
 
 logger = logging.getLogger(__name__.split('.')[0])
-
-# TODO expand statistics
 
 
 class SearchResultsView(ListView):
@@ -87,7 +86,6 @@ class PostDetailView(DetailView):
             self.request.session[session_key] = True
             self.request.session.set_expiry(86400)  # 24 hours in seconds
             ViewedPost.objects.create(post=self.object, ip_address=ip)
-            logger.info(f'Created new ViewedPost for IP {ip}, post {self.object, self.object.pk}')
 
 
 class CreatePostView(LoginRequiredMixin, CreateView):

@@ -1,13 +1,9 @@
 import logging
 
-from django.contrib.gis.geoip2 import GeoIP2
 from django.shortcuts import redirect
 from django.urls import resolve
-from django.utils.deprecation import MiddlewareMixin
 from social_core.exceptions import AuthForbidden
 from social_django.middleware import SocialAuthExceptionMiddleware
-from utils.utils import get_user_ip
-from .models import VisitorGeoData
 
 logger = logging.getLogger(__name__.split('.')[0])
 
@@ -35,20 +31,3 @@ class SocialAuthBanMiddleware(SocialAuthExceptionMiddleware):
         if isinstance(exception, AuthForbidden):
             return redirect('banned_user')
         return response
-
-
-class GeoDataMiddleware(MiddlewareMixin):
-    def process_request(self, request):
-        if not request.session.get('geo_data_captured'):
-            logger.info('Captured non-geo processed request, starting GeoDataMiddleware')
-            ip = get_user_ip(request)
-            g = GeoIP2()
-            try:
-                geo_data = g.city(ip)
-                VisitorGeoData.objects.create(
-                    user=request.user if request.user.is_authenticated else None,
-                    ip_address=ip, country=geo_data['country_name'], city=geo_data['city']
-                )
-                request.session['geo_data_captured'] = True
-            except Exception as e:
-                logger.error(f'Exception raised when running GeoDataMiddleware: {e}')

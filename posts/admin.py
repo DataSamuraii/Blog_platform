@@ -1,38 +1,15 @@
 import logging
-from datetime import timedelta
 
 from django import forms
 from django.contrib import admin
-from django.http import HttpResponseRedirect, HttpResponseForbidden
-from django.urls import path, reverse
-from django.utils import timezone
+from django.urls import reverse
 from django.utils.html import format_html
 from django.utils.translation import gettext_lazy as _
 
-from users.admin import YearFilter
-from .models import Post, Category, ViewedPost, Comment
+from utils.utils_class_mixins import YearFilter, PostLinkMixin, AuthorLinkMixin
+from .models import Post, Category, Comment
 
 logger = logging.getLogger(__name__.split('.')[0])
-
-
-class AuthorLinkMixin:
-    def author_link(self, obj):
-        if obj.author:
-            url = reverse('admin:users_customuser_change', args=[obj.author.id])
-            return format_html('<a href="{}">{}</a>', url, obj.author)
-        return '-'
-
-    author_link.short_description = 'author'
-
-
-class PostLinkMixin:
-    def post_link(self, obj):
-        if obj.post:
-            url = reverse('admin:posts_post_change', args=[obj.post.id])
-            return format_html('<a href="{}">{}</a>', url, obj.post)
-        return '-'
-
-    post_link.short_description = 'post'
 
 
 class ViewsFilter(admin.SimpleListFilter):
@@ -96,32 +73,6 @@ class PostAdmin(AuthorLinkMixin, admin.ModelAdmin):
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ['title', 'description']
     search_fields = ['title', 'description']
-
-
-@admin.register(ViewedPost)
-class ViewedPostAdmin(PostLinkMixin, admin.ModelAdmin):
-    list_display = ['id', 'post_link', 'timestamp', 'ip_address']
-    list_filter = ['post']
-    search_fields = ['timestamp', 'ip_address']
-    change_list_template = 'admin/viewedpost_change_list.html'
-
-    def get_urls(self):
-        my_urls = [
-            path('purge_old_views/', self.purge_old_views, name='purge_old_views')
-        ]
-        return my_urls + super().get_urls()
-
-    def purge_old_views(self, request):
-        if not request.user.has_perm('posts.delete_viewedpost'):
-            return HttpResponseForbidden('You do not have permission to perform this action.')
-
-        logger.warning(f'purge_old_views action called by {request.user}')
-        time_threshold = timezone.now() - timedelta(hours=24)
-        old_records = ViewedPost.objects.filter(timestamp__lte=time_threshold)
-        count = old_records.count()
-        old_records.delete()
-        self.message_user(request, f'Successfully deleted {count} old records')
-        return HttpResponseRedirect(reverse('admin:posts_viewedpost_changelist'))
 
 
 class CommentYearFilter(YearFilter):

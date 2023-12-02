@@ -6,8 +6,8 @@ from django.utils import timezone
 from django.utils.functional import SimpleLazyObject
 
 from users.models import EmailSubscriber
-from utils.utils import EmailPostNotification, EmailCommentNotification
-from .models import Post, Category, ViewedPost, Comment
+from utils.utils_email import EmailPostNotification, EmailCommentNotification
+from .models import Post, Category, Comment
 from .tasks import check_comment_profanity, check_comment_negativity
 
 logger = logging.getLogger(__name__.split('.')[0])
@@ -15,7 +15,6 @@ logger = logging.getLogger(__name__.split('.')[0])
 
 @receiver(pre_save, sender=Post)
 @receiver(pre_save, sender=Category)
-@receiver(pre_save, sender=ViewedPost)
 def track_changes(sender, instance, **kwargs):
     if instance.pk:
         initial = SimpleLazyObject(lambda: sender.objects.get(pk=instance.pk))

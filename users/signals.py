@@ -4,7 +4,7 @@ from django.db.models.signals import pre_save, post_save
 from django.dispatch import receiver
 from django.utils.functional import SimpleLazyObject
 
-from utils.utils import EmailUserNotification
+from utils.utils_email import EmailUserNotification
 from .models import CustomUser, UnbanRequest, EmailSubscriber
 
 logger = logging.getLogger(__name__.split('.')[0])

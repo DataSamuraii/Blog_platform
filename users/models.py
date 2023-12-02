@@ -48,11 +48,11 @@ class UnbanRequest(models.Model):
     status = models.CharField(max_length=10, choices=UNBAN_STATUS_CHOICES, default='pending')
 
     def delete(self, *args, **kwargs):
-        logger.warning(f"Deleting UnbanRequest: {self.id} for user {self.user.username}")
+        logger.warning(f'Deleting UnbanRequest: {self.id} for user {self.user.username}')
         super().delete(*args, **kwargs)
 
     def __str__(self):
-        return f"Unban Request by {self.user.username}"
+        return f'Unban Request by {self.user.username}'
 
     class Meta:
         ordering = ['id']
@@ -70,10 +70,3 @@ class EmailSubscriber(models.Model):
 
     class Meta:
         ordering = ['id']
-
-
-class VisitorGeoData(models.Model):
-    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, null=True, blank=True)
-    ip_address = models.GenericIPAddressField(unpack_ipv4=True)
-    country = models.CharField(max_length=50)
-    city = models.CharField(max_length=50)
