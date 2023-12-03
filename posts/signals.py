@@ -33,7 +33,7 @@ def track_changes(sender, instance, **kwargs):
 
     if changed_fields:
         change_desc = ', '.join([f'{field}: {init} -> {curr}' for field, init, curr in changed_fields])
-        logger.warning(f'{action} {sender.__name__} {instance.pk if instance.pk else ""}: {change_desc}')
+        logger.info(f'{action} {sender.__name__} {instance.pk if instance.pk else ""}: {change_desc}')
 
 
 @receiver(pre_save, sender=Post)

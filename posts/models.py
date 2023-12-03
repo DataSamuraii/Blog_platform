@@ -16,6 +16,7 @@ class Post(models.Model):
     date_scheduled = models.DateTimeField(null=True, blank=True)
     date_published = models.DateTimeField(null=True, blank=True)
     views = models.PositiveIntegerField(default=0)
+    share_count = models.IntegerField(default=0)
     is_published = models.BooleanField(default=False)
 
     def __str__(self):

@@ -1,3 +1,4 @@
+import json
 import logging
 from datetime import timedelta
 
@@ -5,7 +6,8 @@ from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.exceptions import PermissionDenied
 from django.db import transaction
-from django.http import HttpResponseBadRequest
+from django.db.models import F
+from django.http import HttpResponseBadRequest, JsonResponse
 from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse, reverse_lazy
 from django.utils import timezone
@@ -14,9 +16,9 @@ from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
+from analytics.models import ViewedPost
 from .forms import PostForm, CategoryForm, CommentForm
 from .models import Post, Category, Comment, CommentReaction
-from analytics.models import ViewedPost
 
 logger = logging.getLogger(__name__.split('.')[0])
 
@@ -81,11 +83,23 @@ class PostDetailView(DetailView):
 
         # Session-Based + IP-Based counting
         if not self.request.session.get(session_key) and not recent_views.exists():
-            self.object.views += 1
-            self.object.save(update_fields=['views'])
+            # Directly update 'views' in the database
+            Post.objects.filter(pk=self.object.pk).update(views=F('views') + 1)
+
+            # Update the session
             self.request.session[session_key] = True
             self.request.session.set_expiry(86400)  # 24 hours in seconds
             ViewedPost.objects.create(post=self.object, ip_address=ip)
+
+
+class SharePostView(View):
+    http_method_names = ['post']
+
+    # noinspection PyMethodMayBeStatic
+    def post(self, request, *args, **kwargs):
+        post_id = json.loads(request.body).get('post_id')
+        Post.objects.filter(pk=post_id).update(share_count=F('share_count') + 1)
+        return JsonResponse({'success': True})
 
 
 class CreatePostView(LoginRequiredMixin, CreateView):

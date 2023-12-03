@@ -2,3 +2,22 @@ INFO 2023-12-02 19:18:45,228 middleware Starting PageDataMiddleware
 INFO 2023-12-02 19:19:57,668 middleware Starting PageDataMiddleware 
 WARNING 2023-12-02 19:19:57,671 signals Created VisitorPageData : id: None -> None, user: None -> root, ip_address: None -> 127.0.0.1, timestamp: None -> None, page:  -> /blog/post/6/ 
 WARNING 2023-12-02 19:19:58,025 signals Created ViewedPost : id: None -> None, post: None -> A Look at Sam Altman's Dramatic Ousting and Return, ip_address: None -> 127.0.0.1, timestamp: None -> None 
+INFO 2023-12-03 22:47:29,176 middleware Starting PageDataMiddleware 
+INFO 2023-12-03 22:47:29,187 signals Created VisitorPageData : id: None -> None, user: None -> None, ip_address: None -> 127.0.0.1, timestamp: None -> None, page:  -> /blog/ 
+INFO 2023-12-03 22:47:30,195 middleware Starting PageDataMiddleware 
+INFO 2023-12-03 22:47:30,195 signals Created VisitorPageData : id: None -> None, user: None -> None, ip_address: None -> 127.0.0.1, timestamp: None -> None, page:  -> /blog/post/6/ 
+INFO 2023-12-03 22:47:30,484 signals Created ViewedPost : id: None -> None, post: None -> A Look at Sam Altman's Dramatic Ousting and Return, ip_address: None -> 127.0.0.1, timestamp: None -> None 
+INFO 2023-12-03 23:02:41,304 middleware Starting PageDataMiddleware 
+INFO 2023-12-03 23:02:41,306 signals Created VisitorPageData : id: None -> None, user: None -> None, ip_address: None -> 127.0.0.1, timestamp: None -> None, page:  -> /blog/post/6/ 
+INFO 2023-12-03 23:29:18,296 middleware Starting PageDataMiddleware 
+INFO 2023-12-03 23:29:18,298 signals Created VisitorPageData : id: None -> None, user: None -> None, ip_address: None -> 127.0.0.1, timestamp: None -> None, page:  -> /blog/post/6/ 
+INFO 2023-12-03 23:29:36,391 middleware Starting PageDataMiddleware 
+INFO 2023-12-03 23:29:36,393 signals Created VisitorPageData : id: None -> None, user: None -> None, ip_address: None -> 127.0.0.1, timestamp: None -> None, page:  -> /blog/post/6/ 
+INFO 2023-12-03 23:29:38,135 middleware Starting PageDataMiddleware 
+INFO 2023-12-03 23:29:38,137 signals Created VisitorPageData : id: None -> None, user: None -> None, ip_address: None -> 127.0.0.1, timestamp: None -> None, page:  -> /blog/post/share/ 
+INFO 2023-12-03 23:30:35,645 middleware Starting PageDataMiddleware 
+INFO 2023-12-03 23:30:35,648 signals Created VisitorPageData : id: None -> None, user: None -> None, ip_address: None -> 127.0.0.1, timestamp: None -> None, page:  -> /blog/post/6/ 
+INFO 2023-12-03 23:30:36,922 middleware Starting PageDataMiddleware 
+INFO 2023-12-03 23:30:36,925 signals Created VisitorPageData : id: None -> None, user: None -> None, ip_address: None -> 127.0.0.1, timestamp: None -> None, page:  -> /blog/post/share/ 
+INFO 2023-12-03 23:30:53,032 middleware Starting PageDataMiddleware 
+INFO 2023-12-03 23:30:53,033 signals Created VisitorPageData : id: None -> None, user: None -> None, ip_address: None -> 127.0.0.1, timestamp: None -> None, page:  -> /blog/post/6/ 
