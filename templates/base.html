@@ -105,5 +105,96 @@
 <footer class="text-center py-4 mt-5 bg-light">
     <p>&copy; {{ now.year }} DataSamurai's Blog. All Rights Reserved.</p>
 </footer>
+<script>
+    // Function to get CSRF token from cookies
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+    // Throttle function to limit the rate of function execution
+    function throttle(func, limit) {
+        let inThrottle;
+        return function () {
+            const args = arguments;
+            const context = this;
+            if (!inThrottle) {
+                func.apply(context, args);
+                inThrottle = true;
+                setTimeout(() => inThrottle = false, limit);
+            }
+        };
+    }
+
+    // Function to send data to the server
+    function sendData(data) {
+        const csrftoken = getCookie('csrftoken');
+
+        fetch('{% url 'user_interaction' %}', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrftoken,
+            },
+            body: JSON.stringify({interactions: data})
+        }).catch(error => console.error('Error:', error));
+    }
+
+    document.addEventListener('DOMContentLoaded', (event) => {
+        let interactions = [];
+        const sendDataInterval = 10000; // 10 seconds
+        const maxInteractions = 50; // Max interactions before sending data
+
+        // Function to handle interaction data collection
+        function handleInteraction(type, x, y) {
+            let pageUrl = window.location.href; // Get the current page URL
+
+            interactions.push({
+                type,
+                x,
+                y,
+                page: pageUrl, // Add the page URL to the interaction data
+                timestamp: new Date().toISOString()
+            });
+
+            if (interactions.length >= maxInteractions) {
+                sendData(interactions);
+                interactions = [];
+            }
+        }
+
+        // Throttled mousemove event
+        const throttledMouseMove = throttle((e) => {
+            handleInteraction('mousemove', e.pageX, e.pageY);
+        }, 500); // Throttle every 500ms
+
+        // Regular click event
+        document.addEventListener('click', function (e) {
+            handleInteraction('click', e.pageX, e.pageY);
+        });
+
+        // Using throttled function for mousemove
+        document.addEventListener('mousemove', throttledMouseMove);
+
+        // Periodic data sending
+        setInterval(() => {
+            if (interactions.length > 0) {
+                sendData(interactions);
+                interactions = [];
+            }
+        }, sendDataInterval);
+    });
+
+</script>
 </body>
 </html>

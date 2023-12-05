@@ -34,6 +34,14 @@ class PostLinkMixin:
     post_link.short_description = 'post'
 
 
+class PageLinkMixin:
+    def page_link(self, obj):
+        if obj.page:
+            return format_html('<a href="{}">Page link</a>', obj.page)
+        return '-'
+    page_link.short_description = 'Page'
+
+
 class YearFilter(admin.SimpleListFilter):
     title = 'year'
     parameter_name = 'year'

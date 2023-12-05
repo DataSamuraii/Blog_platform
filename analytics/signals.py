@@ -4,7 +4,7 @@ from django.db.models.signals import pre_save
 from django.dispatch import receiver
 from django.utils.functional import SimpleLazyObject
 
-from .models import ViewedPost, VisitorGeoData, VisitorPageData
+from .models import ViewedPost, VisitorGeoData, VisitorPageData, UserInteraction
 
 logger = logging.getLogger(__name__.split('.')[0])
 
@@ -12,6 +12,7 @@ logger = logging.getLogger(__name__.split('.')[0])
 @receiver(pre_save, sender=ViewedPost)
 @receiver(pre_save, sender=VisitorGeoData)
 @receiver(pre_save, sender=VisitorPageData)
+@receiver(pre_save, sender=UserInteraction)
 def track_changes(sender, instance, **kwargs):
     if instance.pk:
         initial = SimpleLazyObject(lambda: sender.objects.get(pk=instance.pk))

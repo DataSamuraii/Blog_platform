@@ -2,6 +2,7 @@ import logging
 
 from django.contrib.auth import get_user_model
 from django.db import models
+
 from posts.models import Post
 
 logger = logging.getLogger(__name__.split('.')[0])
@@ -47,6 +48,26 @@ class VisitorPageData(models.Model):
 
     def __str__(self):
         return f'VisitorGeoData: {self.user} visited {self.page} at {self.timestamp}'
+
+    class Meta:
+        ordering = ['id']
+
+
+class UserInteraction(models.Model):
+    interaction_type = models.CharField(max_length=30)
+    x_coordinate = models.IntegerField()
+    y_coordinate = models.IntegerField()
+    timestamp = models.DateTimeField()
+    page = models.URLField()
+
+    def delete(self, *args, **kwargs):
+        logger.warning(
+            f'Deleting UserInteraction: {self.interaction_type} {self.x_coordinate, self.y_coordinate} (ID: {self.pk})'
+        )
+        super().delete(*args, **kwargs)
+
+    def __str__(self):
+        return f"{self.interaction_type} at ({self.x_coordinate}, {self.y_coordinate})"
 
     class Meta:
         ordering = ['id']

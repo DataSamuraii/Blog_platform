@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__.split('.')[0])
 
 class GeoDataMiddleware(MiddlewareMixin):
     def process_request(self, request):
-        if not request.session.get('geo_data_captured'):
+        if request.method == 'GET' and not request.session.get('geo_data_captured'):
             logger.info('Captured non-geoprocessed request, starting GeoDataMiddleware')
             ip = get_user_ip(request)
             g = GeoIP2()
@@ -29,7 +29,7 @@ class GeoDataMiddleware(MiddlewareMixin):
 
 class PageDataMiddleware(MiddlewareMixin):
     def process_request(self, request):
-        if not request.path.startswith('/admin/'):
+        if request.method == 'GET' and not request.path.startswith('/admin/'):
             logger.info('Starting PageDataMiddleware')
             ip = get_user_ip(request)
             try:

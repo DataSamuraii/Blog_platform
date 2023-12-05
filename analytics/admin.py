@@ -5,10 +5,9 @@ from django.contrib import admin
 from django.http import HttpResponseRedirect, HttpResponseForbidden
 from django.urls import path, reverse
 from django.utils import timezone
-from django.utils.html import format_html
 
-from utils.utils_class_mixins import UserLinkMixin, YearFilter, PostLinkMixin
-from .models import VisitorGeoData, VisitorPageData, ViewedPost
+from utils.utils_class_mixins import UserLinkMixin, PageLinkMixin, PostLinkMixin, YearFilter
+from .models import VisitorGeoData, VisitorPageData, ViewedPost, UserInteraction
 
 logger = logging.getLogger(__name__.split('.')[0])
 
@@ -64,19 +63,26 @@ class VisitorGeoDataAdmin(UserLinkMixin, admin.ModelAdmin):
 
 
 @admin.register(VisitorPageData)
-class VisitorPageDataAdmin(UserLinkMixin, admin.ModelAdmin):
+class VisitorPageDataAdmin(UserLinkMixin, PageLinkMixin, admin.ModelAdmin):
     list_display = ['id', 'user_link', 'ip_address', 'timestamp', 'page_link']
     list_filter = [VisitorGeoDataYearFilter]
     search_fields = ['user', 'ip_address', 'page']
     readonly_fields = ['id', 'user', 'ip_address', 'timestamp', 'page']
 
-    def page_link(self, obj):
-        if obj.page:
-            return format_html('<a href="{}">Page link</a>', obj.page)
-        return '-'
-    page_link.short_description = 'Page'
-
     def get_readonly_fields(self, request, obj=None):
         if request.user.has_perm('analytics.change_visitorpagedata'):
+            return []
+        return self.readonly_fields
+
+
+@admin.register(UserInteraction)
+class UserInteractionAdmin(PageLinkMixin, admin.ModelAdmin):
+    list_display = ['id', 'interaction_type', 'x_coordinate', 'y_coordinate', 'timestamp', 'page_link']
+    list_filter = [VisitorGeoDataYearFilter]
+    search_fields = ['interaction_type', 'page']
+    readonly_fields = ['id', 'interaction_type', 'x_coordinate', 'y_coordinate', 'timestamp', 'page']
+
+    def get_readonly_fields(self, request, obj=None):
+        if request.user.has_perm('analytics.change_userinteraction'):
             return []
         return self.readonly_fields

@@ -21,3 +21,15 @@ INFO 2023-12-03 23:30:36,922 middleware Starting PageDataMiddleware
 INFO 2023-12-03 23:30:36,925 signals Created VisitorPageData : id: None -> None, user: None -> None, ip_address: None -> 127.0.0.1, timestamp: None -> None, page:  -> /blog/post/share/ 
 INFO 2023-12-03 23:30:53,032 middleware Starting PageDataMiddleware 
 INFO 2023-12-03 23:30:53,033 signals Created VisitorPageData : id: None -> None, user: None -> None, ip_address: None -> 127.0.0.1, timestamp: None -> None, page:  -> /blog/post/6/ 
+INFO 2023-12-05 22:25:47,550 middleware Starting PageDataMiddleware 
+INFO 2023-12-05 22:25:47,551 signals Created VisitorPageData : id: None -> None, user: None -> None, ip_address: None -> 127.0.0.1, timestamp: None -> None, page:  -> /blog/post/6/ 
+INFO 2023-12-05 23:09:50,033 middleware Starting PageDataMiddleware 
+INFO 2023-12-05 23:09:50,033 signals Created VisitorPageData : id: None -> None, user: None -> None, ip_address: None -> 127.0.0.1, timestamp: None -> None, page:  -> /account/login/ 
+INFO 2023-12-05 23:09:57,873 middleware Starting PageDataMiddleware 
+INFO 2023-12-05 23:09:57,875 signals Created VisitorPageData : id: None -> None, user: None -> root, ip_address: None -> 127.0.0.1, timestamp: None -> None, page:  -> /blog/ 
+INFO 2023-12-05 23:10:01,490 middleware Starting PageDataMiddleware 
+INFO 2023-12-05 23:10:01,493 signals Created VisitorPageData : id: None -> None, user: None -> root, ip_address: None -> 127.0.0.1, timestamp: None -> None, page:  -> /favicon.ico 
+INFO 2023-12-05 23:13:59,047 middleware Starting PageDataMiddleware 
+INFO 2023-12-05 23:13:59,049 signals Created VisitorPageData : id: None -> None, user: None -> root, ip_address: None -> 127.0.0.1, timestamp: None -> None, page:  -> /blog/ 
+INFO 2023-12-05 23:13:59,921 middleware Starting PageDataMiddleware 
+INFO 2023-12-05 23:13:59,923 signals Created VisitorPageData : id: None -> None, user: None -> root, ip_address: None -> 127.0.0.1, timestamp: None -> None, page:  -> /blog/post/6/ 
