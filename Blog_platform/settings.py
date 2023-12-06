@@ -298,3 +298,5 @@ REST_FRAMEWORK = {
 }
 
 GEOIP_PATH = BASE_DIR / 'dbs/GeoLite2_City/GeoLite2-City.mmdb'
+
+GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')

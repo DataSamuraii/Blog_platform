@@ -11,6 +11,8 @@ logger = logging.getLogger(__name__.split('.')[0])
 
 
 class GeoDataMiddleware(MiddlewareMixin):
+
+    # noinspection PyMethodMayBeStatic
     def process_request(self, request):
         if request.method == 'GET' and not request.session.get('geo_data_captured'):
             logger.info('Captured non-geoprocessed request, starting GeoDataMiddleware')
@@ -20,7 +22,8 @@ class GeoDataMiddleware(MiddlewareMixin):
                 geo_data = g.city(ip)
                 VisitorGeoData.objects.create(
                     user=request.user if request.user.is_authenticated else None,
-                    ip_address=ip, country=geo_data['country_name'], city=geo_data['city']
+                    ip_address=ip, country=geo_data['country_name'], city=geo_data['city'],
+                    latitude=geo_data['latitude'], longitude=geo_data['longitude']
                 )
                 request.session['geo_data_captured'] = True
             except Exception as e:
@@ -28,8 +31,10 @@ class GeoDataMiddleware(MiddlewareMixin):
 
 
 class PageDataMiddleware(MiddlewareMixin):
+
+    # noinspection PyMethodMayBeStatic
     def process_request(self, request):
-        if request.method == 'GET' and not request.path.startswith('/admin/'):
+        if request.method == 'GET' and not request.path.startswith('/admin'):
             logger.info('Starting PageDataMiddleware')
             ip = get_user_ip(request)
             try:

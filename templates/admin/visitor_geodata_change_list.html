@@ -1,0 +1,29 @@
+{% extends "admin/change_list.html" %}
+{% block extrahead %}
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ google_api_key }}"></script>
+    <script type="text/javascript">
+        function initMap() {
+            let mapOptions = {
+                zoom: 2,
+                center: new google.maps.LatLng(20, 0),
+                mapTypeId: google.maps.MapTypeId.TERRAIN
+            };
+            let map = new google.maps.Map(document.getElementById('map'), mapOptions);
+            let visitors = {{ visitors_json|safe }};
+            visitors.forEach(function(visitor) {
+                let marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(visitor.fields.latitude, visitor.fields.longitude),
+                    map: map,
+                    title: visitor.fields.city + ', ' + visitor.fields.country
+                });
+            });
+        }
+        document.addEventListener('DOMContentLoaded', initMap);
+    </script>
+{% endblock %}
+
+{% block content %}
+    <div id="map" style="height: 500px;"></div>
+    <hr>
+    {{ block.super }}
+{% endblock %}

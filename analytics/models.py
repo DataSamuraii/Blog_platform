@@ -23,6 +23,8 @@ class VisitorGeoData(models.Model):
     ip_address = models.GenericIPAddressField(unpack_ipv4=True)
     country = models.CharField(max_length=50)
     city = models.CharField(max_length=50)
+    latitude = models.FloatField(null=True, blank=True)
+    longitude = models.FloatField(null=True, blank=True)
     timestamp = models.DateTimeField(auto_now_add=True)
 
     def delete(self, *args, **kwargs):
@@ -47,7 +49,7 @@ class VisitorPageData(models.Model):
         super().delete(*args, **kwargs)
 
     def __str__(self):
-        return f'VisitorGeoData: {self.user} visited {self.page} at {self.timestamp}'
+        return f'VisitorPageData: {self.user} visited {self.page} at {self.timestamp}'
 
     class Meta:
         ordering = ['id']
@@ -57,7 +59,6 @@ class UserInteraction(models.Model):
     interaction_type = models.CharField(max_length=30)
     x_coordinate = models.IntegerField()
     y_coordinate = models.IntegerField()
-    timestamp = models.DateTimeField()
     page = models.URLField()
 
     def delete(self, *args, **kwargs):

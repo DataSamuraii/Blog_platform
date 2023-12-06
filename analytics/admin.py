@@ -2,9 +2,11 @@ import logging
 from datetime import timedelta
 
 from django.contrib import admin
+from django.conf import settings
 from django.http import HttpResponseRedirect, HttpResponseForbidden
 from django.urls import path, reverse
 from django.utils import timezone
+from django.core.serializers import serialize
 
 from utils.utils_class_mixins import UserLinkMixin, PageLinkMixin, PostLinkMixin, YearFilter
 from .models import VisitorGeoData, VisitorPageData, ViewedPost, UserInteraction
@@ -44,6 +46,8 @@ class VisitorGeoDataYearFilter(YearFilter):
 
 @admin.register(VisitorGeoData)
 class VisitorGeoDataAdmin(UserLinkMixin, admin.ModelAdmin):
+    change_list_template = 'admin/visitor_geodata_change_list.html'
+
     list_display = ['id', 'user_link', 'ip_address', 'ip_location', 'timestamp']
     list_filter = ['country', VisitorGeoDataYearFilter]
     search_fields = ['user', 'ip_address', 'country', 'city']
@@ -61,6 +65,14 @@ class VisitorGeoDataAdmin(UserLinkMixin, admin.ModelAdmin):
             return []
         return self.readonly_fields
 
+    def changelist_view(self, request, extra_context=None):
+        extra_context = extra_context or {}
+        visitors = VisitorGeoData.objects.all()
+        visitors_json = serialize('json', visitors, fields=('latitude', 'longitude', 'city', 'country'))
+        extra_context['visitors_json'] = visitors_json
+        extra_context['google_api_key'] = settings.GOOGLE_API_KEY
+        return super().changelist_view(request, extra_context=extra_context)
+
 
 @admin.register(VisitorPageData)
 class VisitorPageDataAdmin(UserLinkMixin, PageLinkMixin, admin.ModelAdmin):
@@ -77,10 +89,10 @@ class VisitorPageDataAdmin(UserLinkMixin, PageLinkMixin, admin.ModelAdmin):
 
 @admin.register(UserInteraction)
 class UserInteractionAdmin(PageLinkMixin, admin.ModelAdmin):
-    list_display = ['id', 'interaction_type', 'x_coordinate', 'y_coordinate', 'timestamp', 'page_link']
+    list_display = ['id', 'interaction_type', 'x_coordinate', 'y_coordinate', 'page_link']
     list_filter = [VisitorGeoDataYearFilter]
     search_fields = ['interaction_type', 'page']
-    readonly_fields = ['id', 'interaction_type', 'x_coordinate', 'y_coordinate', 'timestamp', 'page']
+    readonly_fields = ['id', 'interaction_type', 'x_coordinate', 'y_coordinate', 'page']
 
     def get_readonly_fields(self, request, obj=None):
         if request.user.has_perm('analytics.change_userinteraction'):

@@ -1,4 +1,5 @@
 from django.conf import settings
+import requests
 
 
 def build_absolute_url(relative_url):
