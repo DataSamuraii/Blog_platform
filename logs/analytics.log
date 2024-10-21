@@ -1,4 +1,0 @@
-INFO 2023-12-06 22:19:55,416 middleware Starting PageDataMiddleware 
-INFO 2023-12-06 22:19:55,428 signals Created VisitorPageData : id: None -> None, user: None -> root, ip_address: None -> 127.0.0.1, timestamp: None -> None, page:  -> /admin 
-INFO 2023-12-06 22:19:56,158 middleware Starting PageDataMiddleware 
-INFO 2023-12-06 22:19:56,160 signals Created VisitorPageData : id: None -> None, user: None -> root, ip_address: None -> 127.0.0.1, timestamp: None -> None, page:  -> /favicon.ico 

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
     <data-source source="LOCAL" name="db" uuid="1410c574-ad74-4f15-9946-7dd8a3b3fd27">
-      <driver-ref>sqlite.xerial</driver-ref>
+      <driver-ref>f0d7cc72-f98e-41f8-bc39-c024cc5f02b0</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:D:\PyCharm 2023.1.2\Projects\Blog_platform\db.sqlite3</jdbc-url>
